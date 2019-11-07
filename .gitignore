@@ -59,4 +59,7 @@ typings/
 
 # next.js build output
 .next
+
+# my gitignore
+images/
 .json
