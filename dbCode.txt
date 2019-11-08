@@ -3,9 +3,11 @@ Table Users as U {
   email string
   password string
   admin bool
+  Delete bool
+
 }
 
-Table Posts as P{
+Table Posts as P {
   id int
-  owner_id int [ref: > U.id] // inline relationship (many-to-one)
+  owner_id int [ref: > U.id] // inline relationship (many-to-one) 1 user - many posts
 }
