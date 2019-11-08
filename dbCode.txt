@@ -1,0 +1,11 @@
+Table Users as U {
+  id int [pk, increment] // auto-increment
+  email string
+  password string
+  admin bool
+}
+
+Table Posts as P{
+  id int
+  owner_id int [ref: > U.id] // inline relationship (many-to-one)
+}
