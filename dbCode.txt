@@ -8,7 +8,6 @@ Table Users as U {
 }
 
 Table Posts as P {
-  id int
   owner_id int [ref: > U.id] // inline relationship (many-to-one) 1 user - many posts
    date date
 }
