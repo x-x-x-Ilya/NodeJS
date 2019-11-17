@@ -37,6 +37,10 @@ const User = sequelize.define('user', {
         primaryKey: true,
         allowNull: false
     },
+        requestToDelete:{
+            type: Sequelize.BOOLEAN,
+            allowNull: false
+        },
     firstName: {
         type: Sequelize.STRING,
         allowNull: false
@@ -63,6 +67,10 @@ const User = sequelize.define('user', {
 const Admin = sequelize.define('admin', {  // i have problems with this table.
         // attributes
         Id: {
+            type: Sequelize.INTEGER,
+            primaryKey: true
+        },
+        userId:{
             type: Sequelize.INTEGER
         }
     },
@@ -113,11 +121,23 @@ const Like = sequelize.define('like', {
 }, {
     // options
 });
+//
+// intermediate entity, which binds the administrator and the user
+const Enrolment = sequelize.define("enrolment", {
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+        allowNull: false
+    },
+});
 
 //dependences
 User.hasMany(Like);
 User.hasMany(Post);
 Post.hasMany(Like);
+User.belongsToMany(Admin, {through: Enrolment});
+Admin.belongsToMany(User, {through: Enrolment});
 //User.hasOne(Admin, { });
 //examples
 //Coach.hasOne(Team, { onDelete: "cascade"});
