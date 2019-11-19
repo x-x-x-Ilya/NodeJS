@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/sequelize.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataBase/sequelize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataBase/mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/dataBase/mysql.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +28,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.0" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -58,6 +58,7 @@
       <workItem from="1573657301735" duration="3589000" />
       <workItem from="1573903186653" duration="698000" />
       <workItem from="1573998376235" duration="9414000" />
+      <workItem from="1574182721695" duration="1673000" />
     </task>
     <servers />
   </component>

@@ -1,12 +1,13 @@
 CREATE TABLE `User` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`email` VARCHAR(255) NOT NULL,
+	`email` VARCHAR(255) NOT NULL UNIQUE,
+    `deleteReq` BOOLEAN,
 	`password` VARCHAR(255) NOT NULL,
 	`firstName` VARCHAR(255) NOT NULL,
 	`surName` VARCHAR(255) NOT NULL,
-	`age` INT NOT NULL,
-	`status` VARCHAR(255) NOT NULL,
-	`avatar` FLOAT NOT NULL,/*DEAFULT ссылка на шаблонную аватарку*/
+	`age` INT NULL,
+	`status` VARCHAR(255) NULL,
+	`avatar` FLOAT NULL,/*DEAFULT 'https://icon-library.net/images/avatar-icon-images/avatar-icon-images-4.jpg',*/
 	PRIMARY KEY (`id`)
 );
 
