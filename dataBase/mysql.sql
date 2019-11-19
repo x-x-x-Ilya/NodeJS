@@ -1,7 +1,15 @@
+DROP DATABASE IF EXISTS `instagram`;
+
+-- Create new Databese
+CREATE DATABASE `instagram` DEFAULT CHARACTER SET utf8;
+
+-- Use new Databese
+USE `instagram`;
+
 CREATE TABLE `User` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`email` VARCHAR(255) NOT NULL UNIQUE,
-    `deleteReq` BOOLEAN,
+    `deleteReq` BOOLEAN  DEFAULT 0,
 	`password` VARCHAR(255) NOT NULL,
 	`firstName` VARCHAR(255) NOT NULL,
 	`surName` VARCHAR(255) NOT NULL,
