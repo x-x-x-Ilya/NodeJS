@@ -1,10 +1,9 @@
-INSERT INTO UserRole
-(id, userId, adminId)
+INSERT INTO users_roles
+(`id`, `user_id`, `role_id`)
 VALUES
 (0, 1, 2);
 
-
 INSERT INTO User
-(`id`, `email`, `deleteReq`, `password`, `firstName`, `surName`, `age`, `status`, `avatar`)
+(`id` , `email`, `password` , `first_name` , `last_name` , `delete_req`)
 VALUES
-(1, "iripinskij@gmail.com", 0, "Илья", "Рипинский", 18, NULL, NULL);
+(1, "iripinskij@gmail.com", 1234, "Илья", "Рипинский", 0);

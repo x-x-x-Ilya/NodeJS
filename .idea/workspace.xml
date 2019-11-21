@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dataBase/dependences.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataBase/tables/likes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataBase/tables/posts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataBase/tables/posts_tags.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataBase/tables/roles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataBase/tables/tags.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataBase/tables/users.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataBase/tables/users_roles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataBase/tests/connection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataBase/tests/synchronization.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataBase/db.png" beforeDir="false" afterPath="$PROJECT_DIR$/dataBase/db.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataBase/insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/dataBase/insert.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataBase/mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/dataBase/mysql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataBase/sequelize.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataBase/sequelize.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +73,8 @@
       <workItem from="1573903186653" duration="698000" />
       <workItem from="1573998376235" duration="9414000" />
       <workItem from="1574182721695" duration="1769000" />
+      <workItem from="1574261841492" duration="2901000" />
+      <workItem from="1574284931670" duration="7992000" />
     </task>
     <servers />
   </component>
