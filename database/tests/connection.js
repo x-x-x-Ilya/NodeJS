@@ -1,4 +1,4 @@
-const sequelize = require("sequelize");
+const sequelize = require("../sequelize");
 sequelize
     .authentificate()
     .then(() => {
