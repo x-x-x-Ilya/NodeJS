@@ -1,6 +1,6 @@
 const sequelize = require("../sequelize");
 sequelize
-    .authentificate()
+    .authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
     })

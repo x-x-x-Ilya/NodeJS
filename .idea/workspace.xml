@@ -2,28 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/tables/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repositories/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/posts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/users.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/models/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/mysql.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/sequelize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/tests/synchronization.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repositories/like.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repositories/post.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repositories/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/post.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/bin_www.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/bin_www.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/db.png" beforeDir="false" afterPath="$PROJECT_DIR$/database/db.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/dependences.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/dependences.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/mysql.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/sequelize.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/sequelize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/likes.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/likes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/posts_tags.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/posts_tags.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/roles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/tags.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/tags.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/users_roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/users_roles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tests/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tests/connection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tests/synchronization.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tests/synchronization.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/www" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/db.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/db.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/dependences.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/insert.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mysql.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sequelize.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/tables/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/tables/likes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/like.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/tables/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/tables/posts_tags.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/post_tag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/tables/roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/tables/tags.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/tag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/tables/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/tables/users_roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/user_role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/tests/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/tests/connection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/tests/synchronization.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/stylesheets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/tag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/users.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/error.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/error.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/index.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/layout.pug" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +66,13 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\NodeJS\NodeJS\src" />
+      <recent name="D:\NodeJS\NodeJS" />
+      <recent name="D:\NodeJS\NodeJS\bin" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -84,7 +108,11 @@
       <workItem from="1574617898857" duration="6183000" />
       <workItem from="1574680089093" duration="1117000" />
       <workItem from="1574753317173" duration="995000" />
-      <workItem from="1574788365598" duration="7957000" />
+      <workItem from="1574788365598" duration="8840000" />
+      <workItem from="1574866441366" duration="7968000" />
+      <workItem from="1574911379234" duration="5288000" />
+      <workItem from="1575024104922" duration="307000" />
+      <workItem from="1575471373534" duration="6547000" />
     </task>
     <servers />
   </component>

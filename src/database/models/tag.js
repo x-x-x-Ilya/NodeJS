@@ -1,4 +1,5 @@
 var Sequelize = require("sequelize");
+var sequelize = require("../sequelize");
 
 module.exports = (sequelize, DataTypes) => {
     var Tag = sequelize.define("tags", {
@@ -9,8 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     );
 
     Tag.associate =  function(models) {
-        Tag.belongsToMany(models.Post, {through: `post_tags`, foreignKey: `tags_id`, as: `posts`});
+        Tag.belongsToMany(models.Post, {through: `posts_tags`, foreignKey: `tags_id`, as: `posts`});
     };
+    return Tag;
 };
-
-module.exports = Tag;

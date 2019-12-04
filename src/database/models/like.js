@@ -1,4 +1,5 @@
 var Sequelize = require("sequelize");
+var sequelize = require("../sequelize");
 
 module.exports = (sequelize, DataTypes) => {
     var Like = sequelize.define('likes', {
@@ -10,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
     );
 
     Like.associate =  function(models) {
-        Like.hasOne(models.User, {foreignKey: `user_id`, as: `user`});
-        Like.hasOne(models.Post, {foreignKey: `post_id`, as: `post`});
-    }
-};
+            Like./*HasOne*/belongsTo(models.User, { foreignKey: 'user_id' });
+            Like./*HasOne*/belongsTo(models.Post, { foreignKey: 'post_id' });
+         };
 
-module.exports = Like;
+    return Like;
+};

@@ -1,4 +1,5 @@
 var Sequelize = require("sequelize");
+var sequelize = require("../sequelize");
 
 module.exports = (sequelize, DataTypes) => {
     var User = sequelize.define('users', {
@@ -16,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
         User.hasMany(models.Post,       {foreignKey: `user_id`, as: `posts`});
         User.hasMany(models.Like,       {foreignKey: `user_id`, as: `likes`});
         User.belongsToMany(models.Role, {foreignKey: `user_id`, as: `roles`, through: `users_roles`});
-    }
+    };
+    return User;
 };
-
-module.exports = User;

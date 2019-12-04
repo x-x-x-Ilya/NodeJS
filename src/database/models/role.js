@@ -1,4 +1,5 @@
 var Sequelize = require("sequelize");
+var sequelize = require("../sequelize");
 
 module.exports = (sequelize, DataTypes) => {
     var Role = sequelize.define('roles', {
@@ -11,6 +12,5 @@ module.exports = (sequelize, DataTypes) => {
      Role.associate =  function(models) {
          Role.belongsToMany(models.User, {foreignKey: `role_id`, as: `users`,  through: `users_roles`})
      };
+     return Role;
 };
-
-module.exports = Role;
