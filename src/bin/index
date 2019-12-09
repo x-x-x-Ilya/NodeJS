@@ -91,5 +91,4 @@ function onListening() {
 
 var SequelizeInit = require("../database/sequelize");
 var Sequelize = require("../database/models");
-var SequelizeTest = require("../database/tests/connection");
-var SequelizeSync = require("../database/tests/synchronization");
+var SequelizeSync = require("../database/database");

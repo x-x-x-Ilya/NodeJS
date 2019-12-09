@@ -3,7 +3,7 @@ var db = require(`./src/database/models/index`);
 class User {
 
     async create(user) {
-        return await db.User.create();
+        return await db.User.create(user);
     }
 
      async login(mail, password) {
