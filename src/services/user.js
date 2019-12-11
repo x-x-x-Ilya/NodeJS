@@ -1,10 +1,11 @@
-var repository = require(`./src/bin`);
+var repository = require(`./src/repositories/user`);
 
 class UserServices {
+
     user_repository =  new repository();
 
-    async create(user) {
-        return await this.user_repository.create(user);
+    create(user) {
+        return  this.user_repository.create(user);
     }
 
 }

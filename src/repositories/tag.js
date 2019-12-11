@@ -1,13 +1,19 @@
 var db = require(`./src/database/models/index`);
 
-class Tag {
+class TagRepository {
 
-    async create(tagId, postId) {
+    async createTag(tagId, postId) {
         return await db.Tag.create({
-            where: {tag_id:tagId, post_id:postId},
+            where: {id:tagId},
+            include: [  {
+                model: db.Post,
+                attributes: ['post_id'],
+                through: {attributes: []},
+            },
+            ],
         });
     };
 
 }
 
-module.exports = Tag;
+module.exports = TagRepository;

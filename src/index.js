@@ -2,7 +2,6 @@ var app = require('./app');
 var debug = require('debug')('nodejs:server');
 var http = require('http');
 
-
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
@@ -62,6 +61,10 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
+// database creating
+
+const database = require("./database/database");
 var SequelizeInit = require("./database/sequelize");
-var Sequelize = require("./database/models");
-var SequelizeSync = require("./database/database");
+database.authentication;
+//var Sequelize = require("./database/models");
+database.synchronization;

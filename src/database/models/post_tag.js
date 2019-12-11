@@ -1,7 +1,6 @@
 const Sequelize = require("sequelize");
 var sequelize = require("../sequelize");
 
-module.exports = (sequelize, DataTypes) => {
     const PostTag = sequelize.define("posts_tags", {
             id:      { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true},
             post_id: { type: Sequelize.INTEGER, allowNull: false},
@@ -13,5 +12,5 @@ module.exports = (sequelize, DataTypes) => {
         PostTag.belongsTo(models.Post, { foreignKey: 'post_id' });
         PostTag.belongsTo(models.Tag, { foreignKey: 'tag_id' });
     };
-    return PostTag;
-};
+
+module.exports = PostTag;

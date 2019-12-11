@@ -1,8 +1,7 @@
 var Sequelize = require("sequelize");
 var sequelize = require("../sequelize");
 
-module.exports = (sequelize, DataTypes) => {
-    var User = sequelize.define('users', {
+    const User = sequelize.define('users', {
             id:         { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true},
             email:      { type: Sequelize.STRING,  allowNull: false, UNIQUE_KEY: true },
             password:   { type: Sequelize.STRING,  allowNull: false },
@@ -18,5 +17,6 @@ module.exports = (sequelize, DataTypes) => {
         User.hasMany(models.Like,       {foreignKey: `user_id`, as: `likes`});
         User.belongsToMany(models.Role, {foreignKey: `user_id`, as: `roles`, through: `users_roles`});
     };
-    return User;
-};
+
+
+module.exports = User;

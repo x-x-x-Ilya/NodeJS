@@ -1,7 +1,6 @@
 const Sequelize = require("sequelize");
 var sequelize = require("../sequelize");
 
-module.exports = (sequelize, DataTypes) =>  {
     var Post = sequelize.define('posts', {
         id:         {type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
         user_id:    { type: Sequelize.INTEGER, allowNull: false },
@@ -17,6 +16,6 @@ module.exports = (sequelize, DataTypes) =>  {
         Post.hasMany      (models.Like, {foreignKey: `post_id`, as: `like`});
         Post./*HasOne*/belongsTo(models.User, { foreignKey: 'user_id' });
     };
-    return Post;
-};
+
+module.exports = Post;
 

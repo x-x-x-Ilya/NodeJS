@@ -1,30 +1,30 @@
 var db = require(`./src/database/models/index`);
 
-class Post {
+class PostRepository {
 
-    async create(post) {
-        return await db.Post.create(post);
-    }
-
-    async update(postId) {
-        return await db.Post.get({
-            where: {post_id:postId},
+    async createPost(postId, userId) {
+        return await db.Post.create({
+            where:{id:postId, userId:userId},
         });
     }
 
-    async delete(postId) {
+    async updatePost(postId) {
+        return await db.Post.get({
+            where: {id:postId},
+        });
+    }
+
+    async deletePost(postId) {
         return await db.Post.destroy({
-            where: {post_id:postId},
+            where: {id:postId},
         });
     }
 
-    async get_all(postId) {
-        return await db.Post.get({
-            where: {post_id:postId},
-        });
+     getAllPosts() {
+        return  db.Post.getAll();
     }
 
 
 }
 
-module.exports = Post;
+module.exports = PostRepository;

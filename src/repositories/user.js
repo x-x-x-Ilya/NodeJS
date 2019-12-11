@@ -1,30 +1,46 @@
 var db = require(`./src/database/models/index`);
 
-class User {
+class UserRepository  {
 
-    async create(user) {
-        return await db.User.create(user);
+     createUser(user) {
+        return  db.User.create(user);
     }
 
-     async login(mail, password) {
-         return await db.User.get({
-      where: {mail:mail, password:password},
-     });
+    async getUser(userId) {
+        return await db.User.get({
+            where: {
+                id: userId, include: [  {
+                        model: db.Role,
+                        attributes: ['name'],
+                        through: {attributes: []},
+                    },
+                ],
+            }
+        });
     }
 
-    async delete(id) {
+     getAllUsers() {
+        return  db.User.findAll({
+            include: [{
+                model: db.Role,
+                attributes: ["id"]
+            }
+            ]
+        });
+    }
+
+    async deleteUser(id) {
         return await db.User.destroy({
             where: {id:id},
         });
     }
 
-    async update(id) {
+    async updateUser(id) {
         return await db.User.update({
             where: {id:id},
         });
     }
 
-
-
 }
-module.exports = User;
+
+module.exports = UserRepository;

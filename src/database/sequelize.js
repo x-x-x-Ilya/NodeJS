@@ -8,12 +8,7 @@ const sequelize = new Sequelize(db, user, password, {
     dialect: "mysql",
     host: "localhost",
     dialectOptions: {connectTimeout: 1000},
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    }
+    pool: {min: 0, max: 5, idle: 10000, acquire: 30000}
 });
 
 module.exports = sequelize;

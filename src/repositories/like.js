@@ -1,8 +1,8 @@
 var db = require(`./src/database/models/index`);
 
-class Like {
+class LikeRepository {
 
-    async create(userId, postId) {
+    async createLike(userId, postId) {
         return await db.Like.create({
                 where: {user_id:userId, post_id:postId},
         });
@@ -10,4 +10,4 @@ class Like {
 
 }
 
-module.exports = Like;
+module.exports = LikeRepository;
