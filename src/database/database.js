@@ -2,7 +2,7 @@ const sequelize = require("./sequelize");
 /*
 * connect before adding dependency
 */
-sequelize
+var authentication = sequelize
     .authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
@@ -14,9 +14,14 @@ sequelize
 /*
 * connect  after dependency
 */
-sequelize.sync().then(result=>{
+var synchronization = sequelize.sync().then(result=>{
     console.log(result);
 })
     .catch(err=> console.log(err));
 
 // test of sync sequelize models and models in database
+
+module.exports = {
+    authentication,
+    synchronization,
+};

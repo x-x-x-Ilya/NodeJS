@@ -1,5 +1,6 @@
 var sequelize = require("../sequelize");
 
+
 var User = sequelize.import("user");
 var Post = sequelize.import("post");
 var Like = sequelize.import("like");
@@ -14,5 +15,6 @@ Object.keys(db).forEach(modelName => {
     db[modelName].associate &&  db[modelName].associate(db);
 });
 
-db.sequelize =  sequelize;
+
+
 module.exports = db;

@@ -2,23 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/database/database.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/bin_www.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/bin_www.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/db.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/scheme.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/tests/connection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/tests/synchronization.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/stylesheets/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/error.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/index.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/layout.pug" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/index" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,8 +39,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\NodeJS\NodeJS\src\database" />
       <recent name="D:\NodeJS\NodeJS\src" />
+      <recent name="D:\NodeJS\NodeJS\src\database" />
       <recent name="D:\NodeJS\NodeJS" />
       <recent name="D:\NodeJS\NodeJS\bin" />
     </key>
@@ -95,6 +87,7 @@
       <workItem from="1575800364072" duration="473000" />
       <workItem from="1575800947907" duration="1392000" />
       <workItem from="1575853417877" duration="3010000" />
+      <workItem from="1575962174583" duration="2448000" />
     </task>
     <servers />
   </component>
