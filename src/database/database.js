@@ -1,7 +1,5 @@
 const sequelize = require("./sequelize");
-/*
-* connect before adding dependency
-*/
+
 var authentication = sequelize
     .authenticate()
     .then(() => {
@@ -11,15 +9,16 @@ var authentication = sequelize
         console.error('Unable to connect to the database:', err);
     });
 
-/*
-* connect  after dependency
-*/
-var synchronization = sequelize.sync().then(result=>{
-    console.log(result);
-})
-    .catch(err=> console.log(err));
 
-// test of sync sequelize models and models in database
+var synchronization = sequelize
+    .sync()
+    .then(() => {
+    console.log('synchronization has been established successfully.');
+})
+    .catch(err => {
+        console.log('Unable to sync with the database:', err);
+    });
+
 
 module.exports = {
     authentication,

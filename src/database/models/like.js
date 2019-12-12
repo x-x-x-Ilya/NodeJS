@@ -5,9 +5,7 @@ var sequelize = require("../sequelize");
         id:      { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
         user_id: { type: Sequelize.INTEGER, allowNull: false },
         post_id: { type: Sequelize.INTEGER, allowNull: false },
-    },
-        {/* options*/}
-    );
+    }, {/* options*/});
 
     Like.associate =  function(models) {
             Like.belongsTo(models.User, { foreignKey: 'user_id' });

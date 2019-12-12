@@ -4,9 +4,7 @@ var sequelize = require("../sequelize");
     var Tag = sequelize.define("tags", {
         id:   { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
         name: { type: Sequelize.STRING, allowNull: false },
-    },
-         {/* options*/}
-    );
+    }, {/* options*/});
 
     Tag.associate =  function(models) {
         Tag.belongsToMany(models.Post, {through: `posts_tags`, foreignKey: `tags_id`, as: `posts`});

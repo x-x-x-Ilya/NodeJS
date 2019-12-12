@@ -7,9 +7,7 @@ var sequelize = require("../sequelize");
         created_at: { type: Sequelize.DATE,    allowNull: false },
         img:        { type: Sequelize.STRING,  allowNull: true, defaultAssignment: null },
         caption:    { type: Sequelize.STRING,  allowNull: true, defaultAssignment: null }
-    },
-        {/* options*/}
-    );
+    }, {/* options*/});
 
     Post.associate =  function(models) {
         Post.belongsToMany(models.Tag,  {foreignKey: `post_id`, as: `tag`, through: `posts_tags`});

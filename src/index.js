@@ -1,6 +1,9 @@
+require('dotenv').config();
 var app = require('./app');
 var debug = require('debug')('nodejs:server');
 var http = require('http');
+const database = require("./database/database");
+var SequelizeInit = require("./database/sequelize");
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
@@ -25,7 +28,6 @@ function normalizePort(val) {
 
   return false;
 }
-
 
 function onError(error) {
   if (error.syscall !== 'listen') {
@@ -63,8 +65,7 @@ function onListening() {
 
 // database creating
 
-const database = require("./database/database");
-var SequelizeInit = require("./database/sequelize");
+
 database.authentication;
 //var Sequelize = require("./database/models");
 database.synchronization;

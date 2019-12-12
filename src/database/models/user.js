@@ -8,9 +8,7 @@ var sequelize = require("../sequelize");
             first_name: { type: Sequelize.STRING,  allowNull: false },
             last_name:  { type: Sequelize.STRING,  allowNull: false },
             delete_req: { type: Sequelize.BOOLEAN, allowNull: false },
-    },
-        {/* options*/}
-    );
+    }, {/* options*/});
 
     User.associate =  function(models) {
         User.hasMany(models.Post,       {foreignKey: `user_id`, as: `posts`});
