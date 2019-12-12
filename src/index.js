@@ -1,16 +1,15 @@
 require('dotenv').config();
+require("./database/sequelize");
 var app = require('./app');
 var debug = require('debug')('nodejs:server');
 var http = require('http');
-const database = require("./database/database");
-var SequelizeInit = require("./database/sequelize");
+var database = require("./database/database");
+
 
 var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
-
 var server = http.createServer(app);
 
-server.listen(port);
+server.listen(port);app.set('port', port);
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -22,7 +21,7 @@ function normalizePort(val) {
     return val;
   }
 
-  if (port >= 0) {      // port number
+  if (port >= 0) {
     return port;
   }
 
@@ -38,7 +37,7 @@ function onError(error) {
     ? 'Pipe ' + port
     : 'Port ' + port;
 
-  // handle specific listen errors with friendly messages
+
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
@@ -63,9 +62,5 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-// database creating
-
-
 database.authentication;
-//var Sequelize = require("./database/models");
 database.synchronization;

@@ -9,7 +9,7 @@ class UserRepository  {
     async getUser(userId) {
         return await db.User.get({
             where: {
-                id: userId, include: [  {
+                userId, include: [  {
                         model: db.Role,
                         attributes: ['name'],
                         through: {attributes: []},
@@ -23,7 +23,7 @@ class UserRepository  {
         return  db.User.findAll({
             include: [{
                 model: db.Role,
-                attributes: ["id"]
+                attributes: ["name"]
             }
             ]
         });
@@ -31,13 +31,13 @@ class UserRepository  {
 
     async deleteUser(id) {
         return await db.User.destroy({
-            where: {id:id},
+            where: {id},
         });
     }
 
     async updateUser(id) {
         return await db.User.update({
-            where: {id:id},
+            where: {id},
         });
     }
 

@@ -3,7 +3,7 @@ var sequelize = require("../sequelize");
 
     var Post = sequelize.define('posts', {
         id:         {type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
-        user_id:    { type: Sequelize.INTEGER, allowNull: false },
+        user_id:    { type: Sequelize.INTEGER, allowNull: false, notEmpty: true },
         created_at: { type: Sequelize.DATE,    allowNull: false },
         img:        { type: Sequelize.STRING,  allowNull: true, defaultAssignment: null },
         caption:    { type: Sequelize.STRING,  allowNull: true, defaultAssignment: null }

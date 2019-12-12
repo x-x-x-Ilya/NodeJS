@@ -3,7 +3,7 @@ var sequelize = require("../sequelize");
 
     var Tag = sequelize.define("tags", {
         id:   { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
-        name: { type: Sequelize.STRING, allowNull: false },
+        name: { type: Sequelize.STRING, allowNull: false,  min: 0, notEmpty: true },
     }, {/* options*/});
 
     Tag.associate =  function(models) {

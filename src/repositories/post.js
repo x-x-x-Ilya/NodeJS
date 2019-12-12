@@ -4,19 +4,19 @@ class PostRepository {
 
     async createPost(postId, userId) {
         return await db.Post.create({
-            where:{id:postId, userId:userId},
+            where:{postId, userId},
         });
     }
 
     async updatePost(postId) {
         return await db.Post.get({
-            where: {id:postId},
+            where: {postId},
         });
     }
 
     async deletePost(postId) {
         return await db.Post.destroy({
-            where: {id:postId},
+            where: {postId},
         });
     }
 
