@@ -1,10 +1,10 @@
-var db = require(`./src/database/models/index`);
+var db = require("../database/models/index");
 
 class PostRepository {
 
-    async createPost(postId, userId) {
+    async createPost(postId) {
         return await db.Post.create({
-            where:{postId, userId},
+            where:{postId},
         });
     }
 

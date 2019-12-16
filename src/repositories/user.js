@@ -1,4 +1,4 @@
-var db = require(`./src/database/models/index`);
+var db = require("../database/models/index");
 
 class UserRepository  {
 
