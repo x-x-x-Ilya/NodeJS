@@ -1,7 +1,7 @@
-var Sequelize = require("sequelize");
-var sequelize = require("../sequelize");
+const Sequelize = require("sequelize");
+let sequelize = require("../sequelize");
 
-    var Role = sequelize.define('roles', {
+    let Role = sequelize.define('roles', {
         id:   { type: Sequelize.INTEGER, allowNull: false, primaryKey: true },
         name: { type: Sequelize.STRING,  allowNull: false },
     }, {/* options*/});

@@ -1,7 +1,7 @@
-var Sequelize = require("sequelize");
-var sequelize = require("../sequelize");
+const Sequelize = require("sequelize");
+let sequelize = require("../sequelize");
 
-    var Tag = sequelize.define("tags", {
+    let Tag = sequelize.define("tags", {
         id:   { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
         name: { type: Sequelize.STRING, allowNull: false,  min: 0, notEmpty: true },
     }, {/* options*/});

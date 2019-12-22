@@ -1,27 +1,27 @@
-var db = require("../database/models/index");
+const Post = require("../database/models/post");
 
 class PostRepository {
 
     async createPost(postId) {
-        return await db.Post.create({
+        return await Post.create({
             where:{postId},
         });
     }
 
     async updatePost(postId) {
-        return await db.Post.get({
+        return await Post.get({
             where: {postId},
         });
     }
 
     async deletePost(postId) {
-        return await db.Post.destroy({
+        return await Post.destroy({
             where: {postId},
         });
     }
 
      getAllPosts() {
-        return  db.Post.getAll();
+        return  Post.getAll();
     }
 
 

@@ -1,13 +1,13 @@
-//var sequelize = require("../sequelize");
-var User = require("./user");
-var Post = require("./post");
-var Like = require("./like");
-var Role = require("./role");
-var Tag = require("./tag");
-var PostTag = require("./post_tag");
-var UserRole = require("./user_role");
 
-var db = {User, Post, Like, Role, Tag, PostTag, UserRole};
+const User = require("./user");
+const Post = require("./post");
+const Like = require("./like");
+const Role = require("./role");
+const Tag = require("./tag");
+const PostTag = require("./post_tag");
+const UserRole = require("./user_role");
+
+const db = {User, Post, Like, Role, Tag, PostTag, UserRole};
 
 Object.keys(db).forEach(modelName => {
     db[modelName].associate &&  db[modelName].associate(db);

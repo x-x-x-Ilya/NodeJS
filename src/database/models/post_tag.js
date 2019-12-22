@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
-var sequelize = require("../sequelize");
+let sequelize = require("../sequelize");
 
-    const PostTag = sequelize.define("posts_tags", {
+    let PostTag = sequelize.define("posts_tags", {
             id:      { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true},
             post_id: { type: Sequelize.INTEGER, allowNull: false},
             tag_id:  { type: Sequelize.INTEGER, allowNull: false},

@@ -1,28 +1,33 @@
-var db = require("../database/models/index");
+const User = require("../database/models/user");
 
 class UserRepository  {
 
-     createUser(user) {
-        return  db.User.create(user);
+     async createUser(user) {
+        return await  User.create(user);
     }
 
     async getUser(userId) {
-        return await db.User.get({
+        return await User.get({
             where: {
-                userId, include: [  {
-                        model: db.Role,
+                userId, include: [
+                    {
+                        model: Role,
                         attributes: ['name'],
                         through: {attributes: []},
                     },
+                    // {
+                    //     model: db.Post,
+                    //     through: {attributes: []},
+                    // },
                 ],
             }
         });
     }
 
      getAllUsers() {
-        return  db.User.findAll({
+        return  User.findAll({
             include: [{
-                model: db.Role,
+                model: Role,
                 attributes: ["name"]
             }
             ]
@@ -30,13 +35,16 @@ class UserRepository  {
     }
 
     async deleteUser(id) {
-        return await db.User.destroy({
+         //if(getUser(userId) != null)
+        return await User.destroy({
             where: {id},
         });
+        //else
+            //return error;
     }
 
     async updateUser(id) {
-        return await db.User.update({
+        return await User.update({
             where: {id},
         });
     }

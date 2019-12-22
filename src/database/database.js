@@ -1,6 +1,6 @@
 const sequelize = require("./sequelize");
 
-var authentication = sequelize.authenticate()
+let authentication = sequelize.authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
     })
@@ -8,7 +8,7 @@ var authentication = sequelize.authenticate()
         console.error('Unable to connect to the database:', err);
     });
 
-var synchronization = sequelize.sync()
+let synchronization = sequelize.sync()
     .then(() => {
     console.log('synchronization has been established successfully.');
     })

@@ -1,4 +1,4 @@
-var repository = require("../repositories/user");
+const repository = require("../repositories/user");
 
 
 userRepository =  new repository();

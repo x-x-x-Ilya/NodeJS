@@ -1,7 +1,7 @@
-var Sequelize = require("sequelize");
-var sequelize = require("../sequelize");
+const Sequelize = require("sequelize");
+let sequelize = require("../sequelize");
 
-    var Like = sequelize.define('likes', {
+    let Like = sequelize.define('likes', {
         id:      { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
         user_id: { type: Sequelize.INTEGER, allowNull: false },
         post_id: { type: Sequelize.INTEGER, allowNull: false },

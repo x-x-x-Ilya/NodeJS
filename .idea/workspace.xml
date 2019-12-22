@@ -5,7 +5,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/like.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/post_tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/post_tag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/tag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/user_role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/user_role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/sequelize.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/sequelize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repositories/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/like.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repositories/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repositories/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/tag.js" afterDir="false" />
@@ -36,6 +46,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.0" />
     <property name="nodejs_interpreter_path" value="node" />
@@ -101,7 +112,9 @@
       <workItem from="1576515645939" duration="67000" />
       <workItem from="1576515754961" duration="129000" />
       <workItem from="1576516407351" duration="619000" />
-      <workItem from="1576520749734" duration="7345000" />
+      <workItem from="1576520749734" duration="7592000" />
+      <workItem from="1576680753978" duration="2472000" />
+      <workItem from="1577015002251" duration="2265000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,7 @@
-var Sequelize = require("sequelize");
-var sequelize = require("../sequelize");
+const Sequelize = require("sequelize");
+let sequelize = require("../sequelize");
 
-    const User = sequelize.define('users', {
+    let User = sequelize.define('users', {
             id:         { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true},
             email:      { type: Sequelize.STRING,  allowNull: false, UNIQUE_KEY: true },
             password:   { type: Sequelize.STRING,  allowNull: false,  min: 8, notEmpty: true},

@@ -1,15 +1,15 @@
-var db = require("../database/models/index");
+const Like = require("../database/models/like");
 
 class LikeRepository {
 
     async createLike(userId, postId) {
-        return await db.Like.create({
-                where: {userId, postId},
+        return await Like.create({
+                userId, postId
         });
     };
 
     async deleteLike(userId, postId) {
-        return await db.Like.destroy({
+        return await Like.destroy({
             where: {userId, postId},
         });
     };

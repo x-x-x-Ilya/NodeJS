@@ -1,15 +1,15 @@
-var db = require("../database/models/index");
+const Tag = require("../database/models/tag");
 
 class TagRepository {
 
     async createTag(tagId, postId) {
-        return await db.Tag.create({
+        return await Tag.create({
             where: {tagId, postId},
         });
     };
 
     getAllTags() {
-        return  db.Tag.getAll();
+        return  Tag.getAll();
     }
 }
 

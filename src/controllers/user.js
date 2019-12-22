@@ -1,4 +1,4 @@
-var userService = require("../services/user");
+let userService = require("../services/user");
 
 class UserController {
 
@@ -11,12 +11,12 @@ class UserController {
                 password:  req.body.password
             });
             // не отдавать пароль назад
-            return res.status(201)
+            return await res.status(201)
                 .json(
                     user, "User Create Successfully", 201, "success"
                 );
         } catch (error) {
-            return res.status(error.status).json(error);
+            return await res.status(error.status).json(error);
         }
     }
 
