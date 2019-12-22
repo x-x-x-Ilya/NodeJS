@@ -2,30 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/tables/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repositories/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/posts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/db.png" beforeDir="false" afterPath="$PROJECT_DIR$/database/db.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/dependences.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/dependences.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/mysql.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/sequelize.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/sequelize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/likes.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/likes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/posts_tags.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/posts_tags.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/roles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/tags.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/tags.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tables/users_roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tables/users_roles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tests/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tests/connection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataBase/tests/synchronization.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/tests/synchronization.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/like.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/post_tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/post_tag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/tag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/user_role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/user_role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/sequelize.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/sequelize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/like.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/tag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,22 +40,36 @@
   </component>
   <component name="ProjectId" id="1TWkmg17syMwLoQ0dN20nuQkWJZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.0" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\NodeJS\NodeJS\src" />
+      <recent name="D:\NodeJS\NodeJS\src\database" />
+      <recent name="D:\NodeJS\NodeJS" />
+      <recent name="D:\NodeJS\NodeJS\bin" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -84,7 +95,26 @@
       <workItem from="1574617898857" duration="6183000" />
       <workItem from="1574680089093" duration="1117000" />
       <workItem from="1574753317173" duration="995000" />
-      <workItem from="1574788365598" duration="7957000" />
+      <workItem from="1574788365598" duration="8840000" />
+      <workItem from="1574866441366" duration="7968000" />
+      <workItem from="1574911379234" duration="5288000" />
+      <workItem from="1575024104922" duration="307000" />
+      <workItem from="1575471373534" duration="8019000" />
+      <workItem from="1575800364072" duration="473000" />
+      <workItem from="1575800947907" duration="1392000" />
+      <workItem from="1575853417877" duration="3010000" />
+      <workItem from="1575962174583" duration="2448000" />
+      <workItem from="1576073823502" duration="654000" />
+      <workItem from="1576076170586" duration="8793000" />
+      <workItem from="1576115369069" duration="1969000" />
+      <workItem from="1576117768695" duration="4787000" />
+      <workItem from="1576515525621" duration="67000" />
+      <workItem from="1576515645939" duration="67000" />
+      <workItem from="1576515754961" duration="129000" />
+      <workItem from="1576516407351" duration="619000" />
+      <workItem from="1576520749734" duration="7592000" />
+      <workItem from="1576680753978" duration="2472000" />
+      <workItem from="1577015002251" duration="2265000" />
     </task>
     <servers />
   </component>
@@ -103,5 +133,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1576525004720">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1576525004720" />
   </component>
 </project>
