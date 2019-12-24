@@ -1,25 +1,26 @@
 const repository = require("../repositories/user");
 
-
 userRepository =  new repository();
 
 class UserServices {
 
      createUser(userData) {
-         const user = userRepository.createUser(userData);
-         return  userRepository.getUser(userData);
-    }
+         //let user = userRepository.createUser(userData);
+         return userRepository.createUser(userData);
+         //return  userRepository.getUser(userData);
+        //return user;
+     }
 
-    async getUser(id) {
-        return await userRepository.getUser(id);
+    async getUser(userData) {
+        return await userRepository.getUser(userData);
     };
 
     async getAllUser() {
         return await userRepository.getAllUsers();
     };
 
-    async deleteUser(id) {
-        return await userRepository.deleteUser(id);
+    async deleteUser(userData) {
+        return await userRepository.deleteUser(userData);
     };
 
 }

@@ -1,11 +1,15 @@
-var express = require('express');
+let express = require('express');
 const UserController = require("../controllers/user");
 
 const userController = new UserController();
-var router = express.Router();
 
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+
+let router = express.Router();
+
+router.get('/', function (req, res) {
+    res.send('respond with a resource');
+  });
+
+router.post('/user', userController.create);
 
 module.exports = router;

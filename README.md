@@ -1,6 +1,6 @@
 # Instagram clone(NodeJS StLab2019)
 
-original is - https://index.js.instagram.com/
+original is - https://app.js.instagram.com/
 
 ## Clone or download
 

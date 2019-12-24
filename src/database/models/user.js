@@ -1,13 +1,13 @@
-const Sequelize = require("sequelize");
-let sequelize = require("../sequelize");
+const Sequel = require("sequelize");
+let db = require("../sequelize");
 
-    let User = sequelize.define('users', {
-            id:         { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true},
-            email:      { type: Sequelize.STRING,  allowNull: false, UNIQUE_KEY: true },
-            password:   { type: Sequelize.STRING,  allowNull: false,  min: 8, notEmpty: true},
-            first_name: { type: Sequelize.STRING,  allowNull: false,  min: 0, max: 30, notEmpty: true },
-            last_name:  { type: Sequelize.STRING,  allowNull: false },
-            delete_req: { type: Sequelize.BOOLEAN, allowNull: false },
+    let User = db.define('users', {
+            id:         {type: Sequel.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true},
+            email:      {type: Sequel.STRING,  allowNull: false, UNIQUE_KEY: true},
+            password:   {type: Sequel.STRING,  allowNull: false,  min: 8, notEmpty: true},
+            first_name: {type: Sequel.STRING,  allowNull: false,  min: 0, max: 30, notEmpty: true},
+            last_name:  {type: Sequel.STRING,  allowNull: false,  min: 0, max: 30, notEmpty: true},
+            delete_req: {type: Sequel.BOOLEAN, allowNull: false , DEFAULT: false, notEmpty: false},
     }, {/* options*/});
 
     User.associate =  function(models) {
