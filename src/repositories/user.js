@@ -1,26 +1,37 @@
 const User = require("../database/models/user");
+const Role = require("../database/models/role");
 
 class UserRepository  {
 
-     async createUser(user) {
-        return await  User.create(user);
-    }
+     async createUser(data) {
+             try {
+                     const user = await User.create({
+                         email: data.email,
+                         firstName: data.firstName,
+                         lastName: data.lastName,
+                         password: data.password
+                     });
 
-    async getUser(userId) {
+                 }
+                 catch (e) {
+                 if (e ) throw e;
+                 throw new console.log("undefined error Something wrong");
+             }
+    //return await  User.create(user);
+         };
+
+
+
+    async getUser(user) {
         return await User.get({
-            where: {
-                userId, include: [
+            //where: {
+                user, include: [
                     {
                         model: Role,
                         attributes: ['name'],
-                        through: {attributes: []},
                     },
-                    // {
-                    //     model: db.Post,
-                    //     through: {attributes: []},
-                    // },
                 ],
-            }
+            //}
         });
     }
 
@@ -29,23 +40,24 @@ class UserRepository  {
             include: [{
                 model: Role,
                 attributes: ["name"]
-            }
-            ]
+            }]
         });
     }
 
-    async deleteUser(id) {
+    async deleteUser(user) {
          //if(getUser(userId) != null)
         return await User.destroy({
-            where: {id},
+            where: {
+                user
+            },
         });
         //else
-            //return error;
+        //return error;
     }
 
-    async updateUser(id) {
+    async updateUser(user) {
         return await User.update({
-            where: {id},
+            where: {user},
         });
     }
 

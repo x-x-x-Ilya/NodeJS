@@ -1,4 +1,3 @@
-
 const User = require("./user");
 const Post = require("./post");
 const Like = require("./like");
@@ -7,10 +6,10 @@ const Tag = require("./tag");
 const PostTag = require("./post_tag");
 const UserRole = require("./user_role");
 
-const db = {User, Post, Like, Role, Tag, PostTag, UserRole};
+exports.init = () => {
+    const db = {User, Post, Like, Role, Tag, PostTag, UserRole};
 
-Object.keys(db).forEach(modelName => {
-    db[modelName].associate &&  db[modelName].associate(db);
-});
-
-module.exports = db;
+    Object.keys(db).forEach(modelName => {
+        db[modelName].associate &&  db[modelName].associate(db);
+    });
+};

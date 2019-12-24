@@ -1,18 +1,26 @@
-const express = require('express');
+//const DB = require('./database/sequelize');
+const Models = require('./database/models/index');
+const connect = require('./database/database');
+const server = require('./server');
+const router = require('./routes/user');
 
-const app = express();
+let express = require('express');
 
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  res.status(err.status || 500);
-  res.render('error');
-});
-
+const app =  express();
 module.exports = app;
+//const app = require('./server');
+
+const runApp = () => {
+    try {
+        connect.authentication();
+        Models.init();
+        connect.ModelsSynchronization();
+        server.start();
+        //app.use(router);
+
+    } catch (err) {
+        console.log(err + " Error app cannot start(app.js)");
+    }
+};
+
+runApp();
