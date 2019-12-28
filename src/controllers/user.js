@@ -4,14 +4,17 @@ class UserController {
 
      create(req, res) {
         try {
-            const user =  userService.createUser({
+            /*const user =  userService.createUser(user)
+            {
                 email:     req.body.email,
                 firstName: req.body.firstName,
                 lastName:  req.body.lastName,
                 password:  req.body.password
-            });
+            });*/
+
+
             // не отдавать пароль назад
-            return  res//.status(201)
+            return  res.status(201)
                 .json("User Create Successfully"
                     /*user, "User Create Successfully", 201, "success"*/
                 );

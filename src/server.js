@@ -1,10 +1,10 @@
 let http = require('http');
 
-let express = require('express');
-const app =  express();
-//const app = require('./app');
+//let express = require('express');
+//const app =  express();
+const app = require('./app');
 
-let server = http.createServer(app);
+
 
 //module.exports = app;
 
@@ -16,6 +16,9 @@ let normalizePort = ((val) => {
 });
 
 let port = normalizePort(process.env.PORT || '3000');
+
+let server = http.createServer(app);
+
 
 let onListening = (() => {
     let addr = server.address();
@@ -30,3 +33,5 @@ exports.start = () => {
     server.on('listening', onListening);
     app.set('port', port);
 };
+
+//module.exports = app;

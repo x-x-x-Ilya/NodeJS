@@ -1,14 +1,11 @@
-//const DB = require('./database/sequelize');
 const Models = require('./database/models/index');
 const connect = require('./database/database');
-const server = require('./server');
 const router = require('./routes/user');
 
 let express = require('express');
+const app = (module.exports = express());
 
-const app =  express();
-module.exports = app;
-//const app = require('./server');
+const server = require('./server');
 
 const runApp = () => {
     try {
@@ -16,7 +13,11 @@ const runApp = () => {
         Models.init();
         connect.ModelsSynchronization();
         server.start();
-        //app.use(router);
+        app.get('/', function (req, res) {
+            return  res.status(201).json("main trying");
+        });
+
+        app.use('/user', router);
 
     } catch (err) {
         console.log(err + " Error app cannot start(app.js)");
