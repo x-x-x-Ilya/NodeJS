@@ -5,7 +5,8 @@ const errorCatcher = require('./middleware/error-handler');
 const routes = require('./routes/index');
 const bodyParser = require('./loaders/express');
 
-const app = (module.exports = express());
+const app = express();
+module.exports = app;
 
 const server = require('./server');
 
@@ -19,7 +20,7 @@ const runApp = () => {
     app.use(routes);
     app.use(errorCatcher);
   } catch (err) {
-    // console.log(`${err} Error app cannot start(app.js)`);
+    console.log(`${err} Error app cannot start(app.js)`);
   }
 };
 

@@ -12,57 +12,73 @@ class UserRepository {
         password,
         delete_req: false,
       });
-      console.log('User has been create successfully');
     } catch (e) {
       console.log('undefined error Something wrong');
     }
+    return 201;
   }
 
   async getUser(data) {
     if (data.field.toString() === 'id') {
-      return await User.findOne({
-        id: data.id,
-      });
+      try {
+        return await User.findOne({
+          id: data.id,
+        });
+      } catch (e) {
+        console.log('undefined error Something wrong');
+      }
     }
 
     if (data.field.toString() === 'e-mail') {
-      return await User.findOne({
-        email: data.email,
-      });
+      try {
+        return await User.findOne({
+          email: data.email,
+        });
+      } catch (e) {
+        console.log('undefined error Something wrong');
+      }
     }
-
-
-    return 'error';
   }
 
-  getAllUsers() {
-    return User.findAll({
-      model: Role,
-      attributes: ['name'],
-    });
+  async getAllUsers() {
+    try {
+      const mass = await User.findAll({
+        model: Role,
+        attributes: ['name'],
+      });
+    } catch (e) {
+      console.log('undefined error Something wrong');
+    }
+    // return  this mass
   }
 
   async deleteUser(data) {
     if (await UserRepository.getUser(data) === User) {
-      User.destroy({
-        id: data.id,
-      });
-      return await 'user have been deleted';
+      try {
+        await User.destroy({
+          id: data.id,
+        });
+      } catch (e) {
+        console.log('undefined error Something wrong');
+      }
+      return 201;
     }
-    return await 'err';
   }
 
   async updateUser(data) {
     if (await UserRepository.getUser(data) === User) {
-      return await User.update({
-        email: data.email, // если поля нет то оставить значение которое было
-        first_name: data.firstName,
-        last_name: data.lastName,
-        password: data.password,
-      });
+      try {
+        await User.update({
+          email: data.email, // если поля нет то оставить значение которое было
+          first_name: data.firstName,
+          last_name: data.lastName,
+          password: data.password,
+        });
+      } catch (e) {
+        console.log('undefined error Something wrong');
+      }
+      return 201;
     }
-    return await 'err';
   }
 }
-
 module.exports = UserRepository;

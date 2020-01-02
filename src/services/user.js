@@ -1,6 +1,6 @@
-const repository = require('../repositories/user');
+const Repository = require('../repositories/user');
 
-const userRepository = new repository();
+const userRepository = new Repository();
 
 class userServices {
   /* createUser(userData) {
@@ -8,21 +8,36 @@ class userServices {
      }
      */
   createUser(email, firstName, lastName, password) {
-    return userRepository.createUser(email, firstName, lastName, password);
+    try {
+      return userRepository.createUser(email, firstName, lastName, password);
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
+    }
   }
 
 
   async getUser(userData) {
-    return await userRepository.getUser(userData);
+    try {
+      return await userRepository.getUser(userData);
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
+    }
   }
 
   async getAllUser() {
-    return await userRepository.getAllUsers();
+    try {
+      return await userRepository.getAllUsers();
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
+    }
   }
 
   async deleteUser(userData) {
-    return await userRepository.deleteUser(userData);
+    try {
+      return await userRepository.deleteUser(userData);
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
+    }
   }
 }
-
 module.exports = userServices;

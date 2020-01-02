@@ -1,10 +1,14 @@
-const repository = require('../repositories/like');
+const Repository = require('../repositories/like');
 
-const likeRepository = new repository();
+const likeRepository = new Repository();
 
 class likeServices {
   async create(data) {
-    return await likeRepository.createLike(data);
+    try {
+      return await likeRepository.createLike(data);
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
+    }
   }
 
   /* async get(data) {
@@ -12,7 +16,11 @@ class likeServices {
     }
 */
   async delete(data) {
-    return await likeRepository.deleteLike(data);
+    try {
+      await likeRepository.deleteLike(data);
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
+    }
   }
 /*
     async getAll(data) {

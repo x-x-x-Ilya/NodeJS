@@ -1,6 +1,6 @@
 const express = require('express');
 
-const LikeController = require('../controllers/like');
+// const LikeController = require('../controllers/like');
 // const LikeController = new LikeController();
 
 const router = express.Router();

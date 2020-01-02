@@ -1,4 +1,3 @@
-// const app = require('../app');
 const express = require('express');
 
 const router = express.Router();
@@ -6,9 +5,8 @@ const router = express.Router();
 const userRouter = require('./user');
 const likeRouter = require('./like');
 // let postRouter = require( './post');
-const tagRouter = require('./tag');
+// const tagRouter = require('./tag');
 
-// exports.addRoutes = () => {
 router.get('/', (req, res) => res.status(201).json('main page'));
 router.use('/user', userRouter);
 router.use('/like', likeRouter);
@@ -16,4 +14,3 @@ router.use('/like', likeRouter);
 // router.use('/tag', tagRouter);
 
 module.exports = router;
-// };
