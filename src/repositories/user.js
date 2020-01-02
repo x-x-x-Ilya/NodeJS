@@ -3,62 +3,66 @@ const Role = require("../database/models/role");
 
 class UserRepository  {
 
-     async createUser(data) {
-             try {
-                     const user = await User.create({
-                         email: data.email,
-                         firstName: data.firstName,
-                         lastName: data.lastName,
-                         password: data.password
-                     });
+    async createUser(email, first_name, last_name, password){
+        //console.log(email);   ++
+        try {
+            await User.create({
+                email: email,
+                first_name: first_name,
+                last_name: last_name,
+                password: password,
+                delete_req: false
+            });
+            console.log("User has been create successfully")
+        } catch (e) {
+            if (e) throw e;
+            throw new console.log("undefined error Something wrong");
+        }
+    };
 
-                 }
-                 catch (e) {
-                 if (e ) throw e;
-                 throw new console.log("undefined error Something wrong");
-             }
-    //return await  User.create(user);
-         };
+    async getUser(data) {
+        if(data.field.toString() === "id") {
+            return await User.findOne({
+                id: data.id
+            });
+        }
+
+        else if(data.field.toString() === "e-mail"){
+            return await User.findOne({
+                email: data.email
+            });
+        }
 
 
-
-    async getUser(user) {
-        return await User.get({
-            //where: {
-                user, include: [
-                    {
-                        model: Role,
-                        attributes: ['name'],
-                    },
-                ],
-            //}
-        });
+        else return "error";
     }
 
      getAllUsers() {
         return  User.findAll({
-            include: [{
                 model: Role,
                 attributes: ["name"]
-            }]
         });
     }
 
-    async deleteUser(user) {
-         //if(getUser(userId) != null)
-        return await User.destroy({
-            where: {
-                user
-            },
-        });
-        //else
-        //return error;
+    async deleteUser(data) {
+         if(await UserRepository.getUser(data) === User) {
+             User.destroy({
+                 id: data.id
+             });
+            return await "user have been deleted";
+         }
+         else return await "err";
     }
 
-    async updateUser(user) {
+    async updateUser(data) {
+        if(await UserRepository.getUser(data) === User)
         return await User.update({
-            where: {user},
+            email: data.email,              // если поля нет то оставить значение которое было
+            first_name: data.first_name,
+            last_name: data.last_name,
+            password: data.password
         });
+        else return await "err";
     }
 
 }

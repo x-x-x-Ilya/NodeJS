@@ -2,14 +2,15 @@ const Tag = require("../database/models/tag");
 
 class TagRepository {
 
-    async createTag(tagId, postId) {
+    async createTag(id, name) {
         return await Tag.create({
-            where: {tagId, postId},
+            id: id,
+            name: name
         });
     };
 
-    getAllTags() {
-        return  Tag.getAll();
+    getAllTags(post_id) {   //&
+        return  0//Tag.getAll();
     }
 }
 
