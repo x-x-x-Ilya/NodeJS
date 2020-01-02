@@ -1,6 +1,6 @@
 const repository = require('../repositories/like');
 
-likeRepository = new repository();
+const likeRepository = new repository();
 
 class likeServices {
   async create(data) {

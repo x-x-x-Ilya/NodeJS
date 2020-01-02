@@ -8,7 +8,7 @@ class TagRepository {
     });
   }
 
-  getAllTags(post_id) { // &
+  getAllTags(postId) { // &
     return 0;// Tag.getAll();
   }
 }

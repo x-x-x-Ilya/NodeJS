@@ -3,12 +3,12 @@ const userService = require('../services/user');
 class UserController {
   create(req, res) {
     const { email } = req.body;
-    const { first_name } = req.body;
-    const { last_name } = req.body;
+    const { firstName } = req.body;
+    const { lastName } = req.body;
     const { password } = req.body;
 
     try {
-      const user = userService.prototype.createUser(email, first_name, last_name, password);
+      const user = userService.prototype.createUser(email, firstName, lastName, password);
       // return  res.status(201).json(user, "User Create Successfully", 201, "success");
       return res.send(user);
     } catch (error) {
@@ -21,7 +21,7 @@ class UserController {
   delete(req, res) {
     try {
       // params
-      const answer = userService.deleteUser(/* params */);
+      const answer = userService.prototype.deleteUser(/* params */);
       return res.status(201).json(answer, 'User Delete Successfully', 201, 'success');
     } catch (error) {
       return res.status(error.status).json(error);
@@ -31,7 +31,7 @@ class UserController {
   get(req, res) {
     try {
       /* params */
-      const User = userService.getUser(/* params */);
+      const User = userService.prototype.getUser(/* params */);
       return res.status(201).json(User, 201, 'success');
     } catch (error) {
       return res.status(error.status).json(error);
@@ -40,7 +40,7 @@ class UserController {
 
   getAll(req, res) {
     try {
-      const allUsers = userService.getAllUser();
+      const allUsers = userService.prototype.getAllUser();
       return res.status(201).json(allUsers, 201, 'success');
     } catch (error) {
       return res.status(error.status).json(error);

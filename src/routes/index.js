@@ -3,17 +3,17 @@ const express = require('express');
 
 const router = express.Router();
 
-const user_router = require('./user');
-const like_router = require('./like');
-// let post_router = require( './post');
-const tag_router = require('./tag');
+const userRouter = require('./user');
+const likeRouter = require('./like');
+// let postRouter = require( './post');
+const tagRouter = require('./tag');
 
 // exports.addRoutes = () => {
 router.get('/', (req, res) => res.status(201).json('main page'));
-router.use('/user', user_router);
-router.use('/like', like_router);
-// router.use('/post', post_router);
-// router.use('/tag', tag_router);
+router.use('/user', userRouter);
+router.use('/like', likeRouter);
+// router.use('/post', postRouter);
+// router.use('/tag', tagRouter);
 
 module.exports = router;
 // };

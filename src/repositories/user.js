@@ -56,8 +56,8 @@ class UserRepository {
     if (await UserRepository.getUser(data) === User) {
       return await User.update({
         email: data.email, // если поля нет то оставить значение которое было
-        first_name: data.first_name,
-        last_name: data.last_name,
+        first_name: data.firstName,
+        last_name: data.lastName,
         password: data.password,
       });
     }

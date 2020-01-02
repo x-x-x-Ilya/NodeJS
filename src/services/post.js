@@ -1,6 +1,6 @@
 const repository = require('../repositories/post');
 
-postRepository = new repository();
+const postRepository = new repository();
 
 class PostServices {
   async create(data) {

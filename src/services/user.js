@@ -1,14 +1,14 @@
 const repository = require('../repositories/user');
 
-userRepository = new repository();
+const userRepository = new repository();
 
-class UserServices {
+class userServices {
   /* createUser(userData) {
          return userRepository.createUser(userData);
      }
      */
-  createUser(email, first_name, last_name, password) {
-    return userRepository.createUser(email, first_name, last_name, password);
+  createUser(email, firstName, lastName, password) {
+    return userRepository.createUser(email, firstName, lastName, password);
   }
 
 
@@ -25,4 +25,4 @@ class UserServices {
   }
 }
 
-module.exports = UserServices;
+module.exports = userServices;

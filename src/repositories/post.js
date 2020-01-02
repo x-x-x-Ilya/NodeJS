@@ -1,10 +1,10 @@
 const Post = require('../database/models/post');
 
 class PostRepository {
-  async createPost(user_id, created_at, img, caption) {
+  async createPost(userId, createdAt, img, caption) {
     return await Post.create({
-      user_id,
-      created_at,
+      userId,
+      createdAt,
       img,
       caption,
     });
@@ -22,9 +22,9 @@ class PostRepository {
     });
   }
 
-  getAllPosts(user_id) {
+  getAllPosts(userId) {
     return Post.getAll({
-      user_id,
+      userId,
     });
   }
 }
