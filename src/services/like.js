@@ -1,20 +1,19 @@
-const repository = require(`../repositories/like`);
+const repository = require('../repositories/like');
 
-likeRepository =  new repository();
+likeRepository = new repository();
 
 class likeServices {
+  async create(data) {
+    return await likeRepository.createLike(data);
+  }
 
-    async create(data) {
-        return await likeRepository.createLike(data);
-    }
-
-   /* async get(data) {
+  /* async get(data) {
         return await likeRepository.takeLike(data);
     }
 */
-    async delete(data) {
-        return await likeRepository.deleteLike(data);
-    }
+  async delete(data) {
+    return await likeRepository.deleteLike(data);
+  }
 /*
     async getAll(data) {
         return await likeRepository.getAllLikes(data);

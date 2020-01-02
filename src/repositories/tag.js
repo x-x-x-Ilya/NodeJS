@@ -1,17 +1,16 @@
-const Tag = require("../database/models/tag");
+const Tag = require('../database/models/tag');
 
 class TagRepository {
+  async createTag(id, name) {
+    return await Tag.create({
+      id,
+      name,
+    });
+  }
 
-    async createTag(id, name) {
-        return await Tag.create({
-            id: id,
-            name: name
-        });
-    };
-
-    getAllTags(post_id) {   //&
-        return  0//Tag.getAll();
-    }
+  getAllTags(post_id) { // &
+    return 0;// Tag.getAll();
+  }
 }
 
 module.exports = TagRepository;

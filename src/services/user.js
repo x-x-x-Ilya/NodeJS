@@ -1,30 +1,28 @@
-const repository = require("../repositories/user");
+const repository = require('../repositories/user');
 
-userRepository =  new repository();
+userRepository = new repository();
 
 class UserServices {
-
-    /* createUser(userData) {
+  /* createUser(userData) {
          return userRepository.createUser(userData);
      }
      */
-    createUser(email, first_name, last_name, password) {
-        return userRepository.createUser(email, first_name, last_name, password);
-    }
+  createUser(email, first_name, last_name, password) {
+    return userRepository.createUser(email, first_name, last_name, password);
+  }
 
 
-    async getUser(userData) {
-        return await userRepository.getUser(userData);
-    };
+  async getUser(userData) {
+    return await userRepository.getUser(userData);
+  }
 
-    async getAllUser() {
-        return await userRepository.getAllUsers();
-    };
+  async getAllUser() {
+    return await userRepository.getAllUsers();
+  }
 
-    async deleteUser(userData) {
-        return await userRepository.deleteUser(userData);
-    };
-
+  async deleteUser(userData) {
+    return await userRepository.deleteUser(userData);
+  }
 }
 
 module.exports = UserServices;
