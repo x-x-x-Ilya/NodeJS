@@ -1,21 +1,26 @@
-let http = require('http');
+const http = require('http');
 
-let express = require('express');
-const app =  express();
-//const app = require('./app');
-
-let server = http.createServer(app);
-
-//module.exports = app;
+const app = require('./app');
 
 let normalizePort = ((val) => {
+
     let port = parseInt(val, 10);
-    if (isNaN(port)) { return val;}
-    if (port >= 0) { return port;}
+
+    if (isNaN(port)) {
+        return val;
+    }
+
+    if (port >= 0) {
+        return port;
+    }
+
     return false;
 });
 
 let port = normalizePort(process.env.PORT || '3000');
+
+
+let server = http.createServer(app);
 
 let onListening = (() => {
     let addr = server.address();

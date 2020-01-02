@@ -4,12 +4,14 @@ userRepository =  new repository();
 
 class UserServices {
 
-     createUser(userData) {
-         //let user = userRepository.createUser(userData);
+    /* createUser(userData) {
          return userRepository.createUser(userData);
-         //return  userRepository.getUser(userData);
-        //return user;
      }
+     */
+    createUser(email, first_name, last_name, password) {
+        return userRepository.createUser(email, first_name, last_name, password);
+    }
+
 
     async getUser(userData) {
         return await userRepository.getUser(userData);
