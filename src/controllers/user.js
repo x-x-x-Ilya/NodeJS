@@ -1,54 +1,55 @@
-let userService = require("../services/user");
+const userService = require('../services/user');
 
 class UserController {
 
-    create(req, res) {
-        const email = req.body.email;
-        const first_name = req.body.first_name;
-        const last_name = req.body.last_name;
-        const password = req.body.password;
+  async create(req, res) {
 
-        try {
-            let user = userService.prototype.createUser(email, first_name, last_name, password);
-            //return  res.status(201).json(user, "User Create Successfully", 201, "success");
-            return  res.send(user);
-        } catch (error) {
-            return res.status(666);
-            //return res.status(error.status).json(error);
-        }
+    const email = req.body.email;
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const password = req.body.password;
+
+    try {
+      //return await res.send( userService.prototype.createUser(email, firstName, lastName, password));
+      //await userService.prototype.createUser(email, firstName, lastName, password);
+      //return  await res.status(201).json(userService.prototype.createUser(email, firstName, lastName, password));
+      return  await res.status(userService.prototype.createUser(email, firstName, lastName, password));
+    } catch (error) {
+      //return res.status(666);
+      return res.status(error.status).json(error);
     }
+  }
 
+  get(req, res) {
+    try {
+      const findingField = req.body.findingField;
+      const field = req.body.field;
 
-    delete (req, res){
-        try {
-            //params
-            let answer = userService.deleteUser(/*params*/);
-            return  res.status(201).json(answer, "User Delete Successfully", 201, "success");
-        }catch (error) {
-            return res.status(error.status).json(error);
-        }
+      //return res.status(201).json(userService.prototype.getUser(findingField, field), 201, 'success');
+      return res.json(userService.prototype.getUser(findingField, field), 201, 'success');
+    } catch (error) {
+      return res.status(error.status).json(error);
     }
+  }
 
-    get(req, res){
-        try {
-            /*params*/
-            let User = userService.getUser(/*params*/);
-            return  res.status(201).json(User, 201, "success");
-        }catch (error) {
-            return res.status(error.status).json(error);
-        }
+  delete(req, res) {
+    try {
+      const answer = userService.prototype.deleteUser(/* params */);
+      return res.status(201).json(answer, 'User Delete Successfully', 201, 'success');
+    } catch (error) {
+      return res.status(error.status).json(error);
     }
+  }
 
-    getAll(req, res){
-        try {
-            let allUsers = userService.getAllUser();
-            return  res.status(201).json(allUsers, 201, "success");
-        }catch (error) {
-            return res.status(error.status).json(error);
-        }
+
+
+  getAll(req, res) {
+    try {
+      const allUsers = userService.prototype.getAllUser();
+      return res.status(201).json(allUsers, 201, 'success');
+    } catch (error) {
+      return res.status(error.status).json(error);
     }
-
-
+  }
 }
 module.exports = UserController;
-

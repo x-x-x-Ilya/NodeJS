@@ -2,31 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/like.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loaders/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loaders/routes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/error-handler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/error-handler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/tag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/sequelize.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/sequelize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/sql/mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/sql/mysql.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repositories/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="NodeJS" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -129,6 +119,8 @@
       <workItem from="1577636136590" duration="599000" />
       <workItem from="1577707618478" duration="10853000" />
       <workItem from="1577915826674" duration="10833000" />
+      <workItem from="1577929516795" duration="6124000" />
+      <workItem from="1578000733514" duration="11789000" />
     </task>
     <servers />
   </component>
@@ -149,9 +141,17 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="425" y="187" key="run.anything.popup" timestamp="1576525004720">
+    <state x="361" y="69" key="#Scopes" timestamp="1577932273607">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1576525004720" />
+    <state x="361" y="69" key="#Scopes/0.0.1536.824@0.0.1536.824" timestamp="1577932273607" />
+    <state x="223" y="65" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577932247239">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="65" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1577932247239" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1578002557938">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1578002557938" />
   </component>
 </project>

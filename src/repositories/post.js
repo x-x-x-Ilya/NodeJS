@@ -1,34 +1,52 @@
-const Post = require("../database/models/post");
+const Post = require('../database/models/post');
 
 class PostRepository {
-
-    async createPost(user_id, created_at,img, caption) {
-        return await Post.create({
-            user_id: user_id,
-            created_at: created_at,
-            img: img,
-            caption: caption
-        });
+  async createPost(userId, createdAt, img, caption) {
+    try {
+      await Post.create({
+        userId,
+        createdAt,
+        img,
+        caption,
+      });
+    } catch (error) {
+      console.log('undefined error Something wrong');
     }
+    return 'success';
+  }
 
-    async updatePost(postId) {
-        return await Post.get({
-            id: postId
-        });
+  async updatePost(postId) {
+    try {
+      await Post.get({
+        id: postId,
+      });
+    } catch (error) {
+      console.log('undefined error Something wrong');
     }
+    return 'success';
+  }
 
-    async deletePost(postId) {
-        return await Post.destroy({
-            postId
-        });
+  async deletePost(postId) {
+    try {
+      await Post.destroy({
+        postId,
+      });
+    } catch (error) {
+      console.log('undefined error Something wrong');
     }
+    return 'success';
+  }
 
-     getAllPosts(user_id) {
-        return  Post.getAll({
-            user_id: user_id
-        });
+  async getAllPosts(userId) {
+    try {
+      await Post.getAll({
+        userId,
+      });
+    } catch (error) {
+      console.log('undefined error Something wrong');
     }
-
+    return 'success';
+  }
 }
 
 module.exports = PostRepository;

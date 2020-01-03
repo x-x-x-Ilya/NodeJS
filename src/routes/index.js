@@ -1,20 +1,16 @@
-//const app = require('../app');
-let express = require('express');
+const express = require('express');
 
 const router = express.Router();
 
-let user_router = require( './user');
-let like_router = require( './like');
-//let post_router = require( './post');
-let tag_router = require( './tag');
+const userRouter = require('./user');
+const likeRouter = require('./like');
+// let postRouter = require( './post');
+// const tagRouter = require('./tag');
 
-//exports.addRoutes = () => {
-    router.get('/', function (req, res) {return  res.status(201).json("main page");});
-    router.use('/user', user_router);
-    router.use('/like', like_router);
-    //router.use('/post', post_router);
-    //router.use('/tag', tag_router);
+router.get('/', (req, res) => res.status(201).json('main page'));
+router.use('/user', userRouter);
+router.use('/like', likeRouter);
+// router.use('/post', postRouter);
+// router.use('/tag', tagRouter);
 
 module.exports = router;
-//};
-

@@ -1,19 +1,20 @@
-let express = require('express');
+const express = require('express');
 
-const PostController = require("../controllers/post");
-const PostController = new PostController();
+const PostController = require('../controllers/post');
+
+const Controller = new PostController();
 
 const router = express.Router();
 
-router.get('/', function (req, res) {
-    res.send('/post main page');
+router.get('/', (req, res) => {
+  res.send('/post main page');
 });
 
 // how to take params?
-router.post('/create', PostController.create);
-router.get('/getall', PostController.getAll);
-router.delete('/delete', PostController.delete);
-router.get('/get', PostController.get);
+router.post('/create', Controller.create);
+router.get('/getall', Controller.getAll);
+router.delete('/delete', Controller.delete);
+router.get('/get', Controller.get);
 
 
 module.exports = router;

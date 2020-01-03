@@ -1,28 +1,47 @@
-const repository = require(`../repositories/post`);
+const Repository = require('../repositories/post');
 
-postRepository =  new repository();
+const postRepository = new Repository();
 
 class PostServices {
-
-    async create(data) {
-        return await postRepository.createPost(data);
+  async create(data) {
+    try {
+      return await postRepository.createPost(data);
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
     }
+  }
 
-    async get(data) {
-        return await postRepository.getPost(data);
+  async get(data) {
+    try {
+      return await postRepository.getPost(data);
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
     }
+  }
 
-    async delete(data) {
-        return await postRepository.deletePost(data);
+  async delete(data) {
+    try {
+      return await postRepository.deletePost(data);
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
     }
+  }
 
-    async update(data) {
-        return await postRepository.updatePost(data);
+  async update(data) {
+    try {
+      return await postRepository.updatePost(data);
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
     }
+  }
 
-    async getAll(data) {
-        return await postRepository.updatePost(data);
+  async getAll(data) {
+    try {
+      return await postRepository.updatePost(data);
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
     }
+  }
 }
 
 module.exports = PostServices;

@@ -1,30 +1,45 @@
-const repository = require("../repositories/user");
+const Repository = require('../repositories/user');
 
-userRepository =  new repository();
+const userRepository = new Repository();
 
-class UserServices {
-
-    /* createUser(userData) {
+class userServices {
+  /* createUser(userData) {
          return userRepository.createUser(userData);
      }
      */
-    createUser(email, first_name, last_name, password) {
-        return userRepository.createUser(email, first_name, last_name, password);
+  async createUser(email, firstName, lastName, password) {
+    try {
+      return await userRepository.createUser(email, firstName, lastName, password);
+    } catch (e) {
+      console.log('undefined error Something wrong', e);
+      return 404;
     }
+  }
 
 
-    async getUser(userData) {
-        return await userRepository.getUser(userData);
-    };
+  async getUser(findingField, field) {
+    try {
+      return await userRepository.getUser(findingField, field);
+    } catch (e) {
+       console.log('undefined error Something wrong', e);
+       return 404;
+    }
+  }
 
-    async getAllUser() {
-        return await userRepository.getAllUsers();
-    };
+  async getAllUser() {
+    try {
+      return await userRepository.getAllUsers();
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
+    }
+  }
 
-    async deleteUser(userData) {
-        return await userRepository.deleteUser(userData);
-    };
-
+  async deleteUser(userData) {
+    try {
+      return await userRepository.deleteUser(userData);
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
+    }
+  }
 }
-
-module.exports = UserServices;
+module.exports = userServices;
