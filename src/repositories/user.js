@@ -1,41 +1,79 @@
 const User = require('../database/models/user');
 const Role = require('../database/models/role');
+const Post = require('../database/models/post');
 
 class UserRepository {
-  async createUser(email, firstName, lastName, password) {
-    // console.log(email);   ++
+
+  async createUser(email, firstName, lastName, password) {   // add answer
     try {
-      await User.create({
-        email,
-        firstName,
-        lastName,
-        password,
+       await User.create({
+        email: email,
+        first_name: firstName,
+        last_name: lastName,
+        password: password,
         delete_req: false,
       });
+      return 201;
     } catch (e) {
-      console.log('undefined error Something wrong');
+      console.log('undefined error Something wrong', e);
+      return 404;  // не отправляет 404 при ошибке, но обрабатывает ее.
     }
-    return 201;
   }
 
-  async getUser(data) {
-    if (data.field.toString() === 'id') {
+   async getUser(findingField, field) {
+    if (findingField === 'id') {
+      let answ;
       try {
-        return await User.findOne({
-          id: data.id,
-        });
+         answ = await User.findOne({
+          attributes: ['id', 'email', 'first_name', 'last_name', 'delete_req'],
+           /*include: [{
+             model: Role,
+             attributes: ['name'],
+           }],
+           include: [{
+             model: Post,
+             attributes: ['img', 'caption', 'created_at'],
+             where:{
+               user_id:'id',
+             }
+           }],*/
+          where:{
+            id: field,
+          },
+          });
+        console.log(answ);
+        return answ;
       } catch (e) {
-        console.log('undefined error Something wrong');
+        console.log('undefined error Something wrong', e);
+        return 404;
       }
     }
 
-    if (data.field.toString() === 'e-mail') {
+    if (findingField === 'email') {
+      let answ;
       try {
-        return await User.findOne({
-          email: data.email,
+        answ = await User.findOne({
+          attributes: ['id', 'email', 'first_name', 'last_name', 'delete_req'],
+          /*include: [{
+            model: Role,
+            attributes: ['name'],
+          }],
+          include: [{
+            model: Post,
+            attributes: ['img', 'caption', 'created_at'],
+            where:{
+              user_id:'id',
+            }
+          }],*/
+          where:{
+            email: field,
+          },
         });
+        console.log(answ);
+        return answ;
       } catch (e) {
-        console.log('undefined error Something wrong');
+        console.log('undefined error Something wrong', e);
+        return 404;
       }
     }
   }
@@ -43,8 +81,13 @@ class UserRepository {
   async getAllUsers() {
     try {
       const mass = await User.findAll({
-        model: Role,
-        attributes: ['name'],
+        /*include: [{
+          model: Role,
+          attributes: ['name'],
+        }],*/
+        where:{
+          id,
+        },
       });
     } catch (e) {
       console.log('undefined error Something wrong');
@@ -56,7 +99,9 @@ class UserRepository {
     if (await UserRepository.getUser(data) === User) {
       try {
         await User.destroy({
-          id: data.id,
+          where: {
+            id: data.id,
+          },
         });
       } catch (e) {
         console.log('undefined error Something wrong');

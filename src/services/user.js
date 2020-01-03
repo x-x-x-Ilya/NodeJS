@@ -7,20 +7,22 @@ class userServices {
          return userRepository.createUser(userData);
      }
      */
-  createUser(email, firstName, lastName, password) {
+  async createUser(email, firstName, lastName, password) {
     try {
-      return userRepository.createUser(email, firstName, lastName, password);
+      return await userRepository.createUser(email, firstName, lastName, password);
     } catch (e) {
-      throw new console.log('undefined error Something wrong');
+      console.log('undefined error Something wrong', e);
+      return 404;
     }
   }
 
 
-  async getUser(userData) {
+  async getUser(findingField, field) {
     try {
-      return await userRepository.getUser(userData);
+      return await userRepository.getUser(findingField, field);
     } catch (e) {
-      throw new console.log('undefined error Something wrong');
+       console.log('undefined error Something wrong', e);
+       return 404;
     }
   }
 

@@ -10,11 +10,12 @@ router.get('/', (req, res) => {
   res.send('/user main page');
 });
 
-// how to take params?
+
 router.post('/create', userController.create);
+router.get('/get', userController.get);
 router.get('/getall', userController.getAll);
 router.delete('/delete', userController.delete);
-router.get('/get', userController.get);
+
 
 
 module.exports = router;
