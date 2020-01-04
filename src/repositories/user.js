@@ -29,7 +29,7 @@ class UserRepository {
       });
       return 201;
     } catch (e) {
-      console.log('undefined error Something wrong', e);
+      console.log('Repositories error', e);
       return 404; // не отправляет 404 при ошибке, но обрабатывает ее.
     }
   }
@@ -69,7 +69,7 @@ class UserRepository {
         return 200;
       }
     } catch (e) {
-      console.log('undefined error Something wrong', e);
+      console.log('Repositories error', e);
       return 404;
     }
     //if (data.findingField === 'firstName lastName') {}
@@ -121,7 +121,7 @@ class UserRepository {
       });
       return 200;
     } catch (e) {
-      console.log('undefined error Something wrong');
+      console.log('Repositories error', e);
       return 404;
     }
   }
@@ -137,7 +137,7 @@ class UserRepository {
       });
       return 200;
     } catch (e) {
-      console.log('undefined error Something wrong', e);
+      console.log('Repositories error', e);
       return 404;
     }
   }
@@ -158,9 +158,10 @@ class UserRepository {
       });
       return 200;
     } catch (e) {
-      console.log('undefined error Something wrong', e);
+      console.log('Repositories error', e);
       return 404;
     }
   }
+
 }
 module.exports = UserRepository;

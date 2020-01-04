@@ -1,40 +1,83 @@
 const postService = require('../services/post');
 
+class Data {
+  constructor(user_id, created_at, img, caption) {
+    this.user_id = user_id;
+    this.created_at = created_at;
+    this.img = img;
+    this.caption = caption;
+  }
+}
+
 class PostController {
-  create(req, res) {
-    res.send(req.params); // req.body === {};
+
+  async create(req, res) {
+
     try {
-      return res.status(201).json(postService.prototype.create(req.body), 'Post Create Successfully', 201, 'success');
+      const user_id = req.body.user_id;
+      const created_at = req.body.created_at;
+      const img = req.body.img;
+      const caption = req.body.caption;
+
+      const data = new Data(user_id, created_at, img, caption);
+
+      await postService.prototype.create(data);
+      return res.status(201).json('Post Create Successfully', 201, 'success');
     } catch (error) {
       return res.status(error.status).json(error);
     }
   }
 
-  delete(req, res) {
+  async delete(req, res) {
+
     try {
-      return res.status(201).json(postService.prototype.delete(req.body), 'Post Delete Successfully', 201, 'success');
+      const user_id = req.body.user_id;
+      const created_at = req.body.created_at;
+      const img = req.body.img;
+      const caption = req.body.caption;
+
+      const data = new Data(user_id, created_at, img, caption);
+
+      await postService.prototype.delete(data);
+      return res.status(201).json('Post Delete Successfully', 201, 'success');
     } catch (error) {
       return res.status(error.status).json(error);
     }
   }
 
-  get(req, res) {
+  async get(req, res) {
+
     try {
-      const Post = postService.prototype.get(req.body);
-      return res.status(201).json(Post, 201, 'success');
+      const user_id = req.body.user_id;
+      const created_at = req.body.created_at;
+      const img = req.body.img;
+      const caption = req.body.caption;
+
+      const data = new Data(user_id, created_at, img, caption);
+
+      await postService.prototype.get(data);
+      return res.status(201).json(201, 'success');
     } catch (error) {
       return res.status(error.status).json(error);
     }
   }
 
-  getAll(req, res) {
+  async getAll(req, res) {
     try {
-      const allPosts = postService.prototype.getAll(req.body);
-      return res.status(201).json(allPosts, 201, 'success');
+      const user_id = req.body.user_id;
+      const created_at = req.body.created_at;
+      const img = req.body.img;
+      const caption = req.body.caption;
+
+      const data = new Data(user_id, created_at, img, caption);
+
+      postService.prototype.getAll(data);
+      return res.status(201).json(201, 'success');
     } catch (error) {
       return res.status(error.status).json(error);
     }
   }
+
 }
 
 module.exports = PostController;
