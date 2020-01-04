@@ -9,8 +9,8 @@ try {
       min: 0, max: 5, idle: 10000, acquire: 30000,
     },
     define: {
-      timestamps: false
-    }
+      timestamps: false,
+    },
   });
 } catch (e) {
   console.log(' sequelize.js doesnt work');

@@ -7,9 +7,9 @@ class userServices {
          return userRepository.createUser(userData);
      }
      */
-  async createUser(email, firstName, lastName, password) {
+  async createUser(data) {
     try {
-      return await userRepository.createUser(email, firstName, lastName, password);
+      return await userRepository.createUser(data);
     } catch (e) {
       console.log('undefined error Something wrong', e);
       return 404;
@@ -17,12 +17,12 @@ class userServices {
   }
 
 
-  async getUser(findingField, field) {
+  async getUser(data) {
     try {
-      return await userRepository.getUser(findingField, field);
+      return await userRepository.getUser(data);
     } catch (e) {
-       console.log('undefined error Something wrong', e);
-       return 404;
+      console.log('undefined error Something wrong', e);
+      return 404;
     }
   }
 
@@ -34,12 +34,23 @@ class userServices {
     }
   }
 
-  async deleteUser(userData) {
+  async deleteUser(data) {
     try {
-      return await userRepository.deleteUser(userData);
+      await userRepository.deleteUser(data).then(answer);
+      return answer;
     } catch (e) {
       throw new console.log('undefined error Something wrong');
     }
   }
+
+  async updateUser(data) {
+    try {
+      await userRepository.deleteUser(data).then(answer);
+      return answer;
+    } catch (e) {
+      throw new console.log('undefined error Something wrong');
+    }
+  }
+
 }
 module.exports = userServices;
