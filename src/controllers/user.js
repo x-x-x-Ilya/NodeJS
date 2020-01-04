@@ -1,62 +1,61 @@
 const userService = require('../services/user');
 
+class Data {
+  constructor(findingField, id, email, firstName, lastName, password, delete_req) {
+    this.findingField = findingField;
+    this.id = id;
+    this.email = email;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.password = password;
+    this.delete_req = delete_req;
+  }
+}
+
 class UserController {
 
   async create(req, res) {
-    class Data {
-      constructor(email, firstName, lastName, password) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-      }
-    }
-
-    const { email } = req.body;
-    const { firstName } = req.body;
-    const { lastName } = req.body;
-    const { password } = req.body;
-    const data = new Data(email, firstName, lastName, password);
 
     try {
-      return await res.status(userService.prototype.createUser(data));
+      const findingField  = req.body.findingField;
+      const id = req.body.id;
+      const email = req.body.email;
+      const firstName = req.body.firstName;
+      const lastName = req.body.lastName;
+      const password = req.body.password;
+
+      const data = new Data(findingField, id, email, firstName, lastName, password);
+
+      await userService.prototype.createUser(data).then(answer);
+      return res.status(answer);
     } catch (error) {
       return res.status(error.status).json(error);
     }
   }
 
-  get(req, res) {
-    class Data {
-      constructor(findingField, id, email, firstName, lastName, password) {
-        this.findingField = findingField;
-        this.id = id;
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-      }
-    }
+  async get(req, res) {
 
     try {
-      const { findingField } = req.body;
-      const { id } = req.body;
-      const { email } = req.body;
-      const { firstName } = req.body;
-      const { lastName } = req.body;
-      const { password } = req.body;
+      const findingField  = req.body.findingField;
+      const id = req.body.id;
+      const email = req.body.email;
+      const firstName = req.body.firstName;
+      const lastName = req.body.lastName;
+      const password = req.body.password;
+
       const data = new Data(findingField, id, email, firstName, lastName, password);
-      // return res.status(201).json(userService.prototype.getUser(findingField, field), 201, 'success');
-      return res.json(userService.prototype.getUser(data), 201, 'success');
+      await userService.prototype.getUser(data).then(answer);
+          res.json(answer, 201, 'success');
     } catch (error) {
       return res.status(error.status).json(error);
     }
   }
 
   async getAll(req, res) {
+
     try {
-      //const allUsers = userService.prototype.getAllUser();
-      //return res.status(201).json(allUsers, 201, 'success');
-      return await userService.prototype.getAllUser();
+      await userService.prototype.getAllUser().then(answer);
+      return answer;
     } catch (error) {
       return res.status(error.status).json(error);
     }
@@ -64,23 +63,14 @@ class UserController {
 
   async delete(req, res) {
 
-    class Data {
-      constructor(findingField, id, email, firstName, lastName, password) {
-        this.findingField = findingField;
-        this.id = id;
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-      }
-    }
     try {
-      const { findingField } = req.body;
-      const { id } = req.body;
-      const { email } = req.body;
-      const { firstName } = req.body;
-      const { lastName } = req.body;
-      const { password } = req.body;
+      const findingField  = req.body.findingField;
+      const id = req.body.id;
+      const email = req.body.email;
+      const firstName = req.body.firstName;
+      const lastName = req.body.lastName;
+      const password = req.body.password;
+
       const data = new Data(findingField, id, email, firstName, lastName, password);
 
       await userService.prototype.deleteUser(data);
@@ -91,23 +81,15 @@ class UserController {
   }
 
   async update(req, res) {
-    class Data {
-      constructor(findingField, id, email, firstName, lastName, password) {
-        this.findingField = findingField;
-        this.id = id;
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-      }
-    }
+
     try {
-      const { findingField } = req.body;
-      const { id } = req.body;
-      const { email } = req.body;
-      const { firstName } = req.body;
-      const { lastName } = req.body;
-      const { password } = req.body;
+      const findingField  = req.body.findingField;
+      const id = req.body.id;
+      const email = req.body.email;
+      const firstName = req.body.firstName;
+      const lastName = req.body.lastName;
+      const password = req.body.password;
+
       const data = new Data(findingField, id, email, firstName, lastName, password);
 
       await userService.prototype.updateUser(data);
@@ -116,6 +98,5 @@ class UserController {
       return res.status(error.status).json(error);
     }
   }
-
 }
 module.exports = UserController;
