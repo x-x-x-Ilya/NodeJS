@@ -3,15 +3,13 @@ const Repository = require('../repositories/user');
 const userRepository = new Repository();
 
 class userServices {
-  /* createUser(userData) {
-         return userRepository.createUser(userData);
-     }
-     */
+
   async createUser(data) {
     try {
-      return await userRepository.createUser(data);
+      await userRepository.createUser(data).then(answer);
+      return answer;
     } catch (e) {
-      console.log('undefined error Something wrong', e);
+      console.log('Services error', e);
       return 404;
     }
   }
@@ -19,18 +17,20 @@ class userServices {
 
   async getUser(data) {
     try {
-      return await userRepository.getUser(data);
+      await userRepository.getUser(data).then(answer);
+      return answer;
     } catch (e) {
-      console.log('undefined error Something wrong', e);
+      console.log('Services error', e);
       return 404;
     }
   }
 
   async getAllUser() {
     try {
-      return await userRepository.getAllUsers();
+      await userRepository.getAllUsers().then(answer);
+      return answer;
     } catch (e) {
-      throw new console.log('undefined error Something wrong');
+      console.log('Services error', e);
     }
   }
 
@@ -39,7 +39,7 @@ class userServices {
       await userRepository.deleteUser(data).then(answer);
       return answer;
     } catch (e) {
-      throw new console.log('undefined error Something wrong');
+      throw new console.log('Services error', e);
     }
   }
 
@@ -48,7 +48,7 @@ class userServices {
       await userRepository.deleteUser(data).then(answer);
       return answer;
     } catch (e) {
-      throw new console.log('undefined error Something wrong');
+      throw new console.log('Services error', e);
     }
   }
 
