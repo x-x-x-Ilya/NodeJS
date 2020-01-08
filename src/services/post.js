@@ -2,6 +2,8 @@ const Repository = require('../repositories/post');
 
 const postRepository = new Repository();
 
+let answer;
+
 class PostServices {
 
   async create(data) {
@@ -42,7 +44,7 @@ class PostServices {
 
   async getAll(data) {
     try {
-      await postRepository.updatePost(data).then(answer);
+      await postRepository.getAllPosts(data).then(answer);
       return answer;
     } catch (e) {
       console.log('Services error', e);
