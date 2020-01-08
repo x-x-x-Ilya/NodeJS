@@ -45,7 +45,7 @@ class userServices {
 
   async updateUser(data) {
     try {
-      await userRepository.deleteUser(data).then(answer);
+      await userRepository.updateUser(data).then(answer);
       return answer;
     } catch (e) {
       throw new console.log('Services error', e);

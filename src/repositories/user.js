@@ -22,8 +22,8 @@ class UserRepository {
     try {
       await User.create({
         email: data.email,
-        first_name: data.firstName,
-        last_name: data.lastName,
+        first_name: data.first_name,
+        last_name: data.last_name,
         password: data.password,
         delete_req: false,
       });
@@ -36,7 +36,6 @@ class UserRepository {
 
   async getUser(data) {
     try {
-      if (data.findingField === 'id') {
         await User.findOne({
           attributes: ['id', 'email', 'first_name', 'last_name', 'delete_req'],
           where: {
@@ -53,57 +52,38 @@ class UserRepository {
               delete_req: ${note.delete_req}`);
         });
         return 200;
-      }
-      else if (data.findingField === 'email') {
-        await User.findOne({
-          attributes: ['id', 'email', 'first_name', 'last_name', 'delete_req'],
-          where: {
-            email: data.email,
-          },
-        }).then((note) => {
-          console.log(note.get({plain: true}));
-          console.log('********************');
-          console.log(`id: ${note.id}, email: ${note.email}, first_name: ${note.first_name}, 
-        last_name: ${note.last_name}, delete_req: ${note.delete_req}`);
-        });
-        return 200;
-      }
     } catch (e) {
-      console.log('Repositories error', e);
-      return 404;
-    }
-    //if (data.findingField === 'firstName lastName') {}
-
-      /*try {
-        const field = data.findingField;
-        let findingFieldValue;
-
-        if (data.findingField === 'id') {
-          findingFieldValue = data.id;
+        try {
+          await User.findOne({
+            attributes: ['id', 'email', 'first_name', 'last_name', 'delete_req'],
+            where: {
+              email: data.email,
+            },
+          }).then((note) => {
+            console.log(note.get({plain: true}));
+            console.log('********************');
+            console.log(`id: ${note.id}, email: ${note.email}, first_name: ${note.first_name}, 
+            last_name: ${note.last_name}, delete_req: ${note.delete_req}`);
+          });
+          return 200;
+        } catch (e) {
+          try {
+            await User.findAll({
+              attributes: ['id', 'email', 'first_name', 'last_name', 'delete_req'],
+              where: {
+                first_name: data.first_name,
+                last_name: data.last_name,
+              },
+            }).then(users => {
+              console.log(users.map(user => user.toJSON()))
+            });
+            return 200;
+          } catch (e) {
+            console.log(e);
+          }
         }
-        else if (data.findingField === 'email') {
-          findingFieldValue = data.email;
-        }
-        //else if (data.findingField === 'firstName lastName') {  // можно записать ч-з сплит
-        //  findingFieldValue = data.email;
-        //}
-        await User.findOne({
-          attributes: ['id', 'email', 'first_name', 'last_name', 'delete_req'],
-          where: {
-            field: findingFieldValue,   // should be == field in 27 line
-          },
-        }).then((note) => {
-          console.log(note.get({plain: true}));
-          console.log('********************');
-          console.log(`id: ${note.id}, email: ${note.email}, first_name: ${note.first_name}, 
-        last_name: ${note.last_name}, delete_req: ${note.delete_req}`);
-        });
-        return 200;
-      } catch (e) {
-        console.log('undefined error Something wrong', e);
-        return 404;
       }
-*/
+
     }
 
 
@@ -149,10 +129,12 @@ class UserRepository {
 
     try {
       await User.update({
-        id: data.id,
+        where: {
+          id: data.id,
+        },
         email: data.email, // если поля нет то оставить значение которое было
-        first_name: data.firstName,
-        last_name: data.lastName,
+        first_name: data.first_name,
+        last_name: data.last_name,
         password: data.password,
         delete_req: data.delete_req,
       });
