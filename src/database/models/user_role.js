@@ -5,11 +5,11 @@ const UserRole = sequelize.define('users_roles', {
   id: {
     type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true,
   },
-  user_id: { type: Sequelize.INTEGER, allowNull: false },
-  role_id: { type: Sequelize.INTEGER, allowNull: false },
+  userId: { type: Sequelize.INTEGER, allowNull: false, field: 'user_id' },
+  roleId: { type: Sequelize.INTEGER, allowNull: false, field: 'role_id' },
 }, {/* options */});
 
-UserRole.associate = function (models) {
+UserRole.associate = (models) => {
   UserRole.belongsTo(models.User, { foreignKey: 'user_id' });
   UserRole.belongsTo(models.Role, { foreignKey: 'role_id' });
 };

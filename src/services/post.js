@@ -6,9 +6,9 @@ let answer;
 
 class PostServices {
 
-  async create(data) {
+  async create(data /*date*/) {
     try {
-      await postRepository.createPost(data).then(answer);
+      await postRepository.createPost(data /*date*/).then(answer);
       return answer;
     } catch (e) {
       console.log('Services error', e);

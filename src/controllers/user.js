@@ -1,6 +1,6 @@
 const userService = require('../services/user');
 
-  let answer;
+let answer;
 class UserController {
 
   async create(req, res) {
@@ -17,7 +17,7 @@ class UserController {
 
     try {
       await userService.prototype.getUser(req.body).then(answer);
-          res.json(answer, 201, 'success');
+          res.status(answer);
     } catch (error) {
       return res.status(error.status).json(error);
     }
@@ -34,7 +34,6 @@ class UserController {
   }
 
   async delete(req, res) {
-
     try {
       await userService.prototype.deleteUser(req.body);
       return res.status(201).json('User Delete Successfully', 201, 'success');
@@ -52,5 +51,7 @@ class UserController {
       return res.status(error.status).json(error);
     }
   }
+
 }
+
 module.exports = UserController;

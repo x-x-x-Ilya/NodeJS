@@ -3,9 +3,10 @@ const postService = require('../services/post');
 class PostController {
 
   async create(req, res) {
-
+    //const date = new Date(req.body.tour_date).toISOString();
     try {
-      await postService.prototype.create(req.body);
+
+      await postService.prototype.create(req.body/*date*/);
       return res.status(201).json('Post Create Successfully', 201, 'success');
     } catch (error) {
       return res.status(error.status).json(error);

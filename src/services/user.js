@@ -2,54 +2,50 @@ const Repository = require('../repositories/user');
 
 const userRepository = new Repository();
 
+let answer;
+
 class userServices {
 
   async createUser(data) {
-    try {
-      await userRepository.createUser(data).then(answer);
-      return answer;
-    } catch (e) {
-      console.log('Services error', e);
-      return 404;
+      if(data.isEmail) {
+          await userRepository.createUser(data).then(answer);
+          return answer;
+      }
+      else {
+          return 406;
+      }
     }
-  }
-
 
   async getUser(data) {
-    try {
       await userRepository.getUser(data).then(answer);
       return answer;
-    } catch (e) {
-      console.log('Services error', e);
-      return 404;
-    }
   }
 
   async getAllUser() {
-    try {
+
       await userRepository.getAllUsers().then(answer);
       return answer;
-    } catch (e) {
-      console.log('Services error', e);
-    }
   }
 
   async deleteUser(data) {
-    try {
-      await userRepository.deleteUser(data).then(answer);
-      return answer;
-    } catch (e) {
-      throw new console.log('Services error', e);
-    }
+      if(await this.getUser(data) === 200) {
+          await userRepository.deleteUser(data).then(answer);
+          return answer;
+      }
+      else {
+          return 404;
+      }
   }
 
   async updateUser(data) {
-    try {
-      await userRepository.updateUser(data).then(answer);
-      return answer;
-    } catch (e) {
-      throw new console.log('Services error', e);
-    }
+      if(await this.getUser(data) === 200) {
+        //await userRepository.getUser(data);
+        await userRepository.updateUser(data).then(answer);
+        return answer;
+      }
+      else {
+          return 404;
+      }
   }
 
 }

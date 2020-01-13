@@ -5,11 +5,11 @@ const PostTag = sequelize.define('posts_tags', {
   id: {
     type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true,
   },
-  post_id: { type: Sequelize.INTEGER, allowNull: false },
-  tag_id: { type: Sequelize.INTEGER, allowNull: false },
+  postId: { type: Sequelize.INTEGER, allowNull: false, field: 'post_id' },
+  tagId: { type: Sequelize.INTEGER, allowNull: false, field: 'tag_id' },
 }, {/* options */});
 
-PostTag.associate = function (models) {
+PostTag.associate = (models) => {
   PostTag.belongsTo(models.Post, { foreignKey: 'post_id' });
   PostTag.belongsTo(models.Tag, { foreignKey: 'tag_id' });
 };

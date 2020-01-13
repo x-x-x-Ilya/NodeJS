@@ -10,7 +10,7 @@ const Tag = sequelize.define('tags', {
   },
 }, {/* options */});
 
-Tag.associate = function (models) {
+Tag.associate = (models) => {
   Tag.belongsToMany(models.Post, { through: 'posts_tags', foreignKey: 'tags_id', as: 'posts' });
 };
 

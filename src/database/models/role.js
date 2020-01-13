@@ -6,7 +6,7 @@ const Role = sequelize.define('roles', {
   name: { type: Sequelize.STRING, allowNull: false },
 }, {/* options */});
 
-Role.associate = function (models) {
+Role.associate = (models) => {
   Role.belongsToMany(models.User, { foreignKey: 'role_id', as: 'users', through: 'users_roles' });
 };
 

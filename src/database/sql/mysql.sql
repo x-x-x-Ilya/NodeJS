@@ -33,7 +33,7 @@ CREATE TABLE `posts` (
 	`user_id`    INT          NOT NULL,
 	`img`        VARCHAR(255) NOT NULL,
 	`caption`    VARCHAR(255) NOT NULL,
-	`created_at` DATE         NOT NULL,
+	`created_at` DATETIME     NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
