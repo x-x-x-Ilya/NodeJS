@@ -2,31 +2,30 @@ const Repository = require('../repositories/like');
 
 const likeRepository = new Repository();
 
+let answer;
+
 class likeServices {
+
   async create(data) {
-    try {
-      return await likeRepository.createLike(data);
-    } catch (e) {
-      throw new console.log('undefined error Something wrong');
+    if (await likeServices.prototype.get(data) === 200) {
+    return 404;
+    }
+    else {
+      await likeRepository.createLike(data).then(answer);
+      return answer
     }
   }
 
-  /* async get(data) {
-        return await likeRepository.takeLike(data);
-    }
-*/
   async delete(data) {
-    try {
+    if (await likeServices.prototype.get(data) === 200)
       await likeRepository.deleteLike(data);
-    } catch (e) {
-      throw new console.log('undefined error Something wrong');
-    }
   }
-/*
-    async getAll(data) {
-        return await likeRepository.getAllLikes(data);
-    }
-  */
+
+  async get(data) {
+    await likeRepository.getLike(data).then(answer);
+    return answer;
+  }
+
 }
 
 module.exports = likeServices;

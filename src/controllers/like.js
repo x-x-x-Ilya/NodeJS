@@ -1,6 +1,7 @@
 const likeService = require('../services/like');
 
 class LikeController {
+
   create(req, res) {
     // res.send(req.params);     // req.body === {};
     try {
@@ -18,6 +19,7 @@ class LikeController {
       return res.status(error.status).json(error);
     }
   }
+
 }
 
 module.exports = LikeController;

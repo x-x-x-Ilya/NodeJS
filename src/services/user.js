@@ -22,7 +22,6 @@ class userServices {
   }
 
   async getAllUser() {
-
       await userRepository.getAllUsers().then(answer);
       return answer;
   }

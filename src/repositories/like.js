@@ -2,11 +2,22 @@ const Like = require('../database/models/like');
 
 class LikeRepository {
 
-  async createLike(userId, postId) {
-      Like.create({
-        userId: userId,
-        postId: postId,
-      });
+    async getLike(data) {
+        Like.findOne({
+            where: {
+                userId: data.userId,
+                postId: data.postId,
+            }
+        });
+        return 200;
+    }
+
+  async createLike(data) {
+    Like.create({
+      userId: data.userId,
+      postId: data.postId,
+    });
+    return 201;
   }
 
   async deleteLike(data) {
@@ -14,6 +25,7 @@ class LikeRepository {
         userId: data.userId,
         postId: data.postId,
       });
+      return 200;
   }
 
 }

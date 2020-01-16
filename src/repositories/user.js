@@ -1,6 +1,4 @@
 const User = require('../database/models/user');
-//const Role = require('../database/models/role');
-//const Post = require('../database/models/post');
 
 class UserRepository {
 
@@ -38,8 +36,8 @@ class UserRepository {
           console.log(note.get({plain: true}));
           /*console.log('********************');
           console.log(
-              `id: ${note.id}, 
-              email: ${note.email}, 
+              `id: ${note.id},
+              email: ${note.email},
               firstName: ${note.firstName},
               lastName: ${note.lastName},
               deleteReq: ${note.deleteReq}`);*/
@@ -83,10 +81,11 @@ class UserRepository {
   }
 
   async deleteUser(data) {
-      await User.destroy({
+      await User.update({
         where: {
           id: data.id,
         },
+          deleteReq: true,
       });
       return 200;
   }

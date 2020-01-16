@@ -2,10 +2,10 @@ const Post = require('../database/models/post');
 
 class PostRepository {
 
-  async createPost(data/*, date*/) {
+  async createPost(data) {
       await Post.create({
         userId: data.userId,
-        createdAt: new Date(),   // date.toDate(),
+        createdAt: new Date(),   // update database/table
         img: data.img,
         caption: data.caption,
       });
@@ -18,17 +18,18 @@ class PostRepository {
       where: {
         id: data.id,
       },
-        }).then((note) => {
+    }).then((note) => {
       console.log(note.get({plain: true}));
-      console.log('********************');
+      /*console.log('********************');
       console.log(
           `id: ${note.id}, 
               userId: ${note.userId}, 
               createdAt: ${note.createdAt}, 
               img: ${note.img}, 
-              caption: ${note.caption}`);
+              caption: ${note.caption}`);*/
     });
-
+    return 200;
+  }
     /*await Post.findAll({
       attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
       where: {
@@ -45,9 +46,10 @@ class PostRepository {
               caption: ${note.caption}`);
     });*/
 
-  }
+
 
   async updatePost(data) {
+
       await Post.update({
         where: {
           id: data.id,
