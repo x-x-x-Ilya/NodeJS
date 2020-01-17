@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../sequelize');
+const database = require('../sequelize');
 
-const Tag = sequelize.define('tags', {
+const Tag = database.define('tags', {
   id: {
     type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true,
   },

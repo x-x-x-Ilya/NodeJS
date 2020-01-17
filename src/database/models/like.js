@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../sequelize');
+const database = require('../sequelize');
 
-const Like = sequelize.define('likes', {
+const Like = database.define('likes', {
   id: {
     type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true,
   },
-  userId: { type: Sequelize.INTEGER, allowNull: false, field: 'user_id'  },
+  userId: { type: Sequelize.INTEGER, allowNull: false, field: 'user_id' },
   postId: { type: Sequelize.INTEGER, allowNull: false, field: 'post_id' },
 }, {/* options */});
 

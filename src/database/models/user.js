@@ -1,7 +1,7 @@
 const Sequel = require('sequelize');
-const db = require('../sequelize');
+const database = require('../sequelize');
 
-const User = db.define('users', {
+const User = database.define('users', {
   id: {
     type: Sequel.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true,
   },

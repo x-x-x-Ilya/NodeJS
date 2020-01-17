@@ -20,7 +20,7 @@ const runApp = () => {
     app.use(routes);
     app.use(errorCatcher);
   } catch (err) {
-    console.log(`${err} Error app cannot start(app.js)`);
+    console.log(`${err} (app.js)`);
   }
 };
 

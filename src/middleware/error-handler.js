@@ -4,8 +4,6 @@ const express = require('express');
 const app = express();
 // const app = require('../app');
 
-
-// catch 404 and forward to error handler
 exports.errorHandler = () => {
   app.use((req, res, next) => {
     next(createError(404));
