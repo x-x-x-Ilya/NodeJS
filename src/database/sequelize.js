@@ -1,7 +1,7 @@
-const Sequel = require('sequelize');
+const Sequelize = require('sequelize');
 
 try {
-  module.exports = new Sequel(process.env.DB_HOST, process.env.DB_USER, process.env.DB_PASS, {
+  module.exports = new Sequelize(process.env.DB_HOST, process.env.DB_USER, process.env.DB_PASS, {
     dialect: 'mysql',
     host: process.env.HOST,
     dialectOptions: { connectTimeout: 1000 },
@@ -13,5 +13,5 @@ try {
     },
   });
 } catch (e) {
-  console.log(' sequelize.js doesnt work');
+  console.log(e, '(sequelize.js)');
 }

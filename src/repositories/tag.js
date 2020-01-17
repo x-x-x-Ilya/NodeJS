@@ -3,19 +3,14 @@ const Tag = require('../database/models/tag');
 class TagRepository {
 
   async createTag(data) {
-    try {
+
       await Tag.create({
         name: data.name,
       });
       return 201;
-    } catch (e) {
-      console.log('Repositories error', e);
-      return 404; // не отправляет 404 при ошибке, но обрабатывает ее.
-    }
   }
 
   async getTag(data) {
-    try {
       await Tag.findOne({
        /* where: {
          user id: data.user id,
@@ -23,48 +18,39 @@ class TagRepository {
         },*/
       }).then((note) => {
         console.log(note.get({plain: true}));
-        console.log('********************');
+        /*console.log('********************');
         console.log(
             `id: ${note.id}, 
               name: ${note.name}, 
-              user_id: ${note.user_id}, 
-              post_id: ${note.post_id},` );
+              user_id: ${note.userId}, 
+              post_id: ${note.postId},` );*/
       });
       return 200;
-    } catch (e) {
-      console.log(e);
-      return 404;
-    }
   }
 
   async getAllTags(data) { // &
-    try {
       await Tag.findAll({
+          /* where: {
+  user id: data.user id,
+  post id: data.post id,
+ },*/
       }).then(tags => {
         console.log(tags.map(tag => tag.toJSON()))
       });
       return 200;
-    } catch (e) {
-      console.log('Repositories error', e);
-      return 404;
-    }
+
   }
 
   async updateTag(data) {
 
-    try {
       await Tag.update({
         /* where: {
-          user id: data.user id,
-          post id: data.post id,
+          user Id: data.user Id,
+          post Id: data.post Id,
          },*/
         name: data.name,
       });
       return 200;
-    } catch (e) {
-      console.log('Repositories error', e);
-      return 404;
-    }
   }
 
 }

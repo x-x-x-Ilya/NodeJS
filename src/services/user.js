@@ -4,52 +4,66 @@ const userRepository = new Repository();
 
 class userServices {
 
-  async createUser(data) {
-    try {
-      await userRepository.createUser(data).then(answer);
-      return answer;
-    } catch (e) {
-      console.log('Services error', e);
-      return 404;
-    }
-  }
+   async createUser(data) {
 
+       if( data.email     === undefined ||
+           data.firstName === undefined ||
+           data.lastName  === undefined ||
+           data.password  === undefined) {
+           console.log('data is undefined, check it');
+           return false;
+       }
+          else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
+           await userRepository.createUser(data);
+           return true;
+       }
+          else {
+          console.log('email is not valid, use true email');
+          return false;
+          }
+   }
 
   async getUser(data) {
-    try {
-      await userRepository.getUser(data).then(answer);
-      return answer;
-    } catch (e) {
-      console.log('Services error', e);
-      return 404;
-    }
+
+       if( data.email     === undefined &&
+          (data.firstName === undefined || data.lastName  === undefined) &&
+          data.id === undefined) {
+          console.log('data is undefined, check it');
+          return false;
+       }
+       else {
+           await userRepository.getUser(data);
+       }
+
   }
 
   async getAllUser() {
-    try {
-      await userRepository.getAllUsers().then(answer);
-      return answer;
-    } catch (e) {
-      console.log('Services error', e);
-    }
+      await userRepository.getAllUsers().then(() => {
+          return true;
+      });
   }
 
   async deleteUser(data) {
-    try {
-      await userRepository.deleteUser(data).then(answer);
-      return answer;
-    } catch (e) {
-      throw new console.log('Services error', e);
-    }
+      //if(await userRepository.getUser(data) === ?) {
+      if(data.email === undefined && data.id === undefined) {
+          console.log('data is undefined, check it');
+          return false;
+      }
+      else
+      await userRepository.deleteUser(data).then(() => {
+          return true;
+      });
   }
 
   async updateUser(data) {
-    try {
-      await userRepository.updateUser(data).then(answer);
-      return answer;
-    } catch (e) {
-      throw new console.log('Services error', e);
-    }
+      //if(await userRepository.getUser(data) === ?) {
+        await userRepository.updateUser(data).then(() => {
+            return true;
+        });
+      //}
+      //else {
+       //   return 404;
+      //}
   }
 
 }

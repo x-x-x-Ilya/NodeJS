@@ -1,7 +1,7 @@
-const sequelize = require('./sequelize');
+const database = require('./sequelize');
 
 exports.authentication = () => {
-  sequelize.authenticate()
+    database.authenticate()
     .then(() => {
       console.log('Connection has been established successfully.');
     }).catch((err) => {
@@ -10,7 +10,7 @@ exports.authentication = () => {
 };
 
 exports.ModelsSynchronization = () => {
-  sequelize.sync()
+    database.sync()
     .then(() => {
       console.log('synchronization has been established successfully.');
     }).catch((err) => {

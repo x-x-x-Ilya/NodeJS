@@ -1,15 +1,15 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../sequelize');
+const database = require('../sequelize');
 
-const Like = sequelize.define('likes', {
+const Like = database.define('likes', {
   id: {
     type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true,
   },
-  user_id: { type: Sequelize.INTEGER, allowNull: false },
-  post_id: { type: Sequelize.INTEGER, allowNull: false },
+  userId: { type: Sequelize.INTEGER, allowNull: false, field: 'user_id' },
+  postId: { type: Sequelize.INTEGER, allowNull: false, field: 'post_id' },
 }, {/* options */});
 
-Like.associate = function (models) {
+Like.associate = (models) => {
   Like.belongsTo(models.User, { foreignKey: 'user_id' });
   Like.belongsTo(models.Post, { foreignKey: 'post_id' });
 };

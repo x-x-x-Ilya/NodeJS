@@ -1,7 +1,7 @@
 const express = require('express');
 
-// const LikeController = require('../controllers/like');
-// const LikeController = new LikeController();
+const LikeController = require('../controllers/like');
+const likeController = new LikeController();
 
 const router = express.Router();
 
@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
 });
 
 // how to take params?
-// router.post('/create', LikeController.create);
-// router.get('/getall', LikeController.getAll);
-// router.delete('/delete', LikeController.delete);
+router.post('/create', likeController.create);
+//router.get('/getall', likeController.getAll);
+router.delete('/delete', likeController.delete);
 
 module.exports = router;

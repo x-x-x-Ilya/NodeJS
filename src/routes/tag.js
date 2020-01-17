@@ -11,9 +11,8 @@ router.get('/', (req, res) => {
 });
 
 router.post('/create', tagController.create);
-router.get('/get', tagController.get);
 router.get('/getall', tagController.getAll);
-//router.delete('/delete', tagController.delete);
 router.put('/update', tagController.update);
+router.get('/get', tagController.get);
 
 module.exports = router;

@@ -1,27 +1,33 @@
 const Like = require('../database/models/like');
 
 class LikeRepository {
-  async createLike(userId, postId) {
-    try {
-      Like.create({
-        user_id: userId,
-        post_id: postId,
-      });
-    } catch (e) {
-      throw new console.log('undefined error Something wrong');
+
+    async getLike(data) {
+        Like.findOne({
+            where: {
+                userId: data.userId,
+                postId: data.postId,
+            }
+        });
+        return 200;
     }
+
+  async createLike(data) {
+    Like.create({
+      userId: data.userId,
+      postId: data.postId,
+    });
+    return 201;
   }
 
   async deleteLike(data) {
-    try {
       Like.destroy({
-        user_id: data.userId,
-        post_id: data.postId,
+        userId: data.userId,
+        postId: data.postId,
       });
-    } catch (e) {
-      throw new console.log('undefined error Something wrong');
-    }
+      return 200;
   }
+
 }
 
 module.exports = LikeRepository;
