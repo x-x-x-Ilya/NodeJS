@@ -12,11 +12,11 @@ router.get('/', (req, res) => {
 
 
 router.post('/create', Controller.create);
-router.patch('/update', Controller.update);
+router.post('/update', Controller.update);
 router.get('/getall', Controller.getAll);
 router.delete('/delete', Controller.delete);
 router.get('/get', Controller.get);
-//router.get('/getallGlobal', Controller.getAllGlobal);   // to check news
+router.get('/news', Controller.getAllPostsAsNews);   // to check news
 
 
 module.exports = router;
