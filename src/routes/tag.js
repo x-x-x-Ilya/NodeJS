@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
 router.post('/create', tagController.create);
 router.get('/getall', tagController.getAll);
-router.put('/update', tagController.update);
+router.post('/update', tagController.update);
 router.get('/get', tagController.get);
 
 module.exports = router;

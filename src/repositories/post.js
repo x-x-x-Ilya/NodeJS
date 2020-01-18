@@ -3,92 +3,81 @@ const Post = require('../database/models/post');
 class PostRepository {
 
   async createPost(data) {
-      await Post.create({
+    await Post.create({
         userId: data.userId,
-        createdAt: new Date(),   // update database/table
+        createdAt: new Date(),
         img: data.img,
         caption: data.caption,
       });
-    return 201;
   }
 
   async getPost(data) {
-    await Post.findOne({
-      attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
-      where: {
-        id: data.id,
-      },
-    }).then((note) => {
-      console.log(note.get({plain: true}));
-      /*console.log('********************');
-      console.log(
-          `id: ${note.id}, 
-              userId: ${note.userId}, 
-              createdAt: ${note.createdAt}, 
-              img: ${note.img}, 
-              caption: ${note.caption}`);*/
-    });
-    return 200;
+      await Post.findOne({
+          attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
+          where: {
+              id: data.id,
+          },
+      }).then((post) => {
+          console.log(post.get({plain: true}));
+      });
+      /*
+      if (data.id === undefined) {
+          await Post.findAll({
+              attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
+              where: {
+                  id: data.id,   // FIND BY TAGS
+              },
+          }).then((posts) => {
+              console.log(posts.map(post => post.toJSON()));
+          });
+      }
   }
-    /*await Post.findAll({
-      attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
-      where: {
-        id: data.id,   // FIND BY TAGS
-      },
-    }).then((note) => {
-      console.log(note.get({plain: true}));
-      console.log('********************');
-      console.log(
-          `id: ${note.id},
-              userId: ${note.userId},
-              createdAt: ${note.createdAt},
-              img: ${note.img},
-              caption: ${note.caption}`);
-    });*/
-
+*/
+  }
 
 
   async updatePost(data) {
 
-      await Post.update({
-        where: {
-          id: data.id,
-        },
-        createdAt: new Date(),
-        img: data.img,
-        caption: data.caption,
-      }).then((note) => {
-        console.log(note.get({plain: true}));
-        /*console.log('********************');
-        console.log(
-            `id: ${note.id}, 
-              userId: ${note.userId},
-              createdAt: ${note.createdAt},
-              img: ${note.img}, 
-              caption: ${note.caption}`);*/
+      await Post.findOne({
+          where: {
+              id: data.id,
+          },
+      }).then((post) => {
+          post.update({
+              createdAt: new Date(),
+              img: data.img,
+              caption: data.caption + ' (updated)'
+          });
       });
-    return 200;
   }
 
   async deletePost(data) {
-      await Post.destroy({
+      await Post.findOne({
         where: {
-          id: data.userId,
+          id: data.id,
         }
+      }).then((post) => {
+          console.log(post.get({plain: true}));
+          post.destroy();
       });
-    return 200;
   }
 
   async getAllPosts(data) {
       await Post.findAll({
         where: {
-          id: data.userId,
+            userId: data.userId,
         }
       }).then(posts => {
         console.log(posts.map(post => post.toJSON()))
       });
-    return 200;
   }
+
+    async getAllPostsAsNews() {
+        await Post.findAll({
+        }).then(posts => {
+            console.log(posts.map(post => post.toJSON()))
+        });
+    }
 
 }
 

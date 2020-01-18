@@ -1,55 +1,40 @@
 const Repository = require('../repositories/post');
+const User = require('../database/models/user');
 
 const postRepository = new Repository();
 
-let answer;
-
 class PostServices {
 
-  async create(data /*date*/) {
-    try {
-      await postRepository.createPost(data /*date*/).then(answer);
-      return answer;
-    } catch (e) {
-      console.log('Services error', e);
-    }
+  async create(data) {
+    // add test is url   /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi
+    // add test userId is true
+    await postRepository.createPost(data);
   }
 
   async get(data) {
-    try {
-      await postRepository.getPost(data).then(answer);
-      return answer;
-    } catch (e) {
-      console.log('Services error', e);
-    }
+      await postRepository.getPost(data);
+      // add response if not exists
   }
 
   async delete(data) {
-    try {
-      await postRepository.deletePost(data).then(answer);
-      return answer;
-    } catch (e) {
-      console.log('Services error', e);
-    }
+      await postRepository.deletePost(data);
   }
 
   async update(data) {
-    try {
-      await postRepository.updatePost(data).then(answer);
-      return answer;
-    } catch (e) {
-      console.log('Services error', e);
-    }
+      await postRepository.updatePost(data);
   }
 
   async getAll(data) {
-    try {
-      await postRepository.getAllPosts(data).then(answer);
-      return answer;
-    } catch (e) {
-      console.log('Services error', e);
-    }
+      if(User.findOne(data) === undefined){
+          console.log('User with this id is not exists');
+      }
+      else
+      await postRepository.getAllPosts(data);
   }
+    async getAllPostsAsNews() {
+            await postRepository.getAllPostsAsNews();
+    }
+
 }
 
 module.exports = PostServices;

@@ -7,7 +7,6 @@ class TagRepository {
       await Tag.create({
         name: data.name,
       });
-      return 201;
   }
 
   async getTag(data) {
@@ -18,14 +17,7 @@ class TagRepository {
         },*/
       }).then((note) => {
         console.log(note.get({plain: true}));
-        /*console.log('********************');
-        console.log(
-            `id: ${note.id}, 
-              name: ${note.name}, 
-              user_id: ${note.userId}, 
-              post_id: ${note.postId},` );*/
       });
-      return 200;
   }
 
   async getAllTags(data) { // &
@@ -50,7 +42,6 @@ class TagRepository {
          },*/
         name: data.name,
       });
-      return 200;
   }
 
 }
