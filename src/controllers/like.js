@@ -4,19 +4,34 @@ class LikeController {
 
   create(req, res) {
     try {
-      return res.status(201).json(likeService.prototype.create(req.body), 'Like Create Successfully', 201, 'success');
+      likeService.prototype.create(req.body).then(() => {
+        return res.status(201).json('Like has been created successfully');
+      });
     } catch (error) {
-      return res.status(error.status).json(error);
+      return res.status(404).json(error);
     }
   }
 
   delete(req, res) {
     try {
-      return res.status(201).json(likeService.prototype.delete(req.body), 'Like Delete Successfully', 201, 'success');
+      likeService.prototype.delete(req.body).then(() => {
+        return res.status(201).json('Like has been deleted successfully');
+      });
     } catch (error) {
-      return res.status(error.status).json(error);
+      return res.status(404).json(error);
     }
   }
+
+  getAll(req, res) {
+    try {
+      likeService.prototype.getAll(req.body).then(() => {
+        return res.status(201).json('Likes have been gated successfully');
+      });
+      } catch (error) {
+      return res.status(404).json(error);
+    }
+  }
+
 
 }
 
