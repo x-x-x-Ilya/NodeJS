@@ -1,42 +1,40 @@
 const tagService = require('../services/tag');
 
-let answer;
-
 class TagController {
 
     async create(req, res) {
         try {
-            await tagService.prototype.createTag(req.body).then(answer);  // user_id && created_at == ?
-            return res.status(answer);
+            await tagService.prototype.createTag(req.body).then(answer);
+            return res.status(200).json('Tags have been created successfully');
         } catch (error) {
-            return res.status(error.status).json(error);
+            return res.status(404).json(error);
         }
     }
 
     async get(req, res) {
         try {
             await tagService.prototype.getTag(req.body).then(answer);
-            res.json(answer, 201, 'success');
+            return res.status(201).json('Tag has been tacked successfully');
         } catch (error) {
-            return res.status(error.status).json(error);
+            return res.status(404).json(error);
         }
     }
 
     async getAll(req, res) {
         try {
             await tagService.prototype.getAllTags().then(answer);
-            return answer;
+            return res.status(201).json('Tags  have been tacked successfully');
         } catch (error) {
-            return res.status(error.status).json(error);
+            return res.status(404).json(error);
         }
     }
 
     async update(req, res) {
         try {
             await tagService.prototype.updateTag(req.body);
-            return res.status(201).json('User Delete Successfully', 201, 'success');
+            return res.status(201).json('Tags  have been deleted successfully');
         } catch (error) {
-            return res.status(error.status).json(error);
+            return res.status(404).json(error);
         }
     }
 }
