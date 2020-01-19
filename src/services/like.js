@@ -18,4 +18,4 @@ class likeServices {
 
 }
 
-module.exports = new likeServices();
+module.exports = likeServices;

@@ -11,11 +11,9 @@ class userServices {
            data.lastName  === undefined ||
            data.password  === undefined) {
            return 'Services error, data is undefined, check it';
-       }
-          else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
+       } else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
            return await userRepository.createUser(data);
-       }
-          else {
+       } else {
           return 'Services error, email is not valid, use true email';
           }
    }

@@ -1,11 +1,12 @@
-const tagService = require('../services/tag');
+const TagService = require('../services/tag');
+
+const tagService = new TagService();
 
 class TagController {
 
     async create(req, res) {
         try {
-            await tagService.prototype.createTag(req.body).then(answer);
-            return res.status(200).json('Tags have been created successfully');
+            return res.status(200).json(await tagService.createTag(req.body));
         } catch (error) {
             return res.status(404).json(error);
         }
@@ -13,8 +14,7 @@ class TagController {
 
     async get(req, res) {
         try {
-            await tagService.prototype.getTag(req.body).then(answer);
-            return res.status(201).json('Tag has been tacked successfully');
+            return res.status(201).json(await tagService.getTag(req.body));
         } catch (error) {
             return res.status(404).json(error);
         }
@@ -22,8 +22,7 @@ class TagController {
 
     async getAll(req, res) {
         try {
-            await tagService.prototype.getAllTags().then(answer);
-            return res.status(201).json('Tags  have been tacked successfully');
+            return res.status(201).json(await tagService.getAllTags());
         } catch (error) {
             return res.status(404).json(error);
         }
@@ -31,8 +30,7 @@ class TagController {
 
     async update(req, res) {
         try {
-            await tagService.prototype.updateTag(req.body);
-            return res.status(201).json('Tags  have been deleted successfully');
+            return res.status(201).json(await tagService.updateTag(req.body));
         } catch (error) {
             return res.status(404).json(error);
         }
