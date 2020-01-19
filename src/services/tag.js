@@ -5,26 +5,20 @@ const tagRepository = new TagRepository();
 class tagServices {
 
     async createTag(data) {
-            await tagRepository.createTag(data).then(answer);
-            return answer;
+        return await tagRepository.createTag(data);
     }
 
-
     async getTag(data) {
-            await tagRepository.getTag(data).then(answer);
-            return answer;
+        return await tagRepository.getTag(data);
     }
 
     async getAllTags() {
-            await tagRepository.getAllTags().then(answer);
-            return answer;
+        return await tagRepository.getAllTags();
     }
 
     async updateTag(data) {
-            await tagRepository.updateTag(data).then(answer);
-            return answer;
+        return await tagRepository.updateTag(data);
     }
-
 
 }
 module.exports = tagServices;

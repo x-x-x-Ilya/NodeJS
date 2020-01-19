@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/controllers/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/tag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/tag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/tag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/tag.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/role.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repositories/role.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/role.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +133,8 @@
       <workItem from="1579155581239" duration="4674000" />
       <workItem from="1579262147916" duration="16797000" />
       <workItem from="1579330037717" duration="9529000" />
+      <workItem from="1579353415192" duration="4292000" />
+      <workItem from="1579415722189" duration="5479000" />
     </task>
     <servers />
   </component>
@@ -159,6 +163,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="65" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1577932247239" />
+    <state x="534" y="212" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579419762396">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="534" y="212" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1579419762396" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1578002557938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

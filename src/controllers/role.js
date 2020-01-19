@@ -1,12 +1,12 @@
-const TagService = require('../services/tag');
+const RoleService = require('../services/role');
 
-const tagService = new TagService();
+const roleServices = new RoleService();
 
-class TagController {
+class RoleController {
 
     async create(req, res) {
         try {
-            return res.status(200).json(await tagService.createTag(req.body));
+            return res.status(200).json(await roleServices.createRole(req.body));
         } catch (error) {
             return res.status(404).json(error);
         }
@@ -14,15 +14,15 @@ class TagController {
 
     async get(req, res) {
         try {
-            return res.status(201).json(await tagService.getTag(req.body));
+            return res.status(200).json(await roleServices.getRole(req.body));
         } catch (error) {
             return res.status(404).json(error);
         }
     }
 
-    async getAll(req, res) {
+    async delete(req, res) {
         try {
-            return res.status(201).json(await tagService.getAllTags());
+            return res.status(200).json(await roleServices.deleteRole(req.body));
         } catch (error) {
             return res.status(404).json(error);
         }
@@ -30,10 +30,12 @@ class TagController {
 
     async update(req, res) {
         try {
-            return res.status(201).json(await tagService.updateTag(req.body));
+            return res.status(200).json(await roleServices.updateRole(req.body));
         } catch (error) {
             return res.status(404).json(error);
         }
     }
+
 }
-module.exports = TagController;
+
+module.exports = RoleController;

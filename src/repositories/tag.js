@@ -3,8 +3,7 @@ const Tag = require('../database/models/tag');
 class TagRepository {
 
   async createTag(data) {
-
-      await Tag.create({
+      return await Tag.create({
         name: data.name,
       });
   }
@@ -20,28 +19,26 @@ class TagRepository {
       });
   }
 
-  async getAllTags(data) { // &
-      await Tag.findAll({
-          /* where: {
-  user id: data.user id,
-  post id: data.post id,
- },*/
-      }).then(tags => {
-        console.log(tags.map(tag => tag.toJSON()))
+  async getAllTags(data) {
+      return await Tag.findAll({
+           where: {
+     //   postId: data.postId
+        },
       });
-      return 200;
-
   }
 
   async updateTag(data) {
-
-      await Tag.update({
+      const tag = await Tag.findOne({
         /* where: {
           user Id: data.user Id,
           post Id: data.post Id,
          },*/
-        name: data.name,
+
       });
+      await tag.update({
+          name: data.name
+      });
+      return tag;
   }
 
 }

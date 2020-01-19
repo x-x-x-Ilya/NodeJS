@@ -31,9 +31,9 @@ CREATE TABLE `roles` (
 CREATE TABLE `posts` (
 	`id`         INT          NOT NULL AUTO_INCREMENT,
 	`user_id`    INT          NOT NULL,
-	`img`        VARCHAR(255) NOT NULL,
+	`img`        VARCHAR(255) NULL,
 	`caption`    VARCHAR(255) NOT NULL,
-	`created_at` DATETIME     NOT NULL,
+	`created_at` TIMESTAMP    NOT NULL,
 	PRIMARY KEY (`id`)
 );
 

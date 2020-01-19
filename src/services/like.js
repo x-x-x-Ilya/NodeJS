@@ -4,16 +4,16 @@ const likeRepository = new Repository();
 
 class likeServices {
 
-  async create(data) {
-      await likeRepository.createLike(data);
+   async create(data) {
+       return await likeRepository.createLike(data);
   }
 
   async delete(data) {
-      await likeRepository.deleteLike(data);
+      return await likeRepository.deleteLike(data);
   }
 
   async getAll(data) {
-    await likeRepository.getLikes(data);
+    return await likeRepository.getLikes(data);
   }
 
 }
