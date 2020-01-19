@@ -1,12 +1,12 @@
-const postService = require('../services/post');
+const PostService = require('../services/post');
+
+const postService = new PostService();
 
 class PostController {
 
   async create(req, res) {
     try {
-      await postService.prototype.create(req.body).then(() => {
-        return res.status(201).json('Post Create Successfully');
-        });
+        return res.status(201).json(await postService.create(req.body));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -14,8 +14,7 @@ class PostController {
 
   async update(req, res) {
     try {
-      await postService.prototype.update(req.body);
-      return res.status(201).json('Post has been updated successfully');
+      return res.status(201).json(await postService.update(req.body));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -23,8 +22,7 @@ class PostController {
 
   async delete(req, res) {
     try {
-      await postService.prototype.delete(req.body);
-      return res.status(201).json('Post has been deleted successfully');
+      return res.status(201).json(await postService.delete(req.body));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -32,9 +30,7 @@ class PostController {
 
   async get(req, res) {
     try {
-      await postService.prototype.get(req.body).then(() => {
-        return res.status(201).json('Post has been finned successfully');
-      });
+        return res.status(201).json(await postService.get(req.body));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -42,8 +38,7 @@ class PostController {
 
   async getAll(req, res) {
     try {
-      await postService.prototype.getAll(req.body);
-      return res.status(201).json('Posts of user have been finned successfully');
+      return res.status(201).json(await postService.getAll(req.body));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -51,8 +46,7 @@ class PostController {
 
   async getAllPostsAsNews(req, res) {
     try {
-      await postService.prototype.getAllPostsAsNews();
-      return res.status(201).json('News have been finned successfully');
+      return res.status(201).json(await postService.getAllPostsAsNews());
     } catch (error) {
       return res.status(404).json(error);
     }

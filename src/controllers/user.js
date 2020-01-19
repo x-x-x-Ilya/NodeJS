@@ -6,8 +6,7 @@ class UserController {
 
   async create(req, res) {
     try {
-       const answer = await userServices.createUser(req.body);
-       return res.status(200).json(answer);
+       return res.status(200).json(await userServices.createUser(req.body));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -15,8 +14,7 @@ class UserController {
 
   async get(req, res) {
     try {
-      const answer = await userServices.getUser(req.body);
-      return res.status(200).json(answer);
+      return res.status(200).json(await userServices.getUser(req.body));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -24,8 +22,7 @@ class UserController {
 
   async getAll(req, res) {
     try {
-      const answer = await userServices.getAllUser();
-      return res.status(200).json(answer);
+      return res.status(200).json(await userServices.getAllUser());
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -33,8 +30,7 @@ class UserController {
 
   async delete(req, res) {
     try {
-      const answer = await userServices.deleteUser(req.body);
-      return res.status(200).json(answer);
+      return res.status(200).json(await userServices.deleteUser(req.body));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -42,8 +38,7 @@ class UserController {
 
   async update(req, res) {
     try {
-      const answer = await userServices.updateUser(req.body);
-        return res.status(200).json(answer);
+        return res.status(200).json(await userServices.updateUser(req.body));
     } catch (error) {
       return res.status(404).json(error);
     }

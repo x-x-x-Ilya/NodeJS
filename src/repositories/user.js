@@ -3,6 +3,7 @@ const User = require('../database/models/user');
 class UserRepository {
 
     //console.log(user.get({plain: true}));
+    //console.log(posts.map(post => post.toJSON()));
 
   async createUser(data) {
 
@@ -71,7 +72,7 @@ class UserRepository {
                   id: data.id
               }
           });
-          user.destroy({});
+          await user.destroy({});
           return user;
       }
 
@@ -81,8 +82,8 @@ class UserRepository {
                   email: data.email
               }
           });
-              user.destroy({});
-              return user;
+          await user.destroy({});
+          return user;
       }
   }
 
@@ -99,7 +100,7 @@ class UserRepository {
           if(data.password === undefined) data.password = user.password;
           if(data.deleteReq === undefined) data.deleteReq = user.deleteReq;
 
-           user.update({
+           await user.update({
               email: data.email,
               firstName: data.firstName,
               lastName: data.lastName,
