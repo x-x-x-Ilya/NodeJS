@@ -4,8 +4,8 @@ const likeRepository = new Repository();
 
 class likeServices {
 
-  async create(data) {
-      await likeRepository.createLike(data);
+   create(data) {
+       likeRepository.createLike(data);
   }
 
   async delete(data) {
@@ -18,4 +18,4 @@ class likeServices {
 
 }
 
-module.exports = likeServices;
+module.exports = new likeServices();

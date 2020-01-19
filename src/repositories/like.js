@@ -2,8 +2,8 @@ const Like = require('../database/models/like');
 
 class LikeRepository {
 
-    async getLikes(data) {
-        Like.findAll({
+     getLikes(data) {
+         Like.findAll({
             where: {
                 postId: data.postId,
             }
@@ -12,7 +12,7 @@ class LikeRepository {
         });
     }
 
-  async createLike(data) {
+   createLike(data) {
     Like.create({
       userId: data.userId,
       postId: data.postId,

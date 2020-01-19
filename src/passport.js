@@ -3,8 +3,12 @@ const LocalStrategy = require("passport-local").Strategy;
 const User = require('./database/models/user');
 
 passport.use(new LocalStrategy(
-    function (usernameField, passwordField, done) {
-    User.findOne({username:usernameField},
+    {
+        usernameField: 'login',
+        passwordField: 'password'
+    },
+    function (login, password, done) {
+    User.findOne({username:login},
        function (err, user) {
 
         if (err) {
@@ -13,12 +17,12 @@ passport.use(new LocalStrategy(
 
         if (!user) {
             return done(null, false,
-                {message: 'Incorrect username.'});
+                {message: 'Incorrect username or password.'});
         }
 
-        if (!user.validPassword(passwordField)) {
+        if (!user.validPassword(password)) {
             return done(null, false,
-                {message: 'Incorrect   password.'});
+                {message: 'Incorrect   username or password.'});
         }
 
         return done(null, user);
@@ -26,8 +30,10 @@ passport.use(new LocalStrategy(
 }));
 
 passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    done(null, user);
 });
+
+//req.user.id
 
 passport.deserializeUser(function(id, done) {
     User.findOne({where: {id}}).then((user) => {

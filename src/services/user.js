@@ -10,60 +10,43 @@ class userServices {
            data.firstName === undefined ||
            data.lastName  === undefined ||
            data.password  === undefined) {
-           console.log('data is undefined, check it');
-           return false;
+           return 'Services error, data is undefined, check it';
        }
           else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
-           await userRepository.createUser(data);
-           return true;
+           return await userRepository.createUser(data);
        }
           else {
-          console.log('email is not valid, use true email');
-          return false;
+          return 'Services error, email is not valid, use true email';
           }
    }
 
   async getUser(data) {
-
        if( data.email     === undefined &&
           (data.firstName === undefined || data.lastName  === undefined) &&
           data.id === undefined) {
-          console.log('data is undefined, check it');
-          return false;
+           return 'Services error, data is undefined, check it';
        }
        else {
-           await userRepository.getUser(data);
+           return await userRepository.getUser(data);
        }
-
   }
 
   async getAllUser() {
-      await userRepository.getAllUsers().then(() => {
-          return true;
-      });
+      return await userRepository.getAllUsers();
   }
 
   async deleteUser(data) {
       //if(await userRepository.getUser(data) === ?) {
       if(data.email === undefined && data.id === undefined) {
-          console.log('data is undefined, check it');
-          return false;
+          return 'Services error, data is undefined, check it';
       }
       else
-      await userRepository.deleteUser(data).then(() => {
-          return true;
-      });
+          return await userRepository.deleteUser(data);
   }
 
   async updateUser(data) {
       //if(await userRepository.getUser(data) === ?) {
-        await userRepository.updateUser(data).then(() => {
-            return true;
-        });
-      //}
-      //else {
-       //   return 404;
-      //}
+      return await userRepository.updateUser(data);
   }
 
 }
