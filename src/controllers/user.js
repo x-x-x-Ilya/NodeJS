@@ -1,3 +1,6 @@
+//const passport = require('passport');
+const passport = require('../middleware/passport-middleware');
+
 const UserService = require('../services/user');
 
 const userServices = new UserService();
@@ -43,6 +46,29 @@ class UserController {
       return res.status(404).json(error);
     }
   }
+
+
+
+  login(req, res, next) {
+    passport.authenticate('local',
+        function(err, user, info) {
+          return err
+              ? next(err)
+              : user
+                  ? req.logIn(user, function(err) {
+                    return err
+                        ? next(err)
+                        : res.redirect('/private');
+                  })
+                  : res.redirect('/');
+        }
+    )(req, res, next);
+  };
+
+  logout(req, res) {
+    req.logout();
+    res.redirect('/');
+  };
 
 }
 
