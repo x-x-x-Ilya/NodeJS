@@ -2,8 +2,11 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require('./database/models/user');
 
-passport.use(new LocalStrategy(
-    {
+const express = require('express');
+
+const router = express.Router();
+
+passport.use(new LocalStrategy({
         usernameField: 'login',
         passwordField: 'password'
     },
@@ -29,15 +32,25 @@ passport.use(new LocalStrategy(
     });
 }));
 
+router.post('/login', passport.authenticate('local', {
+        session: true,
+        successRedirect: '/',
+        failureRedirect: '/login',
+    }),
+    function (req, res) {
+        res.redirect('/' + req.user.username);
+    });
+
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
-
-//req.user.id
-
 passport.deserializeUser(function(id, done) {
     User.findOne({where: {id}}).then((user) => {
         done(null, user);
         return null;
     });
 });
+
+module.exports = router;
+
+//req.user.id

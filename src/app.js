@@ -6,6 +6,17 @@ const routes = require('./routes/index');
 const bodyParser = require('./loaders/express');
 
 const app = express();
+
+// Middlewares, которые должны быть определены до passport:
+//app.use(express.cookieParser());
+//app.use(bodyParser());
+const session = require('express-session');
+app.use(session({ secret: 'SECRET' }));
+// Passport:
+const passport = require("passport");
+app.use(passport.initialize());
+app.use(passport.session());
+
 module.exports = app;
 
 const server = require('./server');
