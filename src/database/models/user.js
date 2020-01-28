@@ -22,9 +22,9 @@ const User = database.define('users', {
 }, {/* options */});
 
 User.associate = (models) => {
-  User.hasMany(models.Post, { foreignKey: 'user_id', as: 'posts' });
-  User.hasMany(models.Like, { foreignKey: 'user_id', as: 'likes' });
-  User.belongsToMany(models.Role, { foreignKey: 'user_id', as: 'roles', through: 'users_roles' });
+  User.hasMany(models.Post, { foreignKey: 'userId', as: 'posts' });
+  User.hasMany(models.Like, { foreignKey: 'userId', as: 'likes' });
+  User.belongsToMany(models.Role, { foreignKey: 'userId', as: 'roles', through: 'users_roles' });
 };
 
 module.exports = User;

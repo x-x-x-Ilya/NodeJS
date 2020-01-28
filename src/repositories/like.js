@@ -3,7 +3,7 @@ const Like = require('../database/models/like');
 class LikeRepository {
 
      async getLikes(data) {
-         return await Like.findAll({
+         return  await Like.findAll({
             where: {
                 postId: data.postId,
             }
