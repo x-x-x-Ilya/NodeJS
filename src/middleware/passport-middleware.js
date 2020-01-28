@@ -1,13 +1,18 @@
+const User = require('../database/models/user');
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const User = require('../database/models/user');
 
-passport.use(new LocalStrategy({
+passport.use(new LocalStrategy(
+   /* {
         email: 'login',
         password: 'password'
-    },
-    async function (login, password, done) {
-        User.findOne({email:login},
+    },*/
+    async function (username, password, done) {
+        User.findOne({
+                where: {
+                    email: username
+                },
+            },
             function (err, user) {
 
                 if (err) {
@@ -19,7 +24,7 @@ passport.use(new LocalStrategy({
                         {message: 'Incorrect username or password.'});
                 }
 
-                if (user.password !== password) {
+                if (password !== user.password) {
                     return done(null, false,
                         {message: 'Incorrect username or password.'});
                 }
@@ -29,8 +34,9 @@ passport.use(new LocalStrategy({
     }));
 
 passport.serializeUser(function(user, done) {
-    done(null, user);
+    done(null, user.id/*user*/);
 });
+
 passport.deserializeUser(function(id, done) {
     User.findOne({where: {id:id}}).then((user) => {
         done(null, user);
@@ -38,6 +44,8 @@ passport.deserializeUser(function(id, done) {
     });
 });
 
+module.exports = passport;
+/*
 function login(req, res, next) {
     passport.authenticate('local',
         function(err, user, info) {
@@ -53,20 +61,11 @@ function login(req, res, next) {
         }
     )(req, res, next);
 }
-
+*/
 //module.exports = router;
 
 //req.user.id
-/*
-router.post('/login', passport.authenticate('local', {
-        session: true,
-        successRedirect: '/',
-        failureRedirect: '/login',
-    }),
-    function (req, res) {
-        res.redirect('/' + req.user.username);
-    });
-*/
+
 
 /*
 const cookieParser = require('cookie-parser');

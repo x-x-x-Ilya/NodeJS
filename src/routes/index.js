@@ -17,4 +17,11 @@ router.use('/tag', tagRouter);
 router.use('/role', roleRouter);
 
 
+const PassportController = require('../controllers/passport');
+const passportController = new PassportController();
+router.post('/login', passportController.login);
+router.post('/register', passportController.register);
+router.get('/logout', passportController.logout);
+
+
 module.exports = router;

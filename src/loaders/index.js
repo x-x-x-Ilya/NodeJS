@@ -1,17 +1,19 @@
 const express = require('express');
-
 const app = express();
+
 
 const cookieParser = require('cookie-parser');
 const BodyParser = require('body-parser');
 const session = require('express-session');
-const passport = require("passport");
 
-const Models = require('../database/models/index');
-const errorCatcher = require('../middleware/error-handler');
-const routes = require('../routes/index');
 
 try {
+    const Models = require('../database/models/index');
+    const errorCatcher = require('../middleware/error-handler');
+    const passport = require('./passport');
+    const routes = require('../routes/index');
+
+
     app.use(cookieParser());
     app.use(BodyParser.json());
     app.use(express.urlencoded({extended: true}));
@@ -20,9 +22,10 @@ try {
         resave: true,
         saveUninitialized: false
     }));
-    app.use(passport.initialize());
-    app.use(passport.session());
+
+
     Models.init();
+    app.use(passport);
     app.use(routes);
     app.use(errorCatcher);
 } catch (error) {
