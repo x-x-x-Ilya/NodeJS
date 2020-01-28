@@ -1,5 +1,5 @@
-const passport = require('passport');
-const passportLocal = require('passport-local');
+//const passport = require('passport');
+//const passportLocal = require('passport-local');
 //const passport = require('../middleware/passport-middleware');
 
 const UserService = require('../services/user');
@@ -65,12 +65,12 @@ class UserController {
         }
     )(req, res, next);
   };
-*/
+
   logout(req, res) {
     req.logout();
     res.redirect('/');
   };
-
+*/
 }
 
 module.exports = UserController;
