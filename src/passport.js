@@ -5,7 +5,7 @@ const User = require('./database/models/user');
 const express = require('express');
 
 const router = express.Router();
-
+/*
 passport.use(new LocalStrategy({
         usernameField: 'login',
         passwordField: 'password'
@@ -31,7 +31,7 @@ passport.use(new LocalStrategy({
         return done(null, user);
     });
 }));
-
+*/
 router.post('/login', passport.authenticate('local', {
         session: true,
         successRedirect: '/',

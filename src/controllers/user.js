@@ -1,5 +1,6 @@
-//const passport = require('passport');
-const passport = require('../middleware/passport-middleware');
+const passport = require('passport');
+const passportLocal = require('passport-local');
+//const passport = require('../middleware/passport-middleware');
 
 const UserService = require('../services/user');
 
@@ -48,7 +49,7 @@ class UserController {
   }
 
 
-
+/*
   login(req, res, next) {
     passport.authenticate('local',
         function(err, user, info) {
@@ -58,13 +59,13 @@ class UserController {
                   ? req.logIn(user, function(err) {
                     return err
                         ? next(err)
-                        : res.redirect('/private');
+                        : res.status(404).json('it is OK')//res.redirect('/private');
                   })
-                  : res.redirect('/');
+                  : res.status(404).json('User not founded')//res.redirect('/');
         }
     )(req, res, next);
   };
-
+*/
   logout(req, res) {
     req.logout();
     res.redirect('/');

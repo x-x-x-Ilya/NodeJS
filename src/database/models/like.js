@@ -10,8 +10,8 @@ const Like = database.define('likes', {
 }, {/* options */});
 
 Like.associate = (models) => {
-  Like.belongsTo(models.User, { foreignKey: 'user_id' });
-  Like.belongsTo(models.Post, { foreignKey: 'post_id' });
+  Like.belongsTo(models.User, { foreignKey: 'userId' });
+  Like.belongsTo(models.Post, { foreignKey: 'postId' });
 };
 
 module.exports = Like;

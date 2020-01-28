@@ -16,7 +16,7 @@ router.post('/update', userController.update);
 
 
 
-router.post('/login', userController.login);
+//router.post('/login', userController.login);
 router.get('/logout', userController.logout);
 
 

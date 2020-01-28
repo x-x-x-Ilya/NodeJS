@@ -3,11 +3,11 @@ const LocalStrategy = require("passport-local").Strategy;
 const User = require('../database/models/user');
 
 passport.use(new LocalStrategy({
-        usernameField: 'login',
-        passwordField: 'password'
+        email: 'login',
+        password: 'password'
     },
-    function (login, password, done) {
-        User.findOne({username:login},
+    async function (login, password, done) {
+        User.findOne({email:login},
             function (err, user) {
 
                 if (err) {
@@ -19,9 +19,9 @@ passport.use(new LocalStrategy({
                         {message: 'Incorrect username or password.'});
                 }
 
-                if (!user.validPassword(password)) {
+                if (user.password !== password) {
                     return done(null, false,
-                        {message: 'Incorrect   username or password.'});
+                        {message: 'Incorrect username or password.'});
                 }
 
                 return done(null, user);
@@ -32,11 +32,27 @@ passport.serializeUser(function(user, done) {
     done(null, user);
 });
 passport.deserializeUser(function(id, done) {
-    User.findOne({where: {id}}).then((user) => {
+    User.findOne({where: {id:id}}).then((user) => {
         done(null, user);
-        return null;
+        //return null;
     });
 });
+
+function login(req, res, next) {
+    passport.authenticate('local',
+        function(err, user, info) {
+            return err
+                ? next(err)
+                : user
+                    ? req.logIn(user, function(err) {
+                        return err
+                            ? next(err)
+                            : res.status(404).json('it is OK')//res.redirect('/private');
+                    })
+                    : res.status(404).json('User not founded')//res.redirect('/');
+        }
+    )(req, res, next);
+}
 
 //module.exports = router;
 
