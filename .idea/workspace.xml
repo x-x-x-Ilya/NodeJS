@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loaders/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/passport-middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/passport-middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +141,7 @@
       <workItem from="1580480296696" duration="14170000" />
       <workItem from="1580501280870" duration="2497000" />
       <workItem from="1580728067742" duration="8448000" />
-      <workItem from="1580742024634" duration="5350000" />
+      <workItem from="1580742024634" duration="7570000" />
     </task>
     <servers />
   </component>

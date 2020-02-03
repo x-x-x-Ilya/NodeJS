@@ -32,7 +32,6 @@ function login(req,res,next) {
         })(req,res,next)
 }
 
-
 router.post('/login', login);
 
 /*
@@ -49,6 +48,20 @@ router.get('/logout', function(req, res) {
     } else
         return res.status(404).json('You not authenticated');
 });
+
+router.post('/register', register);
+
+
+const User = require('../repositories/user');
+
+async function register(req, res, next) {
+    await User.prototype.createUser(req.body).then((user) => {
+        req.logIn(user, function (err) {
+            if(err) return err;
+            else return res.status(200).json('it is OK');
+        });
+    });
+}
 
 
 module.exports = router;
