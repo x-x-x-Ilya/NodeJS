@@ -8,6 +8,7 @@ const postRouter = require( './post');
 const tagRouter = require('./tag');
 const roleRouter = require('./role');
 
+const passport = require('passport');
 
 router.get('/', (req, res) => res.status(201).json('main page'));
 router.use('/user', userRouter);
@@ -16,53 +17,38 @@ router.use('/post', postRouter);
 router.use('/tag', tagRouter);
 router.use('/role', roleRouter);
 
-
-//const PassportController = require('../controllers/passport');
-//const passportController = new PassportController();
-//router.post('/login', passportController.login);
-
-//const passport = require('../middleware/passport-middleware');
-const passport = require('passport');
-
-/*const authenticate = passport.authenticate('local', {session: true});
-router.post('/login', authenticate, (req, res) => {
-    res.send({}) ;
-});
-*/
-
-router.post('/login', function(req, res, next) {
-   try {
-       passport.authenticate('local', function (err, user, info) {
-           console.log('sdasdasdad');
-           if (err) {
-               console.log(err);
-               return err;
-           }
-           if (!user) {
-               return res.status(200).json('нет такого пользователя');
-           }
-
-           req.logIn(user, function (err) {
-               if (err) {
-                   console.log(err);
-                   return err;
-               }
-               return res.status(200).json('/users/' + user.username);
-           });
+function login(req,res,next) {
+    passport.authenticate('local',
+        function(err, user, info) {
+            try {
+                req.logIn(user, function(err) {
+                    if (err) { return err; }
+                    return res.status(200).json('it is OK');
+                });
+            } catch (e) {
+                console.log(e);
+                return e;
+            }
+        })(req,res,next)
+}
 
 
-       }) //(req, res, next)
-   } catch (e) {
-       console.log(e);
-       return e;
-   }
-   });
+router.post('/login', login);
 
-/*router.post('/login', passport.authenticate('local'),
-    function(req, res) {
-        return res.status(200).json('it works!!!');
+/*
+router.get('/login2',
+    function (req,res,next) {
+        console.log('asdasdasda', req.user);
     });
 */
+
+router.get('/logout', function(req, res) {
+    if (req.isAuthenticated()){
+        req.logout();
+        return res.status(200).json('You Logout');
+    } else
+        return res.status(404).json('You not authenticated');
+});
 
 
 module.exports = router;

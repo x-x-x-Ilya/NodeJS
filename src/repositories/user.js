@@ -16,7 +16,8 @@ class UserRepository {
   }
 
   async getUserById(data) {
-      return  User.findOne({
+
+      return User.findOne({
           attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
           where: {
               id: data.id,
