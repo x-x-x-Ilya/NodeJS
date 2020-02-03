@@ -2,43 +2,96 @@ const User = require('../database/models/user');
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
-passport.use(new LocalStrategy(
-   /* {
-        email: 'login',
-        password: 'password'
-    },*/
-    async function (username, password, done) {
-        User.findOne({
-                where: {
-                    email: username
-                },
-            },
-            function (err, user) {
 
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+        console.log('sdasdasdad');
+        try {
+            // console.log('1username =', username);// заходит в этот код
+            // console.log('1password =', password);// заходит в этот код
+            User.findOne({username: username}, function (err, user) {
+                console.log('User.findOne');
                 if (err) {
+                    console.log(err);
                     return done(err);
                 }
-
                 if (!user) {
-                    return done(null, false,
-                        {message: 'Incorrect username or password.'});
+                    return done(null, false);
                 }
+                //if (password !== user.password) { return done(null, false); }
+                // console.log('2username =', username);//не заходит в этот код
+                // console.log('2password =', password);//не заходит в этот код
+                // console.log('2user =', user); //не заходит в этот код
+                return done(null, user);
+            });
+        } catch (e) {
+            console.log(e);
+            return e;
+        }
+    }
+));
 
+/*
+passport.use(new LocalStrategy(
+{
+    username: 'username',
+    password: 'password'
+},
+function(username, password, done) {
+    const user = User.findOne({
+            where:{email: username},*/
+        /*}).then((user) => {
+            if (!user) {
+                return done(null, false,
+                    {message: 'Incorrect username or password.'});
+            }
                 if (password !== user.password) {
                     return done(null, false,
                         {message: 'Incorrect username or password.'});
                 }
-
                 return done(null, user);
-            });
-    }));
+        }).catch((err) => {
+            if (err) {
+                return done(err);
+            }
+        });
+    }
+));*/
+
+  /*      },
+        function (err, user) {    // не заходит в эту функцию
+            console.log(user.get({plain: true}));
+            if (err) {
+                return done(err);
+            }
+            if (!user) {
+                return done(null, false,
+                    {message: 'Incorrect username or password.'});
+            }
+
+            if (password !== user.password) {
+                return done(null, false,
+                    {message: 'Incorrect username or password.'});
+            }
+
+            return done(null, user);
+        });
+    }
+));
+*/
+
+/*{
+        email: 'login',
+        password: 'password'
+    },*/
+
 
 passport.serializeUser(function(user, done) {
     done(null, user.id/*user*/);
 });
 
 passport.deserializeUser(function(id, done) {
-    User.findOne({where: {id:id}}).then((user) => {
+    User.findOne({id:id}).then((user) => {
         done(null, user);
         //return null;
     });
@@ -65,7 +118,6 @@ function login(req, res, next) {
 //module.exports = router;
 
 //req.user.id
-
 
 /*
 const cookieParser = require('cookie-parser');
