@@ -13,7 +13,6 @@ app.use(session({
     secret: 'SECRET',
     resave: true,
     saveUninitialized: false }));
-
 // Passport:
 app.use(passport.initialize());
 app.use(passport.session());

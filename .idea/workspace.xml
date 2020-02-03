@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/passport.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/loaders/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loaders/express.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/loaders/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loaders/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/middleware/passport-middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/passport-middleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -39,6 +40,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.0" />
@@ -140,7 +142,11 @@
       <workItem from="1579353415192" duration="4292000" />
       <workItem from="1579415722189" duration="11293000" />
       <workItem from="1579531925446" duration="6829000" />
-      <workItem from="1580219907165" duration="9924000" />
+      <workItem from="1580219907165" duration="10791000" />
+      <workItem from="1580414445420" duration="7462000" />
+      <workItem from="1580480296696" duration="14170000" />
+      <workItem from="1580501280870" duration="2497000" />
+      <workItem from="1580728067742" duration="8343000" />
     </task>
     <servers />
   </component>
