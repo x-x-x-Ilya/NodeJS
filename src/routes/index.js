@@ -1,5 +1,4 @@
 const express = require('express');
-
 const router = express.Router();
 
 const userRouter = require('./user');
@@ -15,6 +14,6 @@ router.use('/like', likeRouter);
 router.use('/post', postRouter);
 router.use('/tag', tagRouter);
 router.use('/role', roleRouter);
-router.use('/passport', passportRouter);
+router.use('/', passportRouter);
 
 module.exports = router;
