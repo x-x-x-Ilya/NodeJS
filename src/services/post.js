@@ -5,32 +5,32 @@ const postRepository = new Repository();
 
 class PostServices {
 
-  async create(data) {
+  async create(body, user) {
     // add test is url   /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi
-    if(!data.caption)  return 'Data is undefined, check it';
-    return await postRepository.createPost(data);
+    if(!body.caption)  return 'No caption url in request';
+    return await postRepository.createPost(body, user);
   }
 
-  async get(data) {
-      if(!data.id)  return 'Data is undefined, check it';
-      return await postRepository.getPost(data);
+  async get(body) {
+      if(!body.id)  return 'Data is undefined, check it';
+      return await postRepository.getPost(body);
   }
 
-  async delete(data) {
-      if(!data.id)  return 'Data is undefined, check it';
-      return await postRepository.deletePost(data);
+  async delete(body, user) {
+      if(!body.id)  return 'No post id in request';
+      return await postRepository.deletePost(body, user);
   }
 
-  async update(data) {
-      if(!data.id)  return 'Data is undefined, check it';
-      return await postRepository.updatePost(data);
+  async update(body, user) {
+      if(!body.id)  return 'No post id in request';
+      return await postRepository.updatePost(body, user);
   }
 
-  async getAll(data) {
-      if(!User.findOne(data)){
+  async getAll(body) {
+      if(!User.findOne(body)){
           return 'User with this id is not exists';
       } else
-      return await postRepository.getAllPosts(data);
+      return await postRepository.getAllPosts(body);
   }
 
   async getAllPostsAsNews() {

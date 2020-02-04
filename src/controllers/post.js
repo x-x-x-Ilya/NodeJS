@@ -6,7 +6,7 @@ class PostController {
 
   async create(req, res) {
     try {
-        return res.status(201).json(await postService.create(req.body));
+        return res.status(201).json(await postService.create(req.body, req.user));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -14,7 +14,7 @@ class PostController {
 
   async update(req, res) {
     try {
-      return res.status(201).json(await postService.update(req.body));
+      return res.status(201).json(await postService.update(req.body, req.user));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -22,7 +22,7 @@ class PostController {
 
   async delete(req, res) {
     try {
-      return res.status(201).json(await postService.delete(req.body));
+      return res.status(201).json(await postService.delete(req.body, req.user));
     } catch (error) {
       return res.status(404).json(error);
     }

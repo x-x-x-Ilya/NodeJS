@@ -2,20 +2,20 @@ const Post = require('../database/models/post');
 
 class PostRepository {
 
-    async createPost(data) {
+    async createPost(body, user) {
         return await Post.create({
-            userId: data.userId,
+            userId: user.id,
             createdAt: new Date(),
-            img: data.img,
-            caption: data.caption,
+            img: body.img,
+            caption: body.caption,
         });
     }
 
-    async getPost(data) {
-        return await Post.findOne({
+    async getPost(body) {
+        return  Post.findOne({
             attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
             where: {
-                id: data.id,
+                id: body.id,
             },
         });
         /*
@@ -33,42 +33,47 @@ class PostRepository {
   */
     }
 
-
-    async updatePost(data) {
-
+    async updatePost(body, user) {
         const post = await Post.findOne({
             where: {
-                id: data.id,
-            },
-        });
-        await post.update({
-            createdAt: new Date(),
-            img: data.img,
-            caption: data.caption + ' (updated)'
-        });
-        return post;
-    }
-
-    async deletePost(data) {
-        const post = await Post.findOne({
-            where: {
-                id: data.id,
+                id: body.id,
             }
         });
-        await post.destroy();
-        return post;
+
+        if (post.userId === user.id) {
+            await post.update({
+                createdAt: new Date(),
+                img: body.img,
+                caption: body.caption + ' (updated)'
+            });
+            return post;
+        } else
+            return 'This is post is not yours';
     }
 
-    async getAllPosts(data) {
-        return await Post.findAll({
+    async deletePost(body, user) {
+        const post = await Post.findOne({
             where: {
-                userId: data.userId,
+                id: body.id,
+            }
+        });
+        if (post.userId === user.id) {
+            await post.destroy();
+            return post;
+        } else
+            return 'This is post is not yours';
+    }
+
+    async getAllPosts(body) {
+        return  Post.findAll({
+            where: {
+                userId: body.userId,
             }
         });
     }
 
     async getAllPostsAsNews() {
-        return await Post.findAll({});
+        return Post.findAll({});
     }
 }
 
