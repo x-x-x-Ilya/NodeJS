@@ -5,45 +5,43 @@ class UserRepository {
     //console.log(user.get({plain: true}));
     //console.log(posts.map(post => post.toJSON()));
 
-  async createUser(data) {
+  async createUser(body) {
       return await User.create({
-          email: data.email,
-          firstName: data.firstName,
-          lastName: data.lastName,
-          password: data.password,
+          email: body.email,
+          firstName: body.firstName,
+          lastName: body.lastName,
+          password: body.password,
           deleteReq: false
       });
   }
 
-  async getUserById(data) {
+  async getUserById(body) {
 
       return User.findOne({
           attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
           where: {
-              id: data.id,
+              id: body.id,
           }
       });
   }
 
-  async getUserByEmail(data) {
+  async getUserByEmail(body) {
       return  User.findOne({
           attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
           where: {
-              email: data.email,
+              email: body.email,
           },
       });
   }
 
-  async getUserByFullName(data) {
-       if (data.email === undefined && data.id === undefined) {
+  async getUserByFullName(body) {
            return  User.findAll({
                attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
                where: {
-                   firstName: data.firstName,
-                   lastName: data.lastName,
+                   firstName: body.firstName,
+                   lastName: body.lastName,
                },
            });
-       }
    }
 
   async getAllUsers() {
@@ -51,18 +49,20 @@ class UserRepository {
       });
   }
 
-  async deleteUser(user) {
-      await user.destroy({});
+  async sendDeleteRequest(user) {
+      await user.update({
+          deleteReq: true,
+      });
       return user;
   }
 
-  async updateUser(data, user) {
+  async updateUser(body, user) {
       await user.update({
-          email: data.email,
-          firstName: data.firstName,
-          lastName: data.lastName,
-          password: data.password,
-          deleteReq: data.deleteReq,
+          email: body.email,
+          firstName: body.firstName,
+          lastName: body.lastName,
+          password: body.password,
+          deleteReq: body.deleteReq,
       });
       return user;
   }

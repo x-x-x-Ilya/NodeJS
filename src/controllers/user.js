@@ -28,9 +28,9 @@ class UserController {
     }
   }
 
-  async delete(req, res) {
+  async sendDeleteRequest(req, res) {
     try {
-      return res.status(200).json(await userServices.deleteUser(req.body));
+      return res.status(200).json(await userServices.sendDeleteRequest(req.user));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -38,7 +38,7 @@ class UserController {
 
   async update(req, res) {
     try {
-        return res.status(200).json(await userServices.updateUser(req.body));
+        return res.status(200).json(await userServices.updateUser(req.body, req.user));
     } catch (error) {
       return res.status(404).json(error);
     }
