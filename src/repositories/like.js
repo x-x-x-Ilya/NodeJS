@@ -2,26 +2,26 @@ const Like = require('../database/models/like');
 
 class LikeRepository {
 
-     async getLikes(data) {
-         return  await Like.findAll({
-            where: {
-                postId: data.postId,
-            }
-        });
-    }
+     async getLikes(body) {
+         return Like.findAll({
+             where: {
+                 postId: body.postId,
+             }
+         });
+     }
 
-   async createLike(data) {
+   async createLike(body, user) {
     return await Like.create({
-      userId: data.userId,
-      postId: data.postId,
+      userId: user.id,
+      postId: body.postId,
     });
   }
 
-  async deleteLike(data) {
+  async deleteLike(body, user) {
       const like = await Like.findOne({
           where: {
-              userId: data.userId,
-              postId: data.postId,
+              userId: user.id,
+              postId: body.postId,
           }
       });
       like.destroy();
