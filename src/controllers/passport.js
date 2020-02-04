@@ -7,15 +7,15 @@ class PassportController {
         await passport.authenticate('local',
             function (err, user, info) {
                 try {
+                    if (!user) return res.status(404).json('Не правильное имя пользователя или пароль');
                     req.logIn(user, function (err) {
                         if (err) {
-                            return err;
+                            return res.status(404).json(err);
                         }
-                        return res.status(200).json('it is OK');
+                        return res.status(200).json('Вы вошли в свой аккаунт');
                     });
-                } catch (e) {
-                    console.log(e);
-                    return e;
+                } catch (err) {
+                    return res.status(404).json(err);
                 }
             })(req, res, next)
     }
@@ -33,8 +33,8 @@ class PassportController {
     async register(req, res, next) {
         await User.prototype.createUser(req.body).then((user) => {
              req.logIn(user, function (err) {
-                if (err) return err;
-                else return res.status(200).json('it is OK');
+                if (err) return res.status(404).json(err);
+                else return res.status(200).json('Вы успешно зарегестрировались и вошли в свой аккаунт');
             });
         });
     }
