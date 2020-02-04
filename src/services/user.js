@@ -4,23 +4,21 @@ const userRepository = new Repository();
 
 class userServices {
 
-  async createUser(data) {
+    //} else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
 
+  async createUser(data) {
       if (!data.email || !data.firstName || !data.lastName || !data.password) {
           return 'Data is undefined, check it';
-          /*
-                } else if (await userRepository.getUserByEmail()) {
-                    return 'This mail is already in use. Please use another mail';
-          */
+      } else if (await userRepository.getUserByEmail() !== null) {
+          return 'This mail is already in use. Please use another mail';
       } else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
           return 'Email is not valid, use true email';
       } else {
-          //} else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
           return await userRepository.createUser(data);
       }
   }
 
-  async getUser(data) {
+  async getUser(data) {  // сделать без ifов
       if (!data.email && (!data.firstName || !data.lastName) && !data.id) {
           return 'Data is undefined, check it';
       } else if (!data.email && (!data.firstName || !data.lastName)) {
@@ -39,13 +37,15 @@ class userServices {
 
   async deleteUser(data) {
       if (!data.email && !data.id) {
-          return 'Services error, data is undefined, check it';
+          return 'Data is undefined, check it';
       } else if (!data.email) {
           return await userRepository.getUserById().then((user) => {
+              if(!user) return 'User is not exists';
               return userRepository.deleteUser(user);
           });
       } else if (!data.id) {
           return await userRepository.getUserByEmail().then((user) => {
+              if(!user) return 'User is not exists';
               return userRepository.deleteUser(user);
           });
       } else
@@ -54,14 +54,13 @@ class userServices {
 
   async updateUser(data) {
 
-     /* if (userRepository.getUserById(data)) {
-       return //такого пользователя не существует
+      if (!await userRepository.getUserById(data)) {
+       return 'This user is not exists';
       }
-      */
-     /*else if(userRepository.getUserByEmail(data)){
-         return // такая почта уже занята
+     else if(await userRepository.getUserByEmail(data) !== null){
+         return 'This email is already use';
      }
-     else*/
+     else
      return await userRepository.getUserById(data).then((user) =>  {
           //const userBeforeUpdate = user;
           if(data.email === undefined) data.email = user.email;

@@ -7,30 +7,33 @@ class PostServices {
 
   async create(data) {
     // add test is url   /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi
-    // add test userId is true
+    if(!data.caption)  return 'Data is undefined, check it';
     return await postRepository.createPost(data);
   }
 
   async get(data) {
+      if(!data.id)  return 'Data is undefined, check it';
       return await postRepository.getPost(data);
-      // add response if not exists
   }
 
   async delete(data) {
+      if(!data.id)  return 'Data is undefined, check it';
       return await postRepository.deletePost(data);
   }
 
   async update(data) {
+      if(!data.id)  return 'Data is undefined, check it';
       return await postRepository.updatePost(data);
   }
 
   async getAll(data) {
-      if(User.findOne(data) === undefined){
+      if(!User.findOne(data)){
           return 'User with this id is not exists';
       } else
       return await postRepository.getAllPosts(data);
   }
-    async getAllPostsAsNews() {
+
+  async getAllPostsAsNews() {
       return await postRepository.getAllPostsAsNews();
     }
 

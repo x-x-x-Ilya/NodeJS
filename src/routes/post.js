@@ -11,8 +11,8 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/create', Controller.create);
-router.post('/update', Controller.update);
+router.post('/', Controller.create);
+router.put('/update', Controller.update);
 router.get('/getall', Controller.getAll);
 router.delete('/delete', Controller.delete);
 router.get('/get', Controller.get);
