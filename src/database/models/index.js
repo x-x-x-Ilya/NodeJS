@@ -7,13 +7,8 @@ const PostTag = require('./post_tag');
 const UserRole = require('./user_role');
 
 const db = {
-  User,
-  Post,
-  Like,
-  Role,
-  Tag,
-  PostTag,
-  UserRole
+  User, Post, Like, Role,
+  Tag, PostTag, UserRole
 };
 
 exports.init = () => {

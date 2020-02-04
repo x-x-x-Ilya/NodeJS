@@ -44,6 +44,14 @@ class UserController {
     }
   }
 
+  async setRole(req,res) {
+    try {
+      return res.status(200).json(await userServices.setRole());
+    } catch (error) {
+      return res.status(404).json(error);
+    }
+  }
+
 }
 
 module.exports = UserController;

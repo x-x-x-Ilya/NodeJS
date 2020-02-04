@@ -14,7 +14,7 @@ const Post = database.define('posts', {
 Post.associate = (models) => {
   Post.belongsToMany(models.Tag, { foreignKey: 'postId', as: 'tag', through: 'posts_tags' });
   Post.hasMany(models.Like, { foreignKey: 'postId', as: 'like' });
-  Post./* HasOne */belongsTo(models.User, { foreignKey: 'userId' });
+  Post.belongsTo(models.User, { foreignKey: 'userId' });
 };
 
 module.exports = Post;

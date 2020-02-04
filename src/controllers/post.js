@@ -52,6 +52,13 @@ class PostController {
     }
   }
 
+  async setTags(req, res){
+    try {
+      return res.status(201).json(await postService.setTags());
+    } catch (error) {
+      return res.status(404).json(error);
+    }
+  }
 }
 
 module.exports = PostController;

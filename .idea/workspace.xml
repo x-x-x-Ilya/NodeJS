@@ -2,15 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/middleware/isAuthenticated.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/middleware/isNotAuthenticated.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loaders/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loaders/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/passport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/passport-middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/passport-middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/sql/mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/sql/mysql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/passport.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -146,7 +152,9 @@
       <workItem from="1580414445420" duration="7462000" />
       <workItem from="1580480296696" duration="14170000" />
       <workItem from="1580501280870" duration="2497000" />
-      <workItem from="1580728067742" duration="8343000" />
+      <workItem from="1580728067742" duration="8448000" />
+      <workItem from="1580742024634" duration="10274000" />
+      <workItem from="1580822560262" duration="6147000" />
     </task>
     <servers />
   </component>
