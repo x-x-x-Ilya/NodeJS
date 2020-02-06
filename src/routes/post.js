@@ -9,10 +9,9 @@ const isAuthenticated = require('../middleware/isAuthenticated');
 router.get('/', (req, res) => {res.send('/post main page');});
 router.post('/create', isAuthenticated, Controller.create);
 router.put('/update', isAuthenticated, Controller.update);
-router.get('/getall', Controller.getAll);
+router.get('/getall', Controller.getAllPosts);
 router.delete('/delete', isAuthenticated, Controller.delete);
 router.get('/get', Controller.get);
-router.get('/news', Controller.getAllPostsAsNews);   // to check news
 
 
 module.exports = router;

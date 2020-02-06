@@ -6,7 +6,7 @@ class PostController {
 
   async create(req, res) {
     try {
-        return res.status(201).json(await postService.create(req.body, req.user));
+        return res.status(201).json(await postService.create(req.body.post, req.body.tags, req.user));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -36,17 +36,9 @@ class PostController {
     }
   }
 
-  async getAll(req, res) {
+  async getAllPosts(req, res) {
     try {
-      return res.status(201).json(await postService.getAll(req.body));
-    } catch (error) {
-      return res.status(404).json(error);
-    }
-  }
-
-  async getAllPostsAsNews(req, res) {
-    try {
-      return res.status(201).json(await postService.getAllPostsAsNews());
+      return res.status(201).json(await postService.getAllPosts(req.body));
     } catch (error) {
       return res.status(404).json(error);
     }

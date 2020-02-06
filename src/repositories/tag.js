@@ -2,11 +2,19 @@ const Tag = require('../database/models/tag');
 
 class TagRepository {
 
-  async createTag(data) {
-      return await Tag.create({
-        name: data.name,
-      });
-  }
+  async createTag(tags, post) {
+          //await post.setTags([]);
+          if (tags) {
+              for (let tagName of tags) {
+                  let tag = await Tag.findOrCreate({
+                      where: { name: tagName },
+                      default: { name: tagName }
+                  });
+                  await post.addTag(tag[0]);
+              }
+          }
+          return post;
+      }
 
   async getTag(data) {
       await Tag.findOne({
