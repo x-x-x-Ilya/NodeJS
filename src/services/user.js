@@ -1,10 +1,9 @@
-const Repository = require('../repositories/user');
+const User = require('../database/models/user');
 
+const Repository = require('../repositories/user');
 const userRepository = new Repository();
 
 class userServices {
-
-    //} else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
 
     async createUser(body) {
         if (!body.email || !body.firstName || !body.lastName || !body.password) {
@@ -22,23 +21,18 @@ class userServices {
 
         if (!body.email && (!body.firstName || !body.lastName) && !body.id) {
             return 'Data is undefined, check it';
-        } else if (!body.email && !body.id) {
-            return await userRepository.getUserByFullName(body);
         }
         else
             return await userRepository.getUser(body);
     }
 
-    async getAllUser() {
-        return await userRepository.getAllUsers();
-    }
-
-    async sendDeleteRequest(user) {
-        return userRepository.sendDeleteRequest(user);
+    async getAllUser(body) {
+        return await userRepository.getAllUsers(body);
     }
 
     async updateUser(body, user) {
-        if (await userRepository.getUserByEmail(body) !== null) {
+
+        if (await User.findOne({where: {email: body.email}}) !== null) {
             return 'This email is already use';
         } else {
             if (!body.email) body.email = user.email;
@@ -52,10 +46,14 @@ class userServices {
     }
 
     async deleteUser(body, user) {
-        // добавить проверку что не пытается удалить самого себя
-        const deleteUser = await userRepository.getUserById(body);
-        // if deleteUser exists
-        return await userRepository.deleteUser(deleteUser);
+
+        if(body.id === user.id) return 'You can not delete own account';
+        const deleteUser = await userRepository.getUser(body);
+
+        if (!deleteUser) {
+             return await userRepository.deleteUser(deleteUser);
+         } else
+             return 'This user is not exists';
     }
 
 }

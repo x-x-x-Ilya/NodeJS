@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/middleware/isAdmin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/isAuthenticated.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/isAuthenticated.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/isNotAuthenticated.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/isNotAuthenticated.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/passport-middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/passport-middleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repositories/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +144,7 @@
       <workItem from="1580742024634" duration="10274000" />
       <workItem from="1580822560262" duration="16513000" />
       <workItem from="1580914762294" duration="4519000" />
-      <workItem from="1580980723158" duration="13251000" />
+      <workItem from="1580980723158" duration="15450000" />
     </task>
     <servers />
   </component>

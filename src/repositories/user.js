@@ -16,28 +16,6 @@ class UserRepository {
         });
     }
 
-    async getUserByFullName(body) {
-        return User.findAll({
-            attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
-            where: {
-                firstName: body.firstName,
-                lastName: body.lastName,
-            },
-            include: [
-                {
-                    model: Post,
-                    attributes: ['id', 'caption', 'img'],
-                    as: 'posts',
-                },
-                {
-                    model: Role,
-                    attributes: ['id', 'name'],
-                    as: 'roles'
-                }
-            ]
-        });
-    }
-
     async getUser(options){
         return  User.findOne({
             where:options,
@@ -62,9 +40,10 @@ class UserRepository {
         ]});
     }
 
-    async getAllUsers() {
+    async getAllUsers(options) {
         return User.findAll({
             attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
+            where: options,
         });
     }
 
