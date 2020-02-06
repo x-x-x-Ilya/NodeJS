@@ -1,92 +1,106 @@
 const User = require('../database/models/user');
 const Role = require('../database/models/role');
 const Post = require('../database/models/post');
-const Tag = require('../database/models/tag');
-class UserRepository {
 
+class UserRepository {
     //console.log(user.get({plain: true}));
     //console.log(posts.map(post => post.toJSON()));
 
-  async createUser(body) {
-      return await User.create({
-          email: body.email,
-          firstName: body.firstName,
-          lastName: body.lastName,
-          password: body.password,
-          deleteReq: false
-      });
-  }
+    async createUser(body) {
+        return await User.create({
+            email: body.email,
+            firstName: body.firstName,
+            lastName: body.lastName,
+            password: body.password,
+            deleteReq: false
+        });
+    }
 
-  async getUserById(body) {
+    async getUserByFullName(body) {
+        return User.findAll({
+            attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
+            where: {
+                firstName: body.firstName,
+                lastName: body.lastName,
+            },
+            include: [
+                {
+                    model: Post,
+                    attributes: ['id', 'caption', 'img'],
+                    as: 'posts',
+                },
+                {
+                    model: Role,
+                    attributes: ['id', 'name'],
+                    as: 'roles'
+                }
+            ]
+        });
+    }
 
-      return User.findOne({
-          attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
-          where: {
-              id: body.id,
-          },
-          include: [
-              {
-                  model: Post,
-                  attributes: ['id', 'caption', 'img'],
-                  as: 'posts',
-              /*include: [
-                      {
-                          model: Tag,
-                          attributes: [ 'id', 'name' ],
-                          as: 'tags',
-                      }
-                  ]*/
-              },
-              {
-                  model: Role,
-                  attributes: [ 'id', 'name' ],
-                  as: 'roles'
-              }
-          ]
-      });
-  }
+    async getUser(options){
+        return  User.findOne({
+            where:options,
+            include: [
+            {
+                model: Post,
+                attributes: ['id', 'caption', 'img'],
+                as: 'posts',
+                /*include: [
+                        {
+                            model: Tag,
+                            attributes: [ 'id', 'name' ],
+                            as: 'tags',
+                        }
+                    ]*/
+            },
+            {
+                model: Role,
+                attributes: ['id', 'name'],
+                as: 'roles'
+            }
+        ]});
+    }
 
-  async getUserByEmail(body) {
-      return  User.findOne({
-          attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
-          where: {
-              email: body.email,
-          },
-      });
-  }
+    async getAllUsers() {
+        return User.findAll({
+            attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
+        });
+    }
 
-  async getUserByFullName(body) {
-           return  User.findAll({
-               attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
-               where: {
-                   firstName: body.firstName,
-                   lastName: body.lastName,
-               },
-           });
-   }
+    async sendDeleteRequest(user) {
+        await user.update({
+            deleteReq: true,
+        });
+        return user;
+    }
 
-  async getAllUsers() {
-      return  User.findAll({attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
-      });
-  }
+    async updateUser(body, user) {
+        await user.update({
+            email: body.email,
+            firstName: body.firstName,
+            lastName: body.lastName,
+            password: body.password,
+            deleteReq: body.deleteReq,
+        });
+        return user;
+    }
 
-  async sendDeleteRequest(user) {
-      await user.update({
-          deleteReq: true,
-      });
-      return user;
-  }
+    async deleteUser(deleteUser) {
+        deleteUser.destroy();
+        return "User has been deleted successfully";
+    }
 
-  async updateUser(body, user) {
-      await user.update({
-          email: body.email,
-          firstName: body.firstName,
-          lastName: body.lastName,
-          password: body.password,
-          deleteReq: body.deleteReq,
-      });
-      return user;
-  }
+    /*async getUserRoles(userId) {
+        let user = await User.findOne({
+            where:{userId}
+        });
+        let roles = [];
+        await user.getRoles().map((role) => {
+            roles.push(role.name);
+        });
+        return roles;
+    }*/
 
 }
 module.exports = UserRepository;
