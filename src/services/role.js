@@ -4,20 +4,20 @@ const roleRepository = new Repository();
 
 class roleServices {
 
-    async createRole(data) {
-            return await roleRepository.createRole(data);
+    async createRole(body, user) {
+            return await roleRepository.createRole(body, user);
     }
 
-    async getRole(data) {
-            return await roleRepository.getRole(data);
+    /*async getRole(body, user) {
+            return await roleRepository.getRole(body, user);
+    }*/
+
+    async deleteRole(body) {
+        return await roleRepository.deleteRole(body);
     }
 
-    async deleteRole(data) {
-        return await roleRepository.deleteRole(data);
-    }
-
-    async updateRole(data) {
-        return await roleRepository.updateRole(data);
+    async updateRole(body) {
+        return await roleRepository.updateRole(body);
     }
 
 }

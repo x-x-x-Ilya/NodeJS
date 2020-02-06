@@ -14,7 +14,7 @@ CREATE TABLE `users` (
 );
 
 CREATE TABLE `users_roles` (
-	`id`      INT NOT NULL AUTO_INCREMENT,
+    `id` 	  INT 	       AUTO_INCREMENT,
 	`user_id` INT NOT NULL,
 	`role_id` INT NOT NULL,
 	PRIMARY KEY (`id`),
@@ -45,7 +45,7 @@ CREATE TABLE `likes` (
 );
 
 CREATE TABLE `posts_tags` (
-    `id`      INT NOT NULL AUTO_INCREMENT,
+    `id` 	  INT 	       AUTO_INCREMENT,
     `post_id` INT NOT NULL,
     `tag_id`  INT NOT NULL,
     PRIMARY KEY (`id`),
@@ -59,10 +59,10 @@ CREATE TABLE `tags` (
     PRIMARY KEY (`id`)
 );
 
-ALTER TABLE `users_roles` ADD CONSTRAINT `z` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)            ON DELETE cascade;
-ALTER TABLE `roles`       ADD CONSTRAINT `x` FOREIGN KEY (`id`)      REFERENCES `users_roles`(`role_id`) ON DELETE cascade;
-ALTER TABLE `likes`       ADD CONSTRAINT `c` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)            ON DELETE cascade;
-ALTER TABLE `posts`       ADD CONSTRAINT `v` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)            ON DELETE cascade;
-ALTER TABLE `likes`       ADD CONSTRAINT `b` FOREIGN KEY (`post_id`) REFERENCES `posts`(`id`)            ON DELETE cascade;
-ALTER TABLE `posts_tags`  ADD CONSTRAINT `n` FOREIGN KEY (`post_id`) REFERENCES `posts`(`id`)            ON DELETE cascade;
-ALTER TABLE `tags`        ADD CONSTRAINT `m` FOREIGN KEY (`id`)      REFERENCES `posts_tags`(`tag_id`)   ON DELETE cascade;
+ALTER TABLE `users_roles` ADD CONSTRAINT `z` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)          ON DELETE CASCADE;
+ALTER TABLE `users_roles` ADD CONSTRAINT `a` FOREIGN KEY (`role_id`) REFERENCES `roles`(`id`)          ON DELETE CASCADE;
+ALTER TABLE `likes`       ADD CONSTRAINT `c` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)          ON DELETE CASCADE;
+ALTER TABLE `posts`       ADD CONSTRAINT `v` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)          ON DELETE CASCADE;
+ALTER TABLE `likes`       ADD CONSTRAINT `b` FOREIGN KEY (`post_id`) REFERENCES `posts`(`id`)          ON DELETE CASCADE;
+ALTER TABLE `posts_tags`  ADD CONSTRAINT `n` FOREIGN KEY (`post_id`) REFERENCES `posts`(`id`)          ON DELETE CASCADE;
+ALTER TABLE `tags`        ADD CONSTRAINT `m` FOREIGN KEY (`id`)      REFERENCES `posts_tags`(`tag_id`) ON DELETE CASCADE;

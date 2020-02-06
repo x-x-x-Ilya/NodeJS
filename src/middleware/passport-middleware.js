@@ -1,6 +1,6 @@
 const User = require('../database/models/user');
-const passport = require("passport");
 
+const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
 passport.use(new LocalStrategy(
@@ -24,7 +24,6 @@ passport.use(new LocalStrategy(
     }
 ));
 
-
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
@@ -32,7 +31,6 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
     User.findOne({ where:{id: user.id}}).then((User) => {
         done(null, User);
-        //return null;
     });
 });
 
