@@ -16,18 +16,21 @@ class UserRepository {
         });
     }
 
-    async getUserByFullName(body) {
-        return User.findAll({
-            attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
-            where: {
-                firstName: body.firstName,
-                lastName: body.lastName,
-            },
+    async getUser(options) {
+        return User.findOne({
+            where: options,
             include: [
                 {
                     model: Post,
                     attributes: ['id', 'caption', 'img'],
                     as: 'posts',
+                    /*include: [
+                            {
+                                model: Tag,
+                                attributes: [ 'id', 'name' ],
+                                as: 'tags',
+                            }
+                        ]*/
                 },
                 {
                     model: Role,
@@ -38,41 +41,11 @@ class UserRepository {
         });
     }
 
-    async getUser(options){
-        return  User.findOne({
-            where:options,
-            include: [
-            {
-                model: Post,
-                attributes: ['id', 'caption', 'img'],
-                as: 'posts',
-                /*include: [
-                        {
-                            model: Tag,
-                            attributes: [ 'id', 'name' ],
-                            as: 'tags',
-                        }
-                    ]*/
-            },
-            {
-                model: Role,
-                attributes: ['id', 'name'],
-                as: 'roles'
-            }
-        ]});
-    }
-
-    async getAllUsers() {
+    async getAllUsers(options) {
         return User.findAll({
             attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
+            where: options,
         });
-    }
-
-    async sendDeleteRequest(user) {
-        await user.update({
-            deleteReq: true,
-        });
-        return user;
     }
 
     async updateUser(body, user) {
@@ -90,17 +63,6 @@ class UserRepository {
         deleteUser.destroy();
         return "User has been deleted successfully";
     }
-
-    /*async getUserRoles(userId) {
-        let user = await User.findOne({
-            where:{userId}
-        });
-        let roles = [];
-        await user.getRoles().map((role) => {
-            roles.push(role.name);
-        });
-        return roles;
-    }*/
 
 }
 module.exports = UserRepository;

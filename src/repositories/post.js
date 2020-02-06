@@ -1,15 +1,21 @@
 const Post = require('../database/models/post');
-
+const Tag = require('./tag');
 class PostRepository {
 
-    async createPost(body, user) {
-        return await Post.create({
+    async createPost(postData, tags, user) {
+         const post = await Post.create({
             userId: user.id,
             createdAt: new Date(),
-            img: body.img,
-            caption: body.caption,
+            img: postData.img,
+            caption: postData.caption,
         });
-    }
+         try {
+             await Tag.prototype.createTag(tags, post)
+         }catch (e) {
+             console.log(e);
+             return e;
+         }
+         }
 
     async getPost(body) {
         return  Post.findOne({
@@ -64,17 +70,10 @@ class PostRepository {
             return 'This is post is not yours';
     }
 
-    async getAllPosts(body) {
-        return  Post.findAll({
-            where: {
-                userId: body.userId,
-            }
-        });
+    async getAllPosts(options) {
+        return Post.findAll({ where: options});
     }
 
-    async getAllPostsAsNews() {
-        return Post.findAll({});
-    }
 }
 
 module.exports = PostRepository;
