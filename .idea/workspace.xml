@@ -3,11 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/passport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/like.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/user_role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/user_role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/sql/mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/sql/mysql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/role.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +148,8 @@
       <workItem from="1580728067742" duration="8448000" />
       <workItem from="1580742024634" duration="10274000" />
       <workItem from="1580822560262" duration="16513000" />
+      <workItem from="1580914762294" duration="4519000" />
+      <workItem from="1580980723158" duration="6036000" />
     </task>
     <servers />
   </component>

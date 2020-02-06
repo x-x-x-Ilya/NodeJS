@@ -6,19 +6,19 @@ class RoleController {
 
     async create(req, res) {
         try {
-            return res.status(200).json(await roleServices.createRole(req.body));
+            return res.status(200).json(await roleServices.createRole(req.body, req.user));
         } catch (error) {
             return res.status(404).json(error);
         }
     }
 
-    async get(req, res) {
+    /*async get(req, res) {
         try {
-            return res.status(200).json(await roleServices.getRole(req.body));
+            return res.status(200).json(await roleServices.getRole(req.body, req.user));
         } catch (error) {
             return res.status(404).json(error);
         }
-    }
+    }*/
 
     async delete(req, res) {
         try {

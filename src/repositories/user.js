@@ -1,5 +1,7 @@
 const User = require('../database/models/user');
-
+const Role = require('../database/models/role');
+const Post = require('../database/models/post');
+const Tag = require('../database/models/tag');
 class UserRepository {
 
     //console.log(user.get({plain: true}));
@@ -21,7 +23,26 @@ class UserRepository {
           attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
           where: {
               id: body.id,
-          }
+          },
+          include: [
+              {
+                  model: Post,
+                  attributes: ['id', 'caption', 'img'],
+                  as: 'posts',
+              /*include: [
+                      {
+                          model: Tag,
+                          attributes: [ 'id', 'name' ],
+                          as: 'tags',
+                      }
+                  ]*/
+              },
+              {
+                  model: Role,
+                  attributes: [ 'id', 'name' ],
+                  as: 'roles'
+              }
+          ]
       });
   }
 
