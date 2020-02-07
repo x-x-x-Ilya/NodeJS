@@ -3,8 +3,6 @@ const Role = require('../database/models/role');
 const Post = require('../database/models/post');
 
 class UserRepository {
-    //console.log(user.get({plain: true}));
-    //console.log(posts.map(post => post.toJSON()));
 
     async createUser(body) {
         return await User.create({
@@ -64,5 +62,9 @@ class UserRepository {
         return "User has been deleted successfully";
     }
 
+    //console.log(user.get({plain: true}));
+    //console.log(posts.map(post => post.toJSON()));
+
 }
+
 module.exports = UserRepository;

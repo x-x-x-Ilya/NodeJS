@@ -1,5 +1,4 @@
 const TagService = require('../services/tag');
-
 const tagService = new TagService();
 
 class TagController {
@@ -35,5 +34,7 @@ class TagController {
             return res.status(404).json(error);
         }
     }
+
 }
+
 module.exports = TagController;

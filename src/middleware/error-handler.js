@@ -8,7 +8,6 @@ exports.errorHandler = () => {
   app.use((req, res, next) => {
     next(createError(404));
   });
-
   // error handler
   app.use((err, req, res) => {
     res.locals.message = err.message;
@@ -18,6 +17,5 @@ exports.errorHandler = () => {
     res.send('error');
   });
 };
-
 
 module.exports = app;

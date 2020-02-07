@@ -1,5 +1,4 @@
 const TagRepository = require('../repositories/tag');
-
 const tagRepository = new TagRepository();
 
 class tagServices {
@@ -21,4 +20,5 @@ class tagServices {
     }
 
 }
+
 module.exports = tagServices;

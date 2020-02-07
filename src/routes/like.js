@@ -4,14 +4,8 @@ const router = express.Router();
 const LikeController = require('../controllers/like');
 const likeController = new LikeController();
 
-const isAuthenticated = require('../middleware/isAuthenticated');
-
-router.get('/', (req, res) => {
-  res.send('/like main page');
-});
-
-router.post('/create', isAuthenticated, likeController.create);
-router.get('/getall', likeController.getAll);
-router.delete('/delete', isAuthenticated, likeController.delete);
+router.post('/create', likeController.create);
+router.delete('/delete', likeController.delete);
+router.get('/getAll', likeController.getAll);
 
 module.exports = router;

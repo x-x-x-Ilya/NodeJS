@@ -6,7 +6,7 @@ class PostController {
 
   async create(req, res) {
     try {
-        return res.status(201).json(await postService.create(req.body.post, req.body.tags, req.user));
+      return res.status(201).json(await postService.create(req.body.post, req.body.tags, req.user));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -30,7 +30,7 @@ class PostController {
 
   async get(req, res) {
     try {
-        return res.status(201).json(await postService.get(req.body));
+      return res.status(201).json(await postService.get(req.body));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -44,13 +44,14 @@ class PostController {
     }
   }
 
-  async setTags(req, res){
+  async setTags(req, res) {
     try {
       return res.status(201).json(await postService.setTags());
     } catch (error) {
       return res.status(404).json(error);
     }
   }
+
 }
 
 module.exports = PostController;

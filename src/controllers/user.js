@@ -1,12 +1,11 @@
 const UserService = require('../services/user');
-
 const userServices = new UserService();
 
 class UserController {
 
   async create(req, res) {
     try {
-       return res.status(200).json(await userServices.createUser(req.body));
+      return res.status(200).json(await userServices.createUser(req.body));
     } catch (error) {
       return res.status(404).json(error);
     }
@@ -30,7 +29,7 @@ class UserController {
 
   async update(req, res) {
     try {
-        return res.status(200).json(await userServices.updateUser(req.body, req.user));
+      return res.status(200).json(await userServices.updateUser(req.body, req.user));
     } catch (error) {
       return res.status(404).json(error);
     }

@@ -10,7 +10,7 @@ class userServices {
             return 'Data is undefined, check it';
         } //else if (await userRepository.getUserByEmail(body) !== null) {
             //return 'This mail is already in use. Please use another mail';
-       // }
+        // }
         else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(body.email)) {
             return 'Email is not valid, use true email';
         } else {
@@ -19,7 +19,6 @@ class userServices {
     }
 
     async getUser(body) {
-
         if (!body.email && (!body.firstName || !body.lastName) && !body.id) {
             return 'Data is undefined, check it';
         } else
@@ -55,4 +54,5 @@ class userServices {
     }
 
 }
+
 module.exports = userServices;

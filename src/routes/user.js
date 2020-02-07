@@ -1,17 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
+const isAdmin = require('../middleware/isAdmin');
+
 const UserController = require('../controllers/user');
 const userController = new UserController();
 
-const isAuthenticated = require('../middleware/isAuthenticated');
-const isAdmin = require('../middleware/isAdmin');
-
-router.get('/', (req, res) => {res.send('/user main page');});
-router.post('/create', isAuthenticated, isAdmin, userController.create);
 router.get('/get', userController.get);
-router.get('/getAll',isAuthenticated, isAdmin, userController.getAll);
-router.delete('/deleteUsers', isAuthenticated, isAdmin, userController.deleteUser);
-router.put('/update', isAuthenticated, userController.update);
+router.put('/update', userController.update);
+
+router.post('/create', isAdmin, userController.create);
+router.get('/getAll', isAdmin, userController.getAll);
+router.delete('/deleteUsers', isAdmin, userController.deleteUser);
 
 module.exports = router;
