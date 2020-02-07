@@ -8,9 +8,10 @@ class userServices {
     async createUser(body) {
         if (!body.email || !body.firstName || !body.lastName || !body.password) {
             return 'Data is undefined, check it';
-        } else if (await userRepository.getUserByEmail(body) !== null) {
-            return 'This mail is already in use. Please use another mail';
-        } else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(body.email)) {
+        } //else if (await userRepository.getUserByEmail(body) !== null) {
+            //return 'This mail is already in use. Please use another mail';
+       // }
+        else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(body.email)) {
             return 'Email is not valid, use true email';
         } else {
             return await userRepository.createUser(body);
@@ -21,8 +22,7 @@ class userServices {
 
         if (!body.email && (!body.firstName || !body.lastName) && !body.id) {
             return 'Data is undefined, check it';
-        }
-        else
+        } else
             return await userRepository.getUser(body);
     }
 
@@ -45,15 +45,13 @@ class userServices {
         }
     }
 
-    async deleteUser(body, user) {
-
-        if(body.id === user.id) return 'You can not delete own account';
-        const deleteUser = await userRepository.getUser(body);
-
-        if (!deleteUser) {
-             return await userRepository.deleteUser(deleteUser);
-         } else
-             return 'This user is not exists';
+    async deleteUser() {
+        const user = await User.findOne({
+            where: {
+                deleteReq: true
+            }
+        });
+        return await userRepository.deleteUser(user);
     }
 
 }

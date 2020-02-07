@@ -4,8 +4,8 @@ const roleRepository = new Repository();
 
 class roleServices {
 
-    async createRole(body, user) {
-            return await roleRepository.createRole(body, user);
+    async createRole(body/*, user*/) {
+            return await roleRepository.createRole(body/*, user*/);
     }
 
     /*async getRole(body, user) {

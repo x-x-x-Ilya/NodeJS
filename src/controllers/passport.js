@@ -7,12 +7,12 @@ class PassportController {
         await passport.authenticate('local',
             function (err, user, info) {
                 try {
-                    if (!user) return res.status(404).json('Не правильное имя пользователя или пароль');
+                    if (!user) return res.status(404).json('Incorrect username or password');
                     req.logIn(user, function (err) {
                         if (err) {
                             return res.status(404).json(err);
                         }
-                        return res.status(200).json('Вы вошли в свой аккаунт');
+                        return res.status(200).json('You logged');
                     });
                 } catch (err) {
                     return res.status(404).json(err);
@@ -34,7 +34,7 @@ class PassportController {
         await User.prototype.createUser(req.body).then((user) => {
              req.logIn(user, function (err) {
                 if (err) return res.status(404).json(err);
-                else return res.status(200).json('Вы успешно зарегестрировались и вошли в свой аккаунт');
+                else return res.status(200).json('You create new account and logged in');
             });
         });
     }

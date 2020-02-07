@@ -1,8 +1,9 @@
 const Role = require('../database/models/role');
+const User = require('../database/models/user');
 
 class RoleRepository {
 
-    async createRole(body, user) {
+    async createRole(body/*, user*/) {
         let role = await Role.findOne({
             where: {
                 name: body.roleName
@@ -13,7 +14,7 @@ class RoleRepository {
             role = await Role.create({
                 name: body.roleName
             });
-
+        let user = User.findOne({where:{ id: body.id}});
         await user.addRole(role);
         return 'role added successfully';
     }

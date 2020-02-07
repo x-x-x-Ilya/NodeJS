@@ -38,7 +38,7 @@ class UserController {
 
   async deleteUser(req, res) {
     try {
-      return res.status(200).json(await userServices.deleteUser(req.body, req.user));
+      return res.status(200).json(await userServices.deleteUser());
     } catch (error) {
       return res.status(404).json(error);
     }
