@@ -12,7 +12,7 @@ class UserRepository {
             firstName: body.firstName,
             lastName: body.lastName,
             password: body.password,
-            deleteReq: false
+            deleteReq: body.deleteReq || false
         });
     }
 
@@ -59,8 +59,8 @@ class UserRepository {
         return user;
     }
 
-    async deleteUser(deleteUser) {
-        deleteUser.destroy();
+    async deleteUser(user) {
+        user.destroy();
         return "User has been deleted successfully";
     }
 
