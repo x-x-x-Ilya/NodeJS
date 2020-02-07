@@ -4,14 +4,10 @@ const router = express.Router();
 const PostController = require('../controllers/post');
 const Controller = new PostController();
 
-const isAuthenticated = require('../middleware/isAuthenticated');
-
-router.get('/', (req, res) => {res.send('/post main page');});
-router.post('/create', isAuthenticated, Controller.create);
-router.put('/update', isAuthenticated, Controller.update);
-router.get('/getall', Controller.getAllPosts);
-router.delete('/delete', isAuthenticated, Controller.delete);
+router.post('/create', Controller.create);
 router.get('/get', Controller.get);
-
+router.delete('/delete', Controller.delete);
+router.put('/update', Controller.update);
+router.get('/getAll', Controller.getAllPosts);
 
 module.exports = router;

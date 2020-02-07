@@ -14,29 +14,31 @@ class PassportController {
                         }
                         return res.status(200).json('You logged');
                     });
-                } catch (err) {
-                    return res.status(404).json(err);
+                } catch (error) {
+                    return res.status(404).json(error);
                 }
             })(req, res, next)
     }
 
-    async logout(req, res, next) {
+    async logout(req, res) {
         try {
             await req.logout();
             return res.status(200).json('You Logout');
-        } catch (e) {
-            return res.status(404).json('Error, maybe you not logged');
+        } catch (error) {
+            return res.status(404).json(error);
         }
-
     }
 
-    async register(req, res, next) {
-        await User.prototype.createUser(req.body).then((user) => {
-             req.logIn(user, function (err) {
+    async register(req, res) {
+        try {
+            const user = await User.prototype.createUser(req.body);
+            await req.logIn(user, function (err) {
                 if (err) return res.status(404).json(err);
                 else return res.status(200).json('You create new account and logged in');
             });
-        });
+        } catch (error) {
+            return res.status(404).json(error);
+        }
     }
 
 }

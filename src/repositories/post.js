@@ -1,24 +1,25 @@
 const Post = require('../database/models/post');
 const Tag = require('./tag');
+
 class PostRepository {
 
     async createPost(postData, tags, user) {
-         const post = await Post.create({
+        const post = await Post.create({
             userId: user.id,
             createdAt: new Date(),
             img: postData.img,
             caption: postData.caption,
         });
-         try {
-             await Tag.prototype.createTag(tags, post)
-         }catch (e) {
-             console.log(e);
-             return e;
-         }
-         }
+        try {
+            await Tag.prototype.createTag(tags, post)
+        } catch (e) {
+            console.log(e);
+            return e;
+        }
+    }
 
     async getPost(body) {
-        return  Post.findOne({
+        return Post.findOne({
             attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
             where: {
                 id: body.id,
@@ -71,7 +72,7 @@ class PostRepository {
     }
 
     async getAllPosts(options) {
-        return Post.findAll({ where: options});
+        return Post.findAll({where: options});
     }
 
 }

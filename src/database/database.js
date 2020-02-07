@@ -1,19 +1,19 @@
 const database = require('./sequelize');
 
-exports.authentication = () => {
-    database.authenticate()
-    .then(() => {
-      console.log('Connection has been established successfully.');
-    }).catch((err) => {
-      console.error('Unable to connect to the database:', err);
-    });
+exports.authentication = async () => {
+    try {
+        await database.authenticate();
+        console.log('Database connection has been established successfully.');
+    } catch (error) {
+        console.log('Unable to connect to the database:', error);
+    }
 };
 
-exports.ModelsSynchronization = () => {
-    database.sync()
-    .then(() => {
-      console.log('synchronization has been established successfully.');
-    }).catch((err) => {
-      console.log('Unable to sync with the database:', err);
-    });
+exports.ModelsSynchronization = async () => {
+    try {
+        await database.sync();
+        console.log('Database synchronization has been established successfully.');
+    } catch (error) {
+        console.log('Unable to sync with the database:', error);
+    }
 };

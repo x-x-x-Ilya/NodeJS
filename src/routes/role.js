@@ -4,13 +4,9 @@ const router = express.Router();
 const RoleController = require('../controllers/role');
 const roleController = new RoleController();
 
-const isAuthenticated = require('../middleware/isAuthenticated');
-const isAdmin = require('../middleware/isAdmin');
-
-router.get('/', (req, res) => {res.send('/role main page');});
-router.post('/create', isAuthenticated, isAdmin, roleController.create);
+router.post('/create', roleController.create);
 //router.get('/get', roleController.get);
-router.delete('/delete', isAuthenticated, isAdmin, roleController.delete);
-router.put('/update', isAuthenticated, isAdmin, roleController.update);
+router.delete('/delete', roleController.delete);
+router.put('/update', roleController.update);
 
 module.exports = router;

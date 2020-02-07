@@ -14,16 +14,10 @@ class RoleRepository {
             role = await Role.create({
                 name: body.roleName
             });
-        let user = User.findOne({where:{ id: body.id}});
+        let user = User.findOne({where: {id: body.id}});
         await user.addRole(role);
         return 'role added successfully';
     }
-
-    /*
-        async getRole(body, user) {
-            return await Role.findOne({});
-        }
-    */
 
     async deleteRole(body) {
         const role = await Role.findOne({where: {name: body.roleName}});
@@ -43,5 +37,10 @@ class RoleRepository {
         return role;
     }
 
+    /*async getRole(body, user) {
+            return await Role.findOne({});
+        }*/
+
 }
+
 module.exports = RoleRepository;

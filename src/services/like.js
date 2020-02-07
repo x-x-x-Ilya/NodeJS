@@ -1,24 +1,22 @@
 const Repository = require('../repositories/like');
 const likeRepository = new Repository();
 
-const Like = require('../database/models/like');
-
 class likeServices {
 
-   async create(body, user) {
-       /*
-       * Можно ставить лайки повторно
-       * */
-       return await likeRepository.createLike(body, user);
-  }
+    async create(body, user) {
+        /*
+        * Можно ставить лайки повторно
+        * */
+        return await likeRepository.createLike(body, user);
+    }
 
-  async delete(body, user) {
-      return await likeRepository.deleteLike(body, user);
-  }
+    async delete(body, user) {
+        return await likeRepository.deleteLike(body, user);
+    }
 
-  async getAll(body) {
-    return await likeRepository.getLikes(body);
-  }
+    async getAll(body) {
+        return await likeRepository.getLikes(body);
+    }
 
 }
 
