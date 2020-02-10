@@ -2,48 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/loaders/parsers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/passport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/tag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/models/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/models/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/models/post_tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/post_tag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/models/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/role.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/models/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/tag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/models/user_role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/user_role.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/sequelize.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/sequelize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loaders/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loaders/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/passport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/error-handler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/error-handler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/isAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/isAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/isAuthenticated.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/isAuthenticated.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/LikeController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/PassportController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/PostController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/RoleController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/TagController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/UserController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/sql/mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/sql/mysql.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/middleware/isNotAuthenticated.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/isNotAuthenticated.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/passport-middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/passport-middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/role.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/tag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/LikeRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/PostRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/RoleRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/TagRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/UserRepository.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/like.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/role.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/tag.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/role.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/tag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/LikeService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PostService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/RoleService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TagService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +170,10 @@
       <workItem from="1580980723158" duration="22380000" />
       <workItem from="1581012475710" duration="45000" />
       <workItem from="1581046498679" duration="7644000" />
-      <workItem from="1581089150517" duration="6760000" />
+      <workItem from="1581089150517" duration="7460000" />
+      <workItem from="1581096874190" duration="690000" />
+      <workItem from="1581347272319" duration="3167000" />
+      <workItem from="1581364123259" duration="64000" />
     </task>
     <servers />
   </component>
@@ -222,6 +210,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="156" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1579538918012" />
+    <state x="555" y="27" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1581350257554">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="555" y="27" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1581350257554" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1580223076306">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

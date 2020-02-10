@@ -1,5 +1,5 @@
 const Post = require('../database/models/post');
-const Tag = require('./tag');
+const Tag = require('./TagRepository');
 
 class PostRepository {
 

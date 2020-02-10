@@ -1,5 +1,5 @@
 const passport = require('passport');
-const User = require('../repositories/user');
+const User = require('../repositories/UserRepository');
 
 class PassportController {
 
