@@ -1,7 +1,7 @@
-const Repository = require('../repositories/like');
+const Repository = require('../repositories/LikeRepository');
 const likeRepository = new Repository();
 
-class likeServices {
+class LikeService {
 
     async create(body, user) {
         /*
@@ -20,4 +20,4 @@ class likeServices {
 
 }
 
-module.exports = likeServices;
+module.exports = LikeService;

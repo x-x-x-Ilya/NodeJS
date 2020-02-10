@@ -1,4 +1,4 @@
-const TagService = require('../services/tag');
+const TagService = require('../services/TagService');
 const tagService = new TagService();
 
 class TagController {

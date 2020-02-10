@@ -1,7 +1,7 @@
-const Repository = require('../repositories/post');
+const Repository = require('../repositories/PostRepository');
 const postRepository = new Repository();
 
-class PostServices {
+class PostService {
 
     async create(post, tags, user) {
         // add test is url   /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi
@@ -30,4 +30,4 @@ class PostServices {
 
 }
 
-module.exports = PostServices;
+module.exports = PostService;

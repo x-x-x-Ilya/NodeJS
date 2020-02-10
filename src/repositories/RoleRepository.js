@@ -21,7 +21,7 @@ class RoleRepository {
 
     async deleteRole(body) {
         const role = await Role.findOne({where: {name: body.roleName}});
-        await role.destroy({});
+        //await role.destroy({}); !!!
         return 'role deleted successfully';
     }
 

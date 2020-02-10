@@ -3,7 +3,7 @@ const router = express.Router();
 
 const isAuthenticated = require('../middleware/isAuthenticated');
 
-const TagController = require('../controllers/tag');
+const TagController = require('../controllers/TagController');
 const tagController = new TagController();
 
 router.post('/create', isAuthenticated, tagController.create);

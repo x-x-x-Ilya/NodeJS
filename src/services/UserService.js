@@ -1,9 +1,9 @@
 const User = require('../database/models/user');
 
-const Repository = require('../repositories/user');
+const Repository = require('../repositories/UserRepository');
 const userRepository = new Repository();
 
-class userServices {
+class UserService {
 
     async createUser(body) {
         if (!body.email || !body.firstName || !body.lastName || !body.password) {
@@ -55,4 +55,4 @@ class userServices {
 
 }
 
-module.exports = userServices;
+module.exports = UserService;
