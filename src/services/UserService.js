@@ -8,12 +8,14 @@ class UserService {
     async createUser(body) {
         if (!body.email || !body.firstName || !body.lastName || !body.password) {
             return 'Data is undefined, check it';
-        } //else if (await userRepository.getUserByEmail(body) !== null) {
+        }
+        //else if (await userRepository.getUserByEmail(body) !== null) {
             //return 'This mail is already in use. Please use another mail';
         // }
         else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(body.email)) {
             return 'Email is not valid, use true email';
-        } else {
+        }
+        else {
             return await userRepository.createUser(body);
         }
     }
