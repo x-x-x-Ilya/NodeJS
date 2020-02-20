@@ -13,9 +13,9 @@ const passportController = new Passport();
 router.post(
     '/login',
     isNotAuthenticated,
-    validator({
+    /*validator({
         body: schemas.login
-    }),
+    }),*/
     passportController.login);
 
 router.post('/register',

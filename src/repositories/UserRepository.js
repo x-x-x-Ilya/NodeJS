@@ -43,6 +43,13 @@ class UserRepository {
         return User.findAll({
             attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
             where: options,
+            include: [
+                {
+                    model: Role,
+                    attributes: ['id', 'name'],
+                    as: 'roles'
+                }
+            ]
         });
     }
 

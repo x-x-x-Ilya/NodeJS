@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/middleware/joi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/middleware/validation schemas/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/middleware/validation schemas/registration.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/middleware/validation schemas/schemas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/middleware/validation schemas/createPost.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/RoleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/RoleController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/validation schemas/schemas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/validation schemas/schemas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/RoleRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/RoleRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/UserRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/UserRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/passport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/UserService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/RoleService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/RoleService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +158,9 @@
       <workItem from="1581096874190" duration="690000" />
       <workItem from="1581347272319" duration="3167000" />
       <workItem from="1581364123259" duration="64000" />
-      <workItem from="1581952288436" duration="3467000" />
+      <workItem from="1581952288436" duration="4830000" />
+      <workItem from="1582124476460" duration="3429000" />
+      <workItem from="1582175954997" duration="633000" />
     </task>
     <servers />
   </component>
