@@ -3,8 +3,8 @@ const tagRepository = new TagRepository();
 
 class TagService {
 
-    async createTag(data) {
-        return await tagRepository.createTag(data);
+    async createTag(tags, postId) {
+        return await tagRepository.createTag(tags, postId, user);
     }
 
     async getTag(data) {

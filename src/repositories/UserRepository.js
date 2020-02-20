@@ -20,19 +20,12 @@ class UserRepository {
             include: [
                 {
                     model: Post,
-                    attributes: ['id', 'caption', 'img'],
+                    attributes: ['caption', 'img'],
                     as: 'posts',
-                    /*include: [
-                            {
-                                model: Tag,
-                                attributes: [ 'id', 'name' ],
-                                as: 'tags',
-                            }
-                        ]*/
                 },
                 {
                     model: Role,
-                    attributes: ['id', 'name'],
+                    attributes: ['name'],
                     as: 'roles'
                 }
             ]
