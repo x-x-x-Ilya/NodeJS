@@ -1,5 +1,7 @@
 const Post = require('../database/models/post');
 const Tag = require('./TagRepository');
+const TagModel = require('../database/models/tag');
+const likeModel = require('../database/models/like');
 
 class PostRepository {
 
@@ -11,7 +13,7 @@ class PostRepository {
             caption: postData.caption,
         });
         try {
-            await Tag.prototype.createTag(tags, post)
+            await Tag.prototype.createTag(tags, post.id, user)
         } catch (e) {
             console.log(e);
             return e;
@@ -24,7 +26,20 @@ class PostRepository {
             where: {
                 id: body.id,
             },
+            include: [
+                {
+                    model: TagModel,
+                    attributes: ['name'],
+                    as: 'tags',
+                }/*,
+                {
+                    model: likeModel,
+                    attributes: ['userId'],
+                    as: 'likes'
+                }*/
+            ]
         });
+
         /*
         if (data.id === undefined) {
             await Post.findAll({

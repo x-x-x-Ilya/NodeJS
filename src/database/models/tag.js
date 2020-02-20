@@ -7,7 +7,7 @@ const Tag = database.define('tags', {
 });
 
 Tag.associate = (models) => {
-  Tag.belongsToMany(models.Post, { through: 'posts_tags', foreignKey: 'tagId', as: 'posts' });
+  Tag.belongsToMany(models.Post, { foreignKey: 'tagId', as: 'posts', through: 'posts_tags'});
 };
 
 module.exports = Tag;

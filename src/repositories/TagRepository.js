@@ -1,19 +1,25 @@
 const Tag = require('../database/models/tag');
+const Post = require('../database/models/post');
 
 class TagRepository {
 
-    async createTag(tags, post) {
+    async createTag(tags, postId, user) {
         //await post.setTags([]);
-        if (tags) {
-            for (let tagName of tags) {
-                let tag = await Tag.findOrCreate({
-                    where: {name: tagName},
-                    default: {name: tagName}
-                });
-                await post.addTag(tag[0]);
+        const post = Post.findOne({where: {id: postId}});
+
+        if (post.userId === user.id) {
+
+            if (tags) {
+                for (let tagName of tags) {
+                    let tag = await Tag.findOrCreate({
+                        where: {name: tagName},
+                        default: {name: tagName}
+                    });
+                    await post.addTag(tag[0]);
+                }
             }
+            return post;
         }
-        return post;
     }
 
     async getTag(data) {

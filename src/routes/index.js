@@ -16,7 +16,7 @@ router.use('/user', isAuthenticated, userRouter);
 router.use('/like', isAuthenticated, likeRouter);
 router.use('/post', isAuthenticated, postRouter);
 router.use('/tag' , isAuthenticated, tagRouter);
-router.use('/role', isAuthenticated, isAdmin,roleRouter);
+router.use('/role', isAuthenticated, /*isAdmin,*/roleRouter);
 router.use('/', passportRouter);
 
 module.exports = router;
