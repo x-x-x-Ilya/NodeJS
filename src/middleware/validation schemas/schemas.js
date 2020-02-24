@@ -1,6 +1,7 @@
 const registration = require("./registration");
 const login = require("./login");
 const post = require("./createPost");
+
 module.exports = {
     registration,
     login,
