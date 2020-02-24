@@ -21,11 +21,9 @@ class PostRepository {
     }
 
     async getPost(body) {
-        return Post.findOne({
+        return Post.findAll({
             attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
-            where: {
-                id: body.id,
-            },
+            where: body,
             include: [
                 {
                     model: TagModel,
@@ -61,7 +59,7 @@ class PostRepository {
                 id: body.id,
             }
         });
-
+        if(post.createdAt - Date.now()*10 <= 1800)
         if (post.userId === user.id) {
             await post.update({
                 createdAt: new Date(),
@@ -87,7 +85,9 @@ class PostRepository {
     }
 
     async getAllPosts(options) {
-        return Post.findAll({where: options});
+        return await Post.findAll({
+            where:options,
+        });
     }
 
 }

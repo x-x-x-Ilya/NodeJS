@@ -8,6 +8,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
+    "cron": "^1.8.2",
     "express": "^4.16.4",
     "express-session": "^1.17.0",
     "http-errors": "^1.7.3",
@@ -27,6 +28,7 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "node-cron": "^2.0.3"
   }
 }
