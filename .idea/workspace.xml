@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/middleware/AutoDeletingPosts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/TagController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/TagController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/models/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/models/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/models/post_tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/post_tag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/models/tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/tag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repositories/PostRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/PostRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/TagRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/TagRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/UserRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/UserRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/TagService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TagService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/passport.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +43,7 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="E:\Program Files\WebStorm\WebStorm 2019.2.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -160,7 +156,9 @@
       <workItem from="1581364123259" duration="64000" />
       <workItem from="1581952288436" duration="4830000" />
       <workItem from="1582124476460" duration="3429000" />
-      <workItem from="1582175954997" duration="3366000" />
+      <workItem from="1582175954997" duration="3472000" />
+      <workItem from="1582190688684" duration="1688000" />
+      <workItem from="1582546151591" duration="3908000" />
     </task>
     <servers />
   </component>
