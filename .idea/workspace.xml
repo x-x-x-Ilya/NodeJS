@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dc76b45-0d8a-48c7-b7ec-fd4f31839034" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/middleware/AutoDeletingPosts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/PostRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/PostRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/passport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loaders/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/AutoDeletingPosts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/AutoDeletingPosts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +156,7 @@
       <workItem from="1582175954997" duration="3472000" />
       <workItem from="1582190688684" duration="1688000" />
       <workItem from="1582546151591" duration="3908000" />
+      <workItem from="1582718294118" duration="1014000" />
     </task>
     <servers />
   </component>
