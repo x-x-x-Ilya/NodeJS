@@ -7,9 +7,7 @@ exports.authentication = async () => {
     } catch (error) {
         console.log('Unable to connect to the database:', error);
     }
-};
 
-exports.ModelsSynchronization = async () => {
     try {
         await database.sync();
         console.log('Database synchronization has been established successfully.');

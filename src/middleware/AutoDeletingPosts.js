@@ -2,8 +2,7 @@ const cron = require("node-cron");
 const fs = require("fs");
 const Post = require("../database/models/post");
 
-
-exports.autoDel = async () => {
+exports.autoDel = () => {
     try {
         cron.schedule("* * 24 * *", () => {
 
@@ -15,7 +14,7 @@ exports.autoDel = async () => {
             });
             fs.unlink("./error.log", err => {
                 if (err) throw err;
-                console.log("Error file successfully deleted");
+                console.log("Error file successfully deleted", err);
             });
         });
     } catch (e) {

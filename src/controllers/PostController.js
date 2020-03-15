@@ -6,7 +6,7 @@ class PostController {
 
   async create(req, res) {
     try {
-      return res.status(201).json(await postService.create(req.body.post, req.body.tags, req.user));
+      return res.status(201).json(await postService.create(req.body, req.user));
     } catch (error) {
       return res.status(404).json(error);
     }

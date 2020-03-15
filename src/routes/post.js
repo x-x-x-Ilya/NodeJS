@@ -8,17 +8,17 @@ const PostController = require('../controllers/PostController');
 const Controller = new PostController();
 
 router.post('/create',
-    validator({
-    body: schemas.post
-}),
+    /*validator({
+    body: schemas.post}),*/
     Controller.create);
+
 router.get('/get', Controller.get);
 router.delete('/delete', Controller.delete);
 
 router.put('/update',
-    validator({
+   /* validator({
         body: schemas.post
-    }),
+    }),*/
     Controller.update);
 
 router.get('/getAll', Controller.getAllPosts);

@@ -5,15 +5,15 @@ const likeModel = require('../database/models/like');
 
 class PostRepository {
 
-    async createPost(postData, tags, user) {
+    async createPost(body, user) {
         const post = await Post.create({
             userId: user.id,
             createdAt: new Date(),
-            img: postData.img,
-            caption: postData.caption,
+            img: body.img,
+            caption: body.caption,
         });
         try {
-            await Tag.prototype.createTag(tags, post.id, user)
+            await Tag.prototype.createTag(body.tags, post.id, user)
         } catch (e) {
             console.log(e);
             return e;

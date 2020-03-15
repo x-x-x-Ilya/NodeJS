@@ -1,21 +1,25 @@
 const createError = require('http-errors');
-const express = require('express');
 
-const app = express();
-// const app = require('../app');
-
-exports.errorHandler = () => {
-  app.use((req, res, next) => {
+module.exports.NotFound = () => {
+  return (req, res, next) => {
+    console.log("NotFound 5");
     next(createError(404));
-  });
-  // error handler
-  app.use((err, req, res) => {
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    res.status(err.status || 500);
-    res.send('error');
-  });
+    console.log("NotFound 7");
+  }
 };
 
-module.exports = app;
+module.exports.ErrorHandler = () => {
+  return (err, req, res, next) => {
+    console.log("ErrorHandler 13");
+    res.message = err.message;
+    console.log("ErrorHandler 15");
+    res.error = req.app.get('env') === 'development' ? err : {};
+    console.log("ErrorHandler 17");
+    res.status(err.status || 500);
+    console.log("ErrorHandler 19");
+    res.send('error');
+    console.log("ErrorHandler 21");
+  }
+};
+
+
