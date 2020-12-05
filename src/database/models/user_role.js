@@ -1,9 +1,9 @@
-const Sequelize = require('sequelize');
-const database = require('../sequelize');
+import { INTEGER } from 'sequelize';
+import { define } from '../sequelize';
 
-const UserRole = database.define('users_roles', {
-    userId: { type: Sequelize.INTEGER, allowNull: false, field: 'user_id' },
-    roleId: { type: Sequelize.INTEGER, allowNull: false, field: 'role_id' },
+const UserRole = define('users_roles', {
+    userId: { type: INTEGER, allowNull: false, field: 'user_id' },
+    roleId: { type: INTEGER, allowNull: false, field: 'role_id' },
 });
 
 UserRole.associate = models => {
@@ -11,4 +11,4 @@ UserRole.associate = models => {
     UserRole.belongsTo(models.Role, { foreignKey: 'roleId' });
 };
 
-module.exports = UserRole;
+export default UserRole;

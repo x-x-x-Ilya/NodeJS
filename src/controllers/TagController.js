@@ -1,4 +1,4 @@
-const TagService = require('../services/TagService');
+import TagService from '../services/TagService';
 const tagService = new TagService();
 
 class TagController {
@@ -43,4 +43,4 @@ class TagController {
     }
 }
 
-module.exports = TagController;
+export default TagController;

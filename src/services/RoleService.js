@@ -1,4 +1,4 @@
-const Repository = require('../repositories/RoleRepository');
+const Repository = require('../repositories/RoleRepository').default;
 const roleRepository = new Repository();
 
 class RoleService {

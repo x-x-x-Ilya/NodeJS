@@ -1,4 +1,4 @@
-const TagRepository = require('../repositories/TagRepository');
+const TagRepository = require('../repositories/TagRepository').default;
 const tagRepository = new TagRepository();
 
 class TagService {

@@ -1,19 +1,19 @@
-const Role = require('../database/models/role');
-const User = require('../database/models/user');
+import { findOne, create } from '../database/models/role';
+import { findOne as _findOne } from '../database/models/user';
 
 class RoleRepository {
     async createRole(body) {
-        let role = await Role.findOne({
+        let role = await findOne({
             where: {
                 name: body.roleName,
             },
         });
 
         if (!role)
-            role = await Role.create({
+            role = await create({
                 name: body.roleName,
             });
-        const user = await User.findOne({ where: { id: body.id } });
+        const user = await _findOne({ where: { id: body.id } });
         await user.addRole(role);
         return 'role added successfully';
     }
@@ -22,14 +22,14 @@ class RoleRepository {
         if (body.id === user.id && body.roleName === 'Admin')
             return 'you cant delete your admin role';
 
-        const deleteRoleUser = await User.findOne({ where: { id: body.id } });
-        const role = await Role.findOne({ where: { name: body.roleName } });
+        const deleteRoleUser = await _findOne({ where: { id: body.id } });
+        const role = await findOne({ where: { name: body.roleName } });
         await deleteRoleUser.removeRole(role);
         return 'role deleted successfully';
     }
 
     async updateRole(body) {
-        const role = await Role.findOne({
+        const role = await findOne({
             where: {
                 name: body.oldRoleName,
             },
@@ -46,4 +46,4 @@ class RoleRepository {
 */
 }
 
-module.exports = RoleRepository;
+export default RoleRepository;

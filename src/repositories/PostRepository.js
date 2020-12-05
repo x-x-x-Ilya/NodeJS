@@ -1,25 +1,25 @@
-const Post = require('../database/models/post');
-const Tag = require('./TagRepository');
-const TagModel = require('../database/models/tag');
-const likeModel = require('../database/models/like');
+import { create, findAll, findOne } from '../database/models/post';
+import { prototype } from './TagRepository';
+import TagModel from '../database/models/tag';
+import likeModel from '../database/models/like';
 
 class PostRepository {
     async createPost(postData, tags, user) {
-        const post = await Post.create({
+        const post = await create({
             userId: user.id,
             createdAt: new Date(),
             img: postData.img,
             caption: postData.caption,
         });
         try {
-            await Tag.prototype.createTag(tags, post.id, user);
+            await prototype.createTag(tags, post.id, user);
         } catch (error) {
             return error;
         }
     }
 
     async getPost(body) {
-        return Post.findAll({
+        return findAll({
             attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
             where: body,
             include: [
@@ -52,7 +52,7 @@ class PostRepository {
     }
 
     async updatePost(body, user) {
-        const post = await Post.findOne({
+        const post = await findOne({
             where: {
                 id: body.id,
             },
@@ -69,7 +69,7 @@ class PostRepository {
     }
 
     async deletePost(body, user) {
-        const post = await Post.findOne({
+        const post = await findOne({
             where: {
                 id: body.id,
             },
@@ -81,10 +81,10 @@ class PostRepository {
     }
 
     async getAllPosts(options) {
-        return await Post.findAll({
+        return await findAll({
             where: options,
         });
     }
 }
 
-module.exports = PostRepository;
+export default PostRepository;

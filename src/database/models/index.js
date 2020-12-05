@@ -1,10 +1,10 @@
-const User = require('./user');
-const Post = require('./post');
-const Like = require('./like');
-const Role = require('./role');
-const Tag = require('./tag');
-const PostTag = require('./post_tag');
-const UserRole = require('./user_role');
+import User from './user';
+import Post from './post';
+import Like from './like';
+import Role from './role';
+import Tag from './tag';
+import PostTag from './post_tag';
+import UserRole from './user_role';
 
 const db = {
     User,
@@ -16,8 +16,8 @@ const db = {
     UserRole,
 };
 
-exports.init = () => {
+export function init() {
     Object.keys(db).forEach(modelName => {
         db[modelName].associate && db[modelName].associate(db);
     });
-};
+}

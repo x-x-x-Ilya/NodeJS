@@ -1,9 +1,9 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
-const isAdmin = require('../middleware/isAdmin');
+import isAdmin from '../middleware/isAdmin';
 
-const UserController = require('../controllers/UserController');
+import UserController from '../controllers/UserController';
 const userController = new UserController();
 
 router.get('/get', userController.get);
@@ -13,4 +13,4 @@ router.post('/create', isAdmin, userController.create);
 router.get('/getAll', isAdmin, userController.getAll);
 router.delete('/deleteUsers', isAdmin, userController.deleteUser);
 
-module.exports = router;
+export default router;

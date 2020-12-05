@@ -1,9 +1,9 @@
-const Sequelize = require('sequelize');
-const database = require('../sequelize');
+import { INTEGER } from 'sequelize';
+import { define } from '../sequelize';
 
-const PostTag = database.define('posts_tags', {
-    postId: { type: Sequelize.INTEGER, allowNull: false, field: 'post_id' },
-    tagId: { type: Sequelize.INTEGER, allowNull: false, field: 'tag_id' },
+const PostTag = define('posts_tags', {
+    postId: { type: INTEGER, allowNull: false, field: 'post_id' },
+    tagId: { type: INTEGER, allowNull: false, field: 'tag_id' },
 });
 
 PostTag.associate = models => {
@@ -11,4 +11,4 @@ PostTag.associate = models => {
     PostTag.belongsTo(models.Tag, { foreignKey: 'tagId' });
 };
 
-module.exports = PostTag;
+export default PostTag;

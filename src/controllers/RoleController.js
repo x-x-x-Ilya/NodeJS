@@ -1,4 +1,4 @@
-const RoleService = require('../services/RoleService');
+import RoleService from '../services/RoleService';
 
 const roleServices = new RoleService();
 
@@ -44,4 +44,4 @@ class RoleController {
     }
 }
 
-module.exports = RoleController;
+export default RoleController;

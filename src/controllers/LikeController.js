@@ -1,4 +1,4 @@
-const LikeService = require('../services/LikeService');
+import LikeService from '../services/LikeService';
 const likeService = new LikeService();
 
 class LikeController {
@@ -31,4 +31,4 @@ class LikeController {
     }
 }
 
-module.exports = LikeController;
+export default LikeController;

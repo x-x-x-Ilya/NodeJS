@@ -1,14 +1,14 @@
-const Sequelize = require('sequelize');
-const database = require('../sequelize');
+import { INTEGER, STRING } from 'sequelize';
+import { define } from '../sequelize';
 
-const Tag = database.define('tags', {
+const Tag = define('tags', {
     id: {
-        type: Sequelize.INTEGER,
+        type: INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
     },
-    name: { type: Sequelize.STRING, allowNull: false, min: 0, notEmpty: true },
+    name: { type: STRING, allowNull: false, min: 0, notEmpty: true },
 });
 
 Tag.associate = models => {
@@ -19,4 +19,4 @@ Tag.associate = models => {
     });
 };
 
-module.exports = Tag;
+export default Tag;

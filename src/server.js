@@ -2,7 +2,9 @@ const app = require('./app');
 
 const normalizePort = val => {
     const port = Number.parseInt(val, 10);
-    if (port >= 0) return port;
+
+    if (port > 0) return port;
+
     return false;
 };
 

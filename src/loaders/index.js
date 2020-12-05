@@ -1,16 +1,16 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 
-const parsers = require('./parsers');
-const passport = require('./passport');
-const Models = require('../database/models');
-const errorCatcher = require('../middleware/error-handler');
-const routes = require('../routes');
+import parsers from './parsers';
+import passport from './passport';
+import { init } from '../database/models';
+import errorCatcher from '../middleware/error-handler';
+import routes from '../routes';
 
 app.use(parsers);
 app.use(passport);
-Models.init();
+init();
 app.use(routes);
 app.use(errorCatcher);
 
-module.exports = app;
+export default app;

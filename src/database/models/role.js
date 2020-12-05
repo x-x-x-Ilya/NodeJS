@@ -1,14 +1,14 @@
-const Sequelize = require('sequelize');
-const database = require('../sequelize');
+import { INTEGER, STRING } from 'sequelize';
+import { define } from '../sequelize';
 
-const Role = database.define('roles', {
+const Role = define('roles', {
     id: {
-        type: Sequelize.INTEGER,
+        type: INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
     },
-    name: { type: Sequelize.STRING, allowNull: false },
+    name: { type: STRING, allowNull: false },
 });
 
 Role.associate = models => {
@@ -19,4 +19,4 @@ Role.associate = models => {
     });
 };
 
-module.exports = Role;
+export default Role;

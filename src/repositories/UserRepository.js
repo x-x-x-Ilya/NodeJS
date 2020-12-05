@@ -1,10 +1,10 @@
-const User = require('../database/models/user');
-const Role = require('../database/models/role');
-const Post = require('../database/models/post');
+import { create, findOne, findAll } from '../database/models/user';
+import Role from '../database/models/role';
+import Post from '../database/models/post';
 
 class UserRepository {
     async createUser(body) {
-        return await User.create({
+        return await create({
             email: body.email,
             firstName: body.firstName,
             lastName: body.lastName,
@@ -14,7 +14,7 @@ class UserRepository {
     }
 
     async getUser(options) {
-        return User.findOne({
+        return findOne({
             where: options,
             include: [
                 {
@@ -32,7 +32,7 @@ class UserRepository {
     }
 
     async getAllUsers(options) {
-        return User.findAll({
+        return findAll({
             attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
             where: options,
             include: [
@@ -60,9 +60,6 @@ class UserRepository {
         user.destroy();
         return 'User has been deleted successfully';
     }
-
-    //console.log(user.get({plain: true}));
-    //console.log(posts.map(post => post.toJSON()));
 }
 
-module.exports = UserRepository;
+export default UserRepository;

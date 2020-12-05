@@ -1,15 +1,15 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
-const isAuthenticated = require('../middleware/isAuthenticated');
-const isAdmin = require('../middleware/isAdmin');
+import isAuthenticated from '../middleware/isAuthenticated';
+import isAdmin from '../middleware/isAdmin';
 
-const userRouter = require('./user');
-const likeRouter = require('./like');
-const postRouter = require('./post');
-const tagRouter = require('./tag');
-const roleRouter = require('./role');
-const passportRouter = require('./passport');
+import userRouter from './user';
+import likeRouter from './like';
+import postRouter from './post';
+import tagRouter from './tag';
+import roleRouter from './role';
+import passportRouter from './passport';
 
 router.get('/', (req, res) => res.status(201).json('main page'));
 router.use('/user', isAuthenticated, userRouter);
@@ -19,4 +19,4 @@ router.use('/tag', isAuthenticated, tagRouter);
 router.use('/role', isAuthenticated, /*isAdmin,*/ roleRouter);
 router.use('/', passportRouter);
 
-module.exports = router;
+export default router;

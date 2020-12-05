@@ -1,9 +1,9 @@
-const passport = require('passport');
-const User = require('../repositories/UserRepository');
+import { authenticate } from 'passport';
+import User from '../repositories/UserRepository';
 
 class PassportController {
     async login(req, res, next) {
-        await passport.authenticate('local', function (err, user, info) {
+        await authenticate('local', function (err, user, info) {
             try {
                 if (!user)
                     return res
@@ -46,4 +46,4 @@ class PassportController {
     }
 }
 
-module.exports = PassportController;
+export default PassportController;

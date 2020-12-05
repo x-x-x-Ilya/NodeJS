@@ -1,13 +1,13 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
-const validator = require('../middleware/joi');
-const schemas = require('../middleware/validation schemas/schemas');
+import validator from '../middleware/joi';
+import { registration } from '../middleware/validation schemas/schemas';
 
-const isAuthenticated = require('../middleware/isAuthenticated');
-const isNotAuthenticated = require('../middleware/isNotAuthenticated');
+import isAuthenticated from '../middleware/isAuthenticated';
+import isNotAuthenticated from '../middleware/isNotAuthenticated';
 
-const Passport = require('../controllers/PassportController');
+import Passport from '../controllers/PassportController';
 const passportController = new Passport();
 
 router.post(
@@ -23,11 +23,11 @@ router.post(
     '/register',
     isNotAuthenticated,
     validator({
-        body: schemas.registration,
+        body: registration,
     }),
     passportController.register,
 );
 
 router.get('/logout', isAuthenticated, passportController.logout);
 
-module.exports = router;
+export default router;

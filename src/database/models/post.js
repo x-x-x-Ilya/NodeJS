@@ -1,23 +1,23 @@
-const Sequelize = require('sequelize');
-const database = require('../sequelize');
+import { INTEGER, DATE, STRING } from 'sequelize';
+import { define } from '../sequelize';
 
-const Post = database.define('posts', {
+const Post = define('posts', {
     id: {
-        type: Sequelize.INTEGER,
+        type: INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
     },
     userId: {
-        type: Sequelize.INTEGER,
+        type: INTEGER,
         allowNull: false,
         notEmpty: true,
         field: 'user_id',
     },
-    createdAt: { type: Sequelize.DATE, allowNull: false, field: 'created_at' },
-    img: { type: Sequelize.STRING, allowNull: true, defaultAssignment: null },
+    createdAt: { type: DATE, allowNull: false, field: 'created_at' },
+    img: { type: STRING, allowNull: true, defaultAssignment: null },
     caption: {
-        type: Sequelize.STRING,
+        type: STRING,
         allowNull: true,
         defaultAssignment: null,
     },
@@ -33,4 +33,4 @@ Post.associate = models => {
     Post.belongsTo(models.User, { foreignKey: 'userId' });
 };
 
-module.exports = Post;
+export default Post;

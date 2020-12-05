@@ -1,10 +1,10 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 
-const passport = require('../middleware/passport-middleware');
-const session = require('express-session');
+import passport from '../middleware/passport-middleware';
+import session from 'express-session';
 app.use(session({ secret: 'cats', resave: true, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-module.exports = app;
+export default app;

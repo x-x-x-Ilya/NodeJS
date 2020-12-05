@@ -1,15 +1,15 @@
-const Tag = require('../database/models/tag');
-const Post = require('../database/models/post');
+import { findOrCreate, findOne, findAll } from '../database/models/tag';
+import { findOne as _findOne } from '../database/models/post';
 
 class TagRepository {
     async createTag(tags, postId, user) {
         //await post.setTags([]);
-        const post = Post.findOne({ where: { id: postId } });
+        const post = _findOne({ where: { id: postId } });
 
         if (post.userId === user.id) {
             if (tags) {
                 for (const tagName of tags) {
-                    const tag = await Tag.findOrCreate({
+                    const tag = await findOrCreate({
                         where: { name: tagName },
                         default: { name: tagName },
                     });
@@ -21,7 +21,7 @@ class TagRepository {
     }
 
     async getTag(data) {
-        await Tag.findOne({
+        await findOne({
             /* where: {
               user id: data.user id,
               post id: data.post id,
@@ -32,7 +32,7 @@ class TagRepository {
     }
 
     async getAllTags(data) {
-        return await Tag.findAll({
+        return await findAll({
             where: {
                 //   postId: data.postId
             },
@@ -40,7 +40,7 @@ class TagRepository {
     }
 
     async updateTag(data) {
-        const tag = await Tag.findOne({
+        const tag = await findOne({
             /* where: {
               user Id: data.user Id,
               post Id: data.post Id,
@@ -53,4 +53,4 @@ class TagRepository {
     }
 }
 
-module.exports = TagRepository;
+export default TagRepository;

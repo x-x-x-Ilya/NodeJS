@@ -1,10 +1,10 @@
-const Sequelize = require('sequelize');
-const database = require('../sequelize');
+import { INTEGER } from 'sequelize';
+import { define } from '../sequelize';
 
-const Like = database.define('likes', {
+const Like = define('likes', {
     //id:     { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true},
-    userId: { type: Sequelize.INTEGER, allowNull: false, field: 'user_id' },
-    postId: { type: Sequelize.INTEGER, allowNull: false, field: 'post_id' },
+    userId: { type: INTEGER, allowNull: false, field: 'user_id' },
+    postId: { type: INTEGER, allowNull: false, field: 'post_id' },
 });
 
 Like.associate = models => {
@@ -12,4 +12,4 @@ Like.associate = models => {
     Like.belongsTo(models.Post, { foreignKey: 'postId' });
 };
 
-module.exports = Like;
+export default Like;

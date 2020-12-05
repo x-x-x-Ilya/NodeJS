@@ -1,8 +1,8 @@
-const Like = require('../database/models/like');
+import { findAll, create, findOne } from '../database/models/like';
 
 class LikeRepository {
     async getLikes(body) {
-        return Like.findAll({
+        return findAll({
             where: {
                 postId: body.postId,
             },
@@ -10,14 +10,14 @@ class LikeRepository {
     }
 
     async createLike(body, user) {
-        return await Like.create({
+        return await create({
             userId: user.id,
             postId: body.postId,
         });
     }
 
     async deleteLike(body, user) {
-        const like = await Like.findOne({
+        const like = await findOne({
             where: {
                 userId: user.id,
                 postId: body.postId,
@@ -28,4 +28,4 @@ class LikeRepository {
     }
 }
 
-module.exports = LikeRepository;
+export default LikeRepository;

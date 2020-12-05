@@ -1,6 +1,6 @@
-const User = require('../database/models/user');
+const User = require('../database/models/user').default;
 
-const Repository = require('../repositories/UserRepository');
+const Repository = require('../repositories/UserRepository').default;
 const userRepository = new Repository();
 
 class UserService {

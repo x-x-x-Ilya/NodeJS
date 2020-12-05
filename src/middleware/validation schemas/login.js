@@ -1,6 +1,6 @@
-const Joi = require('@hapi/joi');
+import { object, string } from '@hapi/joi';
 
-module.exports = Joi.object({
-    username: Joi.string().email().required(),
-    password: Joi.string().min(3).max(20).required(),
+export default object({
+    username: string().email().required(),
+    password: string().min(3).max(20).required(),
 });

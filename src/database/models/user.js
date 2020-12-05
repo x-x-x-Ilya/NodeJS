@@ -1,22 +1,22 @@
-const Sequelize = require('sequelize');
-const database = require('../sequelize');
+import { INTEGER, STRING, BOOLEAN } from 'sequelize';
+import { define } from '../sequelize';
 
-const User = database.define('users', {
+const User = define('users', {
     id: {
-        type: Sequelize.INTEGER,
+        type: INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
     },
-    email: { type: Sequelize.STRING, allowNull: false, UNIQUE_KEY: true },
+    email: { type: STRING, allowNull: false, UNIQUE_KEY: true },
     password: {
-        type: Sequelize.STRING,
+        type: STRING,
         allowNull: false,
         min: 8,
         notEmpty: true,
     },
     firstName: {
-        type: Sequelize.STRING,
+        type: STRING,
         allowNull: false,
         min: 0,
         max: 30,
@@ -24,7 +24,7 @@ const User = database.define('users', {
         field: 'first_name',
     },
     lastName: {
-        type: Sequelize.STRING,
+        type: STRING,
         allowNull: false,
         min: 0,
         max: 30,
@@ -32,7 +32,7 @@ const User = database.define('users', {
         field: 'last_name',
     },
     deleteReq: {
-        type: Sequelize.BOOLEAN,
+        type: BOOLEAN,
         allowNull: false,
         DEFAULT: false,
         notEmpty: false,
@@ -50,4 +50,4 @@ User.associate = models => {
     });
 };
 
-module.exports = User;
+export default User;

@@ -1,11 +1,11 @@
-const express = require('express');
+import express, { static } from 'express';
 const app = express();
 
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+import cookieParser from 'cookie-parser';
+import { json } from 'body-parser';
 
-app.use(express.static('public'));
+app.use(static('public'));
 app.use(cookieParser());
-app.use(bodyParser.json({ extended: false }));
+app.use(json({ extended: false }));
 
-module.exports = app;
+export default app;

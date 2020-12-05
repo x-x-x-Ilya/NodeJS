@@ -1,12 +1,12 @@
-const User = require('../database/models/user');
+import { findOne } from '../database/models/user';
 
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
+import passport, { use, serializeUser, deserializeUser } from 'passport';
+import { Strategy as LocalStrategy } from 'passport-local';
 
-passport.use(
+use(
     new LocalStrategy(async function (username, password, done) {
         try {
-            const user = await User.findOne({
+            const user = await findOne({
                 where: { email: username },
             });
             if (!user) return done(null, false);
@@ -17,14 +17,14 @@ passport.use(
     }),
 );
 
-passport.serializeUser(function (user, done) {
+serializeUser(function (user, done) {
     done(null, user);
 });
 
-passport.deserializeUser(function (user, done) {
-    User.findOne({ where: { id: user.id } }).then(User => {
+deserializeUser(function (user, done) {
+    findOne({ where: { id: user.id } }).then(User => {
         done(null, User);
     });
 });
 
-module.exports = passport;
+export default passport;

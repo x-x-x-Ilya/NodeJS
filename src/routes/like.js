@@ -1,11 +1,11 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
-const LikeController = require('../controllers/LikeController');
+import LikeController from '../controllers/LikeController';
 const likeController = new LikeController();
 
 router.post('/create', likeController.create);
 router.delete('/delete', likeController.delete);
-router.get('/getAll', likeController.getAll); // В ПОСТЫ
+router.get('/getAll', likeController.getAll); // to posts
 
-module.exports = router;
+export default router;

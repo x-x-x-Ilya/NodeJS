@@ -1,10 +1,9 @@
-const createError = require('http-errors');
-const express = require('express');
+import createError from 'http-errors';
+import express from 'express';
 
 const app = express();
-// const app = require('../app');
 
-exports.errorHandler = () => {
+export function errorHandler() {
     app.use((req, res, next) => {
         next(createError(404));
     });
@@ -16,6 +15,6 @@ exports.errorHandler = () => {
         res.status(err.status || 500);
         res.send('error');
     });
-};
+}
 
-module.exports = app;
+export default app;

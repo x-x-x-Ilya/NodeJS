@@ -1,9 +1,9 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
-const isAuthenticated = require('../middleware/isAuthenticated');
+import isAuthenticated from '../middleware/isAuthenticated';
 
-const TagController = require('../controllers/TagController');
+import TagController from '../controllers/TagController';
 const tagController = new TagController();
 
 router.post('/create', isAuthenticated, tagController.create);
@@ -11,4 +11,4 @@ router.get('/getAll', tagController.getAll);
 router.post('/update', isAuthenticated, tagController.update);
 router.get('/get', tagController.get);
 
-module.exports = router;
+export default router;

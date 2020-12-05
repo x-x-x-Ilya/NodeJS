@@ -1,4 +1,4 @@
-const Repository = require('../repositories/PostRepository');
+const Repository = require('../repositories/PostRepository').default;
 const postRepository = new Repository();
 
 class PostService {

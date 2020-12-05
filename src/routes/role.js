@@ -1,11 +1,11 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
-const RoleController = require('../controllers/RoleController');
+import RoleController from '../controllers/RoleController';
 const roleController = new RoleController();
 
 router.post('/create', roleController.create);
 router.delete('/delete', roleController.delete);
 router.put('/update', roleController.update);
 
-module.exports = router;
+export default router;

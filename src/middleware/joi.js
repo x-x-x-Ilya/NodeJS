@@ -7,7 +7,7 @@ const validate = (schema, validateData) => {
     }
 };
 
-module.exports = objectOfValidation => (req, res, next) => {
+export default objectOfValidation => (req, res, next) => {
     if (validate(objectOfValidation.body, req.body))
         if (validate(objectOfValidation.params, req.params)) next();
     return res.status(404).json('validateError');
