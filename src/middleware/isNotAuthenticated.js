@@ -1,9 +1,8 @@
 module.exports = async (req, res, next) => {
     try {
-        if (req.isAuthenticated()) {
-            return res.status(404).json('Logout to get access');
-        } else
-            return next();
+        return req.isAuthenticated()
+            ? res.status(404).json('Logout to get access')
+            : next();
     } catch (error) {
         return res.status(404).json(error);
     }

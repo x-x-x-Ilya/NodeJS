@@ -2,7 +2,6 @@ const Repository = require('../repositories/RoleRepository');
 const roleRepository = new Repository();
 
 class RoleService {
-
     async createRole(body) {
         return await roleRepository.createRole(body);
     }
@@ -17,8 +16,7 @@ class RoleService {
 
     async getRole(body, user) {
         return await roleRepository.getRole(body, user);
-}
-
+    }
 }
 
 module.exports = RoleService;

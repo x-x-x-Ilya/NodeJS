@@ -2,7 +2,6 @@ const TagRepository = require('../repositories/TagRepository');
 const tagRepository = new TagRepository();
 
 class TagService {
-
     async createTag(tags, postId) {
         return await tagRepository.createTag(tags, postId, user);
     }
@@ -18,7 +17,6 @@ class TagService {
     async updateTag(data) {
         return await tagRepository.updateTag(data);
     }
-
 }
 
 module.exports = TagService;

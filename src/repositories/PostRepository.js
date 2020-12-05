@@ -4,7 +4,6 @@ const TagModel = require('../database/models/tag');
 const likeModel = require('../database/models/like');
 
 class PostRepository {
-
     async createPost(postData, tags, user) {
         const post = await Post.create({
             userId: user.id,
@@ -13,10 +12,10 @@ class PostRepository {
             caption: postData.caption,
         });
         try {
-            await Tag.prototype.createTag(tags, post.id, user)
-        } catch (e) {
-            console.log(e);
-            return e;
+            await Tag.prototype.createTag(tags, post.id, user);
+        } catch (error) {
+            console.log(error);
+            return error;
         }
     }
 
@@ -29,13 +28,13 @@ class PostRepository {
                     model: TagModel,
                     attributes: ['name'],
                     as: 'tags',
-                }/*,
+                } /*,
                 {
                     model: likeModel,
                     attributes: ['userId'],
                     as: 'likes'
-                }*/
-            ]
+                }*/,
+            ],
         });
 
         /*
@@ -57,39 +56,36 @@ class PostRepository {
         const post = await Post.findOne({
             where: {
                 id: body.id,
-            }
+            },
         });
-        if(post.createdAt - Date.now()*10 <= 1800)
-        if (post.userId === user.id) {
-            await post.update({
-                createdAt: new Date(),
-                img: body.img,
-                caption: body.caption + ' (updated)'
-            });
-            return post;
-        } else
-            return 'This is post is not yours';
+        if (post.createdAt - Date.now() * 10 <= 1800)
+            if (post.userId === user.id) {
+                await post.update({
+                    createdAt: new Date(),
+                    img: body.img,
+                    caption: body.caption + ' (updated)',
+                });
+                return post;
+            } else return 'This is post is not yours';
     }
 
     async deletePost(body, user) {
         const post = await Post.findOne({
             where: {
                 id: body.id,
-            }
+            },
         });
         if (post.userId === user.id) {
             await post.destroy();
             return post;
-        } else
-            return 'This is post is not yours';
+        } else return 'This is post is not yours';
     }
 
     async getAllPosts(options) {
         return await Post.findAll({
-            where:options,
+            where: options,
         });
     }
-
 }
 
 module.exports = PostRepository;

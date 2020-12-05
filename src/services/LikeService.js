@@ -2,11 +2,10 @@ const Repository = require('../repositories/LikeRepository');
 const likeRepository = new Repository();
 
 class LikeService {
-
     async create(body, user) {
         /*
-        * Можно ставить лайки повторно
-        * */
+         * Можно ставить лайки повторно
+         * */
         return await likeRepository.createLike(body, user);
     }
 
@@ -17,7 +16,6 @@ class LikeService {
     async getAll(body) {
         return await likeRepository.getLikes(body);
     }
-
 }
 
 module.exports = LikeService;

@@ -1,9 +1,13 @@
 module.exports = async (req, res, next) => {
     try {
-        let roles = await req.user.getRoles();
+        const roles = await req.user.getRoles();
 
         if (!roles)
-            return res.status(404).json('verifyRoleError verifyRole -> error -> user roles not found');
+            return res
+                .status(404)
+                .json(
+                    'verifyRoleError verifyRole -> error -> user roles not found',
+                );
 
         const parsingArrayRoles = (roles, typeOfRole) => {
             return roles.some(role => {
@@ -11,10 +15,9 @@ module.exports = async (req, res, next) => {
             });
         };
 
-        if (parsingArrayRoles(roles, "Admin"))
-            return next();
+        if (parsingArrayRoles(roles, 'Admin')) return next();
 
-        return res.status(401).json("authAdminError, you are not admin");
+        return res.status(401).json('authAdminError, you are not admin');
     } catch (error) {
         return res.status(404).json(error);
     }

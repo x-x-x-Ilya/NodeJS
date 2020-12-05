@@ -1,12 +1,11 @@
 const Like = require('../database/models/like');
 
 class LikeRepository {
-
     async getLikes(body) {
         return Like.findAll({
             where: {
                 postId: body.postId,
-            }
+            },
         });
     }
 
@@ -22,12 +21,11 @@ class LikeRepository {
             where: {
                 userId: user.id,
                 postId: body.postId,
-            }
+            },
         });
         like.destroy();
         return like;
     }
-
 }
 
 module.exports = LikeRepository;

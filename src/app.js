@@ -1,12 +1,12 @@
-const express = require('express');
+import express from 'express';
 const app = express();
-module.exports = app;
+export default app;
+import loaders from './loaders';
 
-const loaders = require('./loaders/index');
-const connect = require('./database/database');
-const server = require('./server');
+import { authentication, ModelsSynchronization } from './database/database';
+import { start } from './server';
 
 app.use(loaders);
-connect.authentication();
-connect.ModelsSynchronization();
-server.start();
+authentication();
+ModelsSynchronization();
+start();

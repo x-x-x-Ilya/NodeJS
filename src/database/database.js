@@ -12,7 +12,9 @@ exports.authentication = async () => {
 exports.ModelsSynchronization = async () => {
     try {
         await database.sync();
-        console.log('Database synchronization has been established successfully.');
+        console.log(
+            'Database synchronization has been established successfully.',
+        );
     } catch (error) {
         console.log('Unable to sync with the database:', error);
     }

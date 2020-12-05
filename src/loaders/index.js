@@ -3,9 +3,9 @@ const app = express();
 
 const parsers = require('./parsers');
 const passport = require('./passport');
-const Models = require('../database/models/index');
+const Models = require('../database/models');
 const errorCatcher = require('../middleware/error-handler');
-const routes = require('../routes/index');
+const routes = require('../routes');
 
 app.use(parsers);
 app.use(passport);

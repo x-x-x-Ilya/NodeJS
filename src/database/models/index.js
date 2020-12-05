@@ -7,12 +7,17 @@ const PostTag = require('./post_tag');
 const UserRole = require('./user_role');
 
 const db = {
-  User, Post, Like, Role,
-  Tag, PostTag, UserRole
+    User,
+    Post,
+    Like,
+    Role,
+    Tag,
+    PostTag,
+    UserRole,
 };
 
 exports.init = () => {
-  Object.keys(db).forEach((modelName) => {
-    db[modelName].associate && db[modelName].associate(db);
-  });
+    Object.keys(db).forEach(modelName => {
+        db[modelName].associate && db[modelName].associate(db);
+    });
 };

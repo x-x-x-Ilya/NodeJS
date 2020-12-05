@@ -4,27 +4,31 @@ const Repository = require('../repositories/UserRepository');
 const userRepository = new Repository();
 
 class UserService {
-
     async createUser(body) {
-        if (!body.email || !body.firstName || !body.lastName || !body.password) {
+        if (
+            !body.email ||
+            !body.firstName ||
+            !body.lastName ||
+            !body.password
+        ) {
             return 'Data is undefined, check it';
         }
         //else if (await userRepository.getUserByEmail(body) !== null) {
-            //return 'This mail is already in use. Please use another mail';
+        //return 'This mail is already in use. Please use another mail';
         // }
-        else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(body.email)) {
+        else if (
+            !/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(body.email)
+        ) {
             return 'Email is not valid, use true email';
-        }
-        else {
+        } else {
             return await userRepository.createUser(body);
         }
     }
 
     async getUser(body) {
-        if (!body.email && (!body.firstName || !body.lastName) && !body.id) {
-            return 'Data is undefined, check it';
-        } else
-            return await userRepository.getUser(body);
+        return !body.email && (!body.firstName || !body.lastName) && !body.id
+            ? 'Data is undefined, check it'
+            : await userRepository.getUser(body);
     }
 
     async getAllUser(body) {
@@ -32,8 +36,7 @@ class UserService {
     }
 
     async updateUser(body, user) {
-
-        if (await User.findOne({where: {email: body.email}}) !== null) {
+        if ((await User.findOne({ where: { email: body.email } })) !== null) {
             return 'This email is already use';
         } else {
             if (!body.email) body.email = user.email;
@@ -49,12 +52,11 @@ class UserService {
     async deleteUser() {
         const user = await User.findOne({
             where: {
-                deleteReq: true
-            }
+                deleteReq: true,
+            },
         });
         return await userRepository.deleteUser(user);
     }
-
 }
 
 module.exports = UserService;

@@ -3,14 +3,13 @@ const Role = require('../database/models/role');
 const Post = require('../database/models/post');
 
 class UserRepository {
-
     async createUser(body) {
         return await User.create({
             email: body.email,
             firstName: body.firstName,
             lastName: body.lastName,
             password: body.password,
-            deleteReq: body.deleteReq || false
+            deleteReq: body.deleteReq || false,
         });
     }
 
@@ -26,9 +25,9 @@ class UserRepository {
                 {
                     model: Role,
                     attributes: ['name'],
-                    as: 'roles'
-                }
-            ]
+                    as: 'roles',
+                },
+            ],
         });
     }
 
@@ -40,9 +39,9 @@ class UserRepository {
                 {
                     model: Role,
                     attributes: ['id', 'name'],
-                    as: 'roles'
-                }
-            ]
+                    as: 'roles',
+                },
+            ],
         });
     }
 
@@ -59,12 +58,11 @@ class UserRepository {
 
     async deleteUser(user) {
         user.destroy();
-        return "User has been deleted successfully";
+        return 'User has been deleted successfully';
     }
 
     //console.log(user.get({plain: true}));
     //console.log(posts.map(post => post.toJSON()));
-
 }
 
 module.exports = UserRepository;

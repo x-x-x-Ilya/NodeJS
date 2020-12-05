@@ -1,0 +1,42 @@
+{
+  "plugins": [
+    "prettier",
+    "unicorn"
+  ],
+  "extends": [
+    "plugin:unicorn/recommended",
+    "plugin:prettier/recommended",
+    "prettier",
+    "prettier/unicorn"
+  ],
+  
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "rules": {
+    "no-var": "warn",
+    "semi": "error",
+    "indent": "off",
+    "no-multi-spaces": "error",
+    "space-in-parens": "error",
+    "no-multiple-empty-lines": "error",
+    "prefer-const": "warn",
+    "no-use-before-define": "error",
+    "unicorn/prevent-abbreviations": "off",
+    "camelcase": "off",
+    "no-unused-vars": "off",
+    "no-console": "off",
+    "no-plusplus":"off",
+    "unicorn/filename-case": [
+      "off",
+      {
+        "case": "kebabCase"
+      }
+    ],    
+    "max-classes-per-file": [
+      "off",
+      1
+    ]
+  }
+}

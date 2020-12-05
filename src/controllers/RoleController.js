@@ -3,10 +3,11 @@ const RoleService = require('../services/RoleService');
 const roleServices = new RoleService();
 
 class RoleController {
-
     async create(req, res) {
         try {
-            return res.status(200).json(await roleServices.createRole(req.body));
+            return res
+                .status(200)
+                .json(await roleServices.createRole(req.body));
         } catch (error) {
             return res.status(404).json(error);
         }
@@ -14,7 +15,9 @@ class RoleController {
 
     async get(req, res) {
         try {
-            return res.status(200).json(await roleServices.getRole(req.body, req.user));
+            return res
+                .status(200)
+                .json(await roleServices.getRole(req.body, req.user));
         } catch (error) {
             return res.status(404).json(error);
         }
@@ -22,7 +25,9 @@ class RoleController {
 
     async delete(req, res) {
         try {
-            return res.status(200).json(await roleServices.deleteRole(req.body, req.user));
+            return res
+                .status(200)
+                .json(await roleServices.deleteRole(req.body, req.user));
         } catch (error) {
             return res.status(404).json(error);
         }
@@ -30,12 +35,13 @@ class RoleController {
 
     async update(req, res) {
         try {
-            return res.status(200).json(await roleServices.updateRole(req.body));
+            return res
+                .status(200)
+                .json(await roleServices.updateRole(req.body));
         } catch (error) {
             return res.status(404).json(error);
         }
     }
-
 }
 
 module.exports = RoleController;
