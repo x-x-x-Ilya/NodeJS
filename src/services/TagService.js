@@ -1,4 +1,4 @@
-const TagRepository = require('../repositories/TagRepository').default;
+import TagRepository from '../repositories/TagRepository';
 const tagRepository = new TagRepository();
 
 class TagService {
@@ -19,4 +19,4 @@ class TagService {
     }
 }
 
-module.exports = TagService;
+export default TagService;

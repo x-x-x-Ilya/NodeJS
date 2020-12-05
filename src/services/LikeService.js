@@ -1,4 +1,4 @@
-const Repository = require('../repositories/LikeRepository').default;
+import Repository from '../repositories/LikeRepository';
 const likeRepository = new Repository();
 
 class LikeService {
@@ -18,4 +18,4 @@ class LikeService {
     }
 }
 
-module.exports = LikeService;
+export default LikeService;

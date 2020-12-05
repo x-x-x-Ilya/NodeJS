@@ -1,6 +1,6 @@
-const User = require('../database/models/user').default;
+import User from '../database/models/user';
 
-const Repository = require('../repositories/UserRepository').default;
+import Repository from '../repositories/UserRepository';
 const userRepository = new Repository();
 
 class UserService {
@@ -59,4 +59,4 @@ class UserService {
     }
 }
 
-module.exports = UserService;
+export default UserService;

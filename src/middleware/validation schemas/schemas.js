@@ -1,8 +1,8 @@
-const registration = require('./registration').default;
-const login = require('./login').default;
-const post = require('./createPost').default;
+import registration from './registration';
+import login from './login';
+import post from './createPost';
 
-module.exports = {
+export default {
     registration,
     login,
     post,

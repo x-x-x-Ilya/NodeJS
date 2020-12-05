@@ -1,4 +1,4 @@
-const Repository = require('../repositories/RoleRepository').default;
+import Repository from '../repositories/RoleRepository';
 const roleRepository = new Repository();
 
 class RoleService {
@@ -19,4 +19,4 @@ class RoleService {
     }
 }
 
-module.exports = RoleService;
+export default RoleService;
