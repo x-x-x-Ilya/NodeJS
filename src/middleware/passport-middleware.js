@@ -12,7 +12,6 @@ passport.use(
             if (!user) return done(null, false);
             if (user.password === password) return done(null, user);
         } catch (error) {
-            console.log(error);
             return error;
         }
     }),
@@ -29,26 +28,3 @@ passport.deserializeUser(function (user, done) {
 });
 
 module.exports = passport;
-
-/*
-passport.use(new LocalStrategy(
-    async function(username, password, done) {
-        try {
-            await User.findOne({
-                where: {
-                    email: username
-                }
-            }).then((user) => {
-                if (!user) {
-                    return done(null, false);
-                }
-                if(user.password === password)
-                return done(null, user);
-            });
-        } catch (e) {
-            console.log(e);
-            return e;
-        }
-    }
-));
-*/

@@ -14,7 +14,6 @@ class PostRepository {
         try {
             await Tag.prototype.createTag(tags, post.id, user);
         } catch (error) {
-            console.log(error);
             return error;
         }
     }

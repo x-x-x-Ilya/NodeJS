@@ -15,6 +15,7 @@
     "browser": true
   },
   "rules": {
+    "unicorn/no-null": ["off", {"checkStrictEquality": true}],
     "no-var": "warn",
     "semi": "error",
     "indent": "off",
@@ -26,7 +27,7 @@
     "unicorn/prevent-abbreviations": "off",
     "camelcase": "off",
     "no-unused-vars": "off",
-    "no-console": "off",
+    "no-console": "error",
     "no-plusplus":"off",
     "unicorn/filename-case": [
       "off",

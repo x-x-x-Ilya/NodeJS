@@ -27,7 +27,7 @@ class TagRepository {
               post id: data.post id,
              },*/
         }).then(note => {
-            console.log(note.get({ plain: true }));
+            return note.get({ plain: true });
         });
     }
 

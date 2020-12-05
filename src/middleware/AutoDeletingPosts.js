@@ -15,6 +15,6 @@ cron.schedule('* * 24 * *', () => {
 
     fs.unlink('./error.log', err => {
         if (err) throw err;
-        console.log('Error file successfully deleted');
+        return 'Error file successfully deleted', err;
     });
 });
