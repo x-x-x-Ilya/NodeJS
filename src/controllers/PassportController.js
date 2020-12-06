@@ -34,7 +34,6 @@ class PassportController {
             const user = await UserRepository.prototype.createUser(req.body);
 
             await req.logIn(user, err => {
-                console.log('err:', err);
                 return err
                     ? res.status(404).json(err)
                     : res
