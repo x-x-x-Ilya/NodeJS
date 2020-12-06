@@ -1,7 +1,8 @@
 const validate = (schema, validateData) => {
     try {
         const error = schema.validate(validateData);
-        return !error;
+        if (error.error != undefined) console.log('error =', error);
+        return !error.error;
     } catch (error) {
         return error;
     }

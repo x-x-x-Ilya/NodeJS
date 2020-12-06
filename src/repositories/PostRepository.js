@@ -5,44 +5,41 @@ import Like from '../database/models/like';
 
 class PostRepository {
     async createPost(postData, tags, user) {
-        const post = await Post.create({
-            userId: user.id,
-            createdAt: new Date(),
-            img: postData.img,
-            caption: postData.caption,
-        });
         try {
-            await prototype.createTag(tags, post.id, user);
+            console.log('postData.img =', postData.img);
+            console.log('postData.caption =', postData.caption);
+            console.log('tags =', tags);
+            console.log('user.id =', user.id);
+            const post = await Post.create({
+                userId: user.id,
+                createdAt: new Date(),
+                img: postData.img,
+                caption: postData.caption,
+            });
+            console.log('post =', post);
+            return await prototype.createTag(tags, post.id, user);
         } catch (error) {
             return error;
         }
     }
 
     async getPost(body) {
-        try {
-            console.log('0');
-            const post = await Post.findAll({
-                attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
-                where: body,
-                include: [
-                    {
-                        model: Tag,
-                        attributes: ['name'],
-                        as: 'tags',
-                    },
-                    {
-                        model: Like,
-                        attributes: ['userId'],
-                        as: 'likes',
-                    },
-                ],
-            });
-            console.log('post =', post);
-            return post;
-        } catch (error) {
-            console.log('error =', error);
-            return error;
-        }
+        return await Post.findAll({
+            attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
+            where: body,
+            include: [
+                {
+                    model: Tag,
+                    attributes: ['name'],
+                    as: 'tags',
+                },
+                {
+                    model: Like,
+                    attributes: ['userId'],
+                    as: 'likes',
+                },
+            ],
+        });
         /*
         if (data.id === undefined) {
             await Post.findAll({
@@ -90,6 +87,18 @@ class PostRepository {
     async getAllPosts(options) {
         return await Post.findAll({
             where: options,
+            include: [
+                {
+                    model: Tag,
+                    attributes: ['name'],
+                    as: 'tags',
+                },
+                {
+                    model: Like,
+                    attributes: ['userId'],
+                    as: 'likes',
+                },
+            ],
         });
     }
 }

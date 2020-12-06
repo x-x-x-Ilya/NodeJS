@@ -1,6 +1,7 @@
-import hapi from '@hapi/joi';
+import joi from '@hapi/joi';
 
-export default {
-    img: hapi.string().min(1).max(50), // в качестве картинки ссылка на неё в интернете
-    caption: hapi.string().min(1).max(50).required(),
-};
+export default joi.object({
+    img: joi.string(), // в качестве картинки ссылка на неё в интернете
+    caption: joi.string().required(),
+    tags: joi.array().optional(),
+});
