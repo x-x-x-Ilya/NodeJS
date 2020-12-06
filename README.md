@@ -1,5 +1,26 @@
 # Instagram backend
 
+# Setup && Install
+* MySQL
+* npm
+* NodeJS
+
+## Allowed methods
+* ***get*** host/
+* ***post*** host/like/create
+* ***delete*** host/like/create
+* ***post*** host/post/create
+* ***get*** host/post/get
+* ***delete*** host/post/delete
+* ***put*** host/post/update
+* ***get*** host/post/getAll
+* ***post*** host/tag/create
+* ***post*** host/role/create
+* ***get*** host/role/get
+* ***post*** host/passport/login
+* ***post*** host/passport/register
+* ***post*** host/passport/logout
+
 ## Clone or download
 https://github.com/x-x-x-Ilya/NodeJS.git
 
