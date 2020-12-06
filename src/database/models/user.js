@@ -1,25 +1,25 @@
-import { INTEGER, STRING, BOOLEAN, Model } from 'sequelize';
+import Sequelize from 'sequelize';
 import sequelize from '../sequelize';
 
-class User extends Model {}
+class User extends Sequelize.Model {}
 
 User.init(
     {
         id: {
-            type: INTEGER,
+            type: Sequelize.INTEGER,
             primaryKey: true,
             allowNull: false,
             autoIncrement: true,
             field: 'id',
         },
         email: {
-            type: STRING,
+            type: Sequelize.STRING,
             allowNull: false,
             UNIQUE_KEY: true,
             field: 'email',
         },
         password: {
-            type: STRING,
+            type: Sequelize.STRING,
             allowNull: false,
             validate: {
                 min: 8,
@@ -28,7 +28,7 @@ User.init(
             field: 'password',
         },
         firstName: {
-            type: STRING,
+            type: Sequelize.STRING,
             allowNull: false,
             validate: {
                 min: 0,
@@ -37,22 +37,22 @@ User.init(
             notEmpty: true,
             field: 'first_name',
         },
-        lastName: {
-            type: STRING,
-            allowNull: false,
-            validate: {
-                min: 0,
-                max: 30,
-            },
-            notEmpty: true,
-            field: 'last_name',
-        },
         deleteReq: {
-            type: BOOLEAN,
+            type: Sequelize.BOOLEAN,
             allowNull: false,
             DEFAULT: false,
             notEmpty: false,
             field: 'delete_req',
+        },
+        lastName: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            notEmpty: true,
+            field: 'last_name',
+            validate: {
+                min: 0,
+                max: 30,
+            },
         },
     },
     {
@@ -60,16 +60,6 @@ User.init(
         modelName: 'users', // We need to choose the model name
     },
 );
-
-User.associate = models => {
-    User.hasMany(models.Post, { foreignKey: 'userId', as: 'posts' });
-    User.hasMany(models.Like, { foreignKey: 'userId', as: 'likes' });
-
-    User.belongsToMany(models.Role, {
-        foreignKey: 'userId',
-        as: 'roles',
-        through: 'users_roles',
-    });
-};
-
+// the defined model is the class itself
+console.log('User =', User === sequelize.models.users); // true
 export default User;

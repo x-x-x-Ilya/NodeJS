@@ -1,17 +1,17 @@
-import { INTEGER, STRING, Model } from 'sequelize';
+import Sequelize from 'sequelize';
 import sequelize from '../sequelize';
 
-class Role extends Model {}
+class Role extends Sequelize.Model {}
 
 Role.init(
     {
         id: {
-            type: INTEGER,
+            type: Sequelize.INTEGER,
             allowNull: false,
             autoIncrement: true,
             primaryKey: true,
         },
-        name: { type: STRING, allowNull: false },
+        name: { type: Sequelize.STRING, allowNull: false },
     },
     {
         sequelize: sequelize,
@@ -19,12 +19,6 @@ Role.init(
     },
 );
 
-Role.associate = models => {
-    Role.belongsToMany(models.User, {
-        foreignKey: 'roleId',
-        as: 'users',
-        through: 'users_roles',
-    });
-};
+console.log('Role =', Role === sequelize.models.roles); // true
 
 export default Role;

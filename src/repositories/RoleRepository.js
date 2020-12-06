@@ -1,16 +1,16 @@
-import { findOne, create } from '../database/models/role';
+import Role from '../database/models/role';
 import { findOne as _findOne } from '../database/models/user';
 
 class RoleRepository {
     async createRole(body) {
-        let role = await findOne({
+        let role = await Role.findOne({
             where: {
                 name: body.roleName,
             },
         });
 
         if (!role)
-            role = await create({
+            role = await Role.create({
                 name: body.roleName,
             });
         const user = await _findOne({ where: { id: body.id } });
@@ -23,13 +23,13 @@ class RoleRepository {
             return 'you cant delete your admin role';
 
         const deleteRoleUser = await _findOne({ where: { id: body.id } });
-        const role = await findOne({ where: { name: body.roleName } });
+        const role = await Role.findOne({ where: { name: body.roleName } });
         await deleteRoleUser.removeRole(role);
         return 'role deleted successfully';
     }
 
     async updateRole(body) {
-        const role = await findOne({
+        const role = await Role.findOne({
             where: {
                 name: body.oldRoleName,
             },

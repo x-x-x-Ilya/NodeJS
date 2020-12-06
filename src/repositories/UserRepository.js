@@ -14,21 +14,28 @@ class UserRepository {
     }
 
     async getUser(options) {
-        return User.findOne({
-            where: options,
-            include: [
-                {
-                    model: Post,
-                    attributes: ['caption', 'img'],
-                    as: 'posts',
-                },
-                {
-                    model: Role,
-                    attributes: ['name'],
-                    as: 'roles',
-                },
-            ],
-        });
+        try {
+            const user = await User.findOne({
+                where: options,
+                include: [
+                    {
+                        model: Post,
+                        attributes: ['caption', 'img'],
+                        as: 'posts',
+                    },
+                    {
+                        model: Role,
+                        attributes: ['name'],
+                        as: 'roles',
+                    },
+                ],
+            });
+            console.log('user =', user);
+            return user;
+        } catch (error) {
+            console.log('error =', error);
+            return error;
+        }
     }
 
     async getAllUsers(options) {

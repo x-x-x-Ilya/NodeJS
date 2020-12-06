@@ -1,32 +1,29 @@
-import { INTEGER, STRING, Model } from 'sequelize';
+import Sequelize from 'sequelize';
 import sequelize from '../sequelize';
 
-class Tag extends Model {}
-try {
-    Tag.init(
-        {
-            id: {
-                type: INTEGER,
-                allowNull: false,
-                autoIncrement: true,
-                primaryKey: true,
-            },
-            name: { type: STRING, allowNull: false, min: 0, notEmpty: true },
-        },
-        {
-            sequelize: sequelize, // We need to pass the connection instance
-            modelName: 'tags', // We need to choose the model name
-        },
-    );
+class Tag extends Sequelize.Model {}
 
-    Tag.associate = models => {
-        Tag.belongsToMany(models.Post, {
-            foreignKey: 'tagId',
-            as: 'posts',
-            through: 'posts_tags',
-        });
-    };
-} catch (error) {
-    console.log(error);
-}
+Tag.init(
+    {
+        id: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+        },
+        name: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            min: 0,
+            notEmpty: true,
+        },
+    },
+    {
+        sequelize: sequelize, // We need to pass the connection instance
+        modelName: 'tags', // We need to choose the model name
+    },
+);
+
+console.log('Tag =', Tag === sequelize.models.tags); // true
+
 export default Tag;

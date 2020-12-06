@@ -1,54 +1,47 @@
-import { INTEGER, DATE, STRING, Model } from 'sequelize';
+import Sequelize from 'sequelize';
 import sequelize from '../sequelize';
 
-class Post extends Model {}
+class Post extends Sequelize.Model {}
 
-try {
-    Post.init(
-        {
-            id: {
-                type: INTEGER,
-                allowNull: false,
-                autoIncrement: true,
-                primaryKey: true,
-                field: 'id',
-            },
-            userId: {
-                type: INTEGER,
-                allowNull: false,
-                notEmpty: true,
-                field: 'user_id',
-            },
-            createdAt: { type: DATE, allowNull: false, field: 'created_at' },
-            img: {
-                type: STRING,
-                allowNull: true,
-                defaultAssignment: null,
-                field: 'img',
-            },
-            caption: {
-                type: STRING,
-                allowNull: true,
-                defaultAssignment: null,
-                field: 'caption',
-            },
+Post.init(
+    {
+        id: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            field: 'id',
         },
-        {
-            sequelize: sequelize, // We need to pass the connection instance
-            modelName: 'posts', // We need to choose the model name
+        userId: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            notEmpty: true,
+            field: 'user_id',
         },
-    );
+        createdAt: {
+            type: Sequelize.DATE,
+            allowNull: false,
+            field: 'created_at',
+        },
+        img: {
+            type: Sequelize.STRING,
+            allowNull: true,
+            defaultAssignment: null,
+            field: 'img',
+        },
+        caption: {
+            type: Sequelize.STRING,
+            allowNull: true,
+            defaultAssignment: null,
+            field: 'caption',
+        },
+    },
+    {
+        sequelize: sequelize, // We need to pass the connection instance
+        modelName: 'posts', // We need to choose the model name
+    },
+);
 
-    Post.associate = models => {
-        Post.belongsToMany(models.Tag, {
-            foreignKey: 'postId',
-            as: 'tags',
-            through: 'posts_tags',
-        });
-        Post.hasMany(models.Like, { foreignKey: 'postId', as: 'like' });
-        Post.belongsTo(models.User, { foreignKey: 'userId' });
-    };
-} catch (error) {
-    console.log(error);
-}
+console.log('Post =', Post === sequelize.models.posts); // true
+
 export default Post;

@@ -1,12 +1,12 @@
-import { INTEGER, Model } from 'sequelize';
+import Sequelize from 'sequelize';
 import sequelize from '../sequelize';
 
-class UserRole extends Model {}
+class UserRole extends Sequelize.Model {}
 
 UserRole.init(
     {
-        userId: { type: INTEGER, allowNull: false, field: 'user_id' },
-        roleId: { type: INTEGER, allowNull: false, field: 'role_id' },
+        userId: { type: Sequelize.INTEGER, allowNull: false, field: 'user_id' },
+        roleId: { type: Sequelize.INTEGER, allowNull: false, field: 'role_id' },
     },
     {
         sequelize: sequelize, // We need to pass the connection instance
@@ -14,9 +14,6 @@ UserRole.init(
     },
 );
 
-UserRole.associate = models => {
-    UserRole.belongsTo(models.User, { foreignKey: 'userId' });
-    UserRole.belongsTo(models.Role, { foreignKey: 'roleId' });
-};
+console.log('UserRole =', UserRole === sequelize.models.users_roles); // true
 
 export default UserRole;

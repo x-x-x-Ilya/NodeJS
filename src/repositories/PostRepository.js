@@ -1,11 +1,11 @@
-import { create, findAll, findOne } from '../database/models/post';
+import Post from '../database/models/post';
 import { prototype } from './TagRepository';
 import TagModel from '../database/models/tag';
 import likeModel from '../database/models/like';
 
 class PostRepository {
     async createPost(postData, tags, user) {
-        const post = await create({
+        const post = await Post.create({
             userId: user.id,
             createdAt: new Date(),
             img: postData.img,
@@ -19,7 +19,7 @@ class PostRepository {
     }
 
     async getPost(body) {
-        return findAll({
+        return Post.findAll({
             attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
             where: body,
             include: [
@@ -52,7 +52,7 @@ class PostRepository {
     }
 
     async updatePost(body, user) {
-        const post = await findOne({
+        const post = await Post.findOne({
             where: {
                 id: body.id,
             },
@@ -69,7 +69,7 @@ class PostRepository {
     }
 
     async deletePost(body, user) {
-        const post = await findOne({
+        const post = await Post.findOne({
             where: {
                 id: body.id,
             },
@@ -81,7 +81,7 @@ class PostRepository {
     }
 
     async getAllPosts(options) {
-        return await findAll({
+        return await Post.findAll({
             where: options,
         });
     }
