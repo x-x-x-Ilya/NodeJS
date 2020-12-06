@@ -4,7 +4,7 @@ const tagService = new TagService();
 class TagController {
     async create(req, res) {
         try {
-            return res
+            return await res
                 .status(200)
                 .json(
                     await tagService.createTag(
@@ -14,31 +14,7 @@ class TagController {
                     ),
                 );
         } catch (error) {
-            return res.status(404).json(error);
-        }
-    }
-
-    async get(req, res) {
-        try {
-            return res.status(201).json(await tagService.getTag(req.body));
-        } catch (error) {
-            return res.status(404).json(error);
-        }
-    }
-
-    async getAll(req, res) {
-        try {
-            return res.status(201).json(await tagService.getAllTags());
-        } catch (error) {
-            return res.status(404).json(error);
-        }
-    }
-
-    async update(req, res) {
-        try {
-            return res.status(201).json(await tagService.updateTag(req.body));
-        } catch (error) {
-            return res.status(404).json(error);
+            return await res.status(404).json(error);
         }
     }
 }

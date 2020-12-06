@@ -1,55 +1,53 @@
-import { findOrCreate, findOne, findAll } from '../database/models/tag';
-import { findOne as _findOne } from '../database/models/post';
+import Tag from '../database/models/tag';
+import Post from '../database/models/post';
+import Like from '../database/models/like';
 
 class TagRepository {
     async createTag(tags, postId, user) {
         //await post.setTags([]);
-        const post = _findOne({ where: { id: postId } });
+        const post = await Post.findOne({
+            where: { id: postId },
+            include: [
+                {
+                    model: Tag,
+                    attributes: ['name'],
+                    as: 'tags',
+                },
+                {
+                    model: Like,
+                    attributes: ['userId'],
+                    as: 'likes',
+                },
+            ],
+        });
 
         if (post.userId === user.id) {
             if (tags) {
                 for (const tagName of tags) {
-                    const tag = await findOrCreate({
+                    const tag = await Tag.findOrCreate({
                         where: { name: tagName },
                         default: { name: tagName },
                     });
                     await post.addTag(tag[0]);
                 }
             }
-            return post;
+
+            return await Post.findOne({
+                where: { id: postId },
+                include: [
+                    {
+                        model: Tag,
+                        attributes: ['name'],
+                        as: 'tags',
+                    },
+                    {
+                        model: Like,
+                        attributes: ['userId'],
+                        as: 'likes',
+                    },
+                ],
+            });
         }
-    }
-
-    async getTag(data) {
-        await findOne({
-            /* where: {
-              user id: data.user id,
-              post id: data.post id,
-             },*/
-        }).then(note => {
-            return note.get({ plain: true });
-        });
-    }
-
-    async getAllTags(data) {
-        return await findAll({
-            where: {
-                //   postId: data.postId
-            },
-        });
-    }
-
-    async updateTag(data) {
-        const tag = await findOne({
-            /* where: {
-              user Id: data.user Id,
-              post Id: data.post Id,
-             },*/
-        });
-        await tag.update({
-            name: data.name,
-        });
-        return tag;
     }
 }
 
