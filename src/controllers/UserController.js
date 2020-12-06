@@ -22,21 +22,21 @@ class UserController {
 
     async getAll(req, res) {
         try {
-            return res
+            return await res
                 .status(200)
                 .json(await userServices.getAllUser(req.body));
         } catch (error) {
-            return res.status(404).json(error);
+            return await res.status(404).json(error);
         }
     }
 
     async update(req, res) {
         try {
-            return res
+            return await res
                 .status(200)
                 .json(await userServices.updateUser(req.body, req.user));
         } catch (error) {
-            return res.status(404).json(error);
+            return await res.status(404).json(error);
         }
     }
 

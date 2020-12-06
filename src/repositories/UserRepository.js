@@ -53,6 +53,7 @@ class UserRepository {
     }
 
     async updateUser(body, user) {
+        console.log('body =', body);
         await user.update({
             email: body.email,
             firstName: body.firstName,

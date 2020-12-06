@@ -1,5 +1,4 @@
 import User from '../database/models/user';
-
 import Repository from '../repositories/UserRepository';
 const userRepository = new Repository();
 
@@ -36,17 +35,19 @@ class UserService {
     }
 
     async updateUser(body, user) {
-        if ((await User.findOne({ where: { email: body.email } })) !== null) {
-            return 'This email is already use';
-        } else {
-            if (!body.email) body.email = user.email;
-            if (!body.firstName) body.firstName = user.firstName;
-            if (!body.lastName) body.lastName = user.lastName;
-            if (!body.password) body.password = user.password;
-            if (!body.deleteReq) body.deleteReq = user.deleteReq;
+        if (body.email != undefined)
+            if (
+                (await User.findOne({ where: { email: body.email } })) !== null
+            ) {
+                return 'This email is already use';
+            }
 
-            return userRepository.updateUser(body, user);
-        }
+        if (!body.email) body.email = user.email;
+        if (!body.firstName) body.firstName = user.firstName;
+        if (!body.lastName) body.lastName = user.lastName;
+        if (!body.password) body.password = user.password;
+        if (!body.deleteReq) body.deleteReq = user.deleteReq;
+        return userRepository.updateUser(body, user);
     }
 
     async deleteUser() {

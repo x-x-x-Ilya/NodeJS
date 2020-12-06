@@ -15,7 +15,7 @@ export default async (req, res, next) => {
             });
         };
 
-        if (parsingArrayRoles(roles, 'Admin')) return next();
+        if (parsingArrayRoles(roles, 'admin')) return next();
 
         return res.status(401).json('authAdminError, you are not admin');
     } catch (error) {
