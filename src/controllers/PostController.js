@@ -9,7 +9,8 @@ class PostController {
                 .status(201)
                 .json(
                     await postService.create(
-                        req.body.post,
+                        req.body.img,
+                        req.body.caption,
                         req.body.tags,
                         req.user,
                     ),

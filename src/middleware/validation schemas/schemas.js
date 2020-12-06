@@ -1,11 +1,13 @@
 import registration from './registration';
 import login from './login';
-import post from './createPost';
+import createPost from './createPost';
+import updatePost from './updatePost';
 
 export default {
     registration,
     login,
-    post,
+    updatePost,
+    createPost,
     //, update user
     //, get all likes
     //, create tags

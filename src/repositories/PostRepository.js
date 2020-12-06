@@ -4,19 +4,14 @@ import Tag from '../database/models/tag';
 import Like from '../database/models/like';
 
 class PostRepository {
-    async createPost(postData, tags, user) {
+    async createPost(img, caption, tags, user) {
         try {
-            console.log('postData.img =', postData.img);
-            console.log('postData.caption =', postData.caption);
-            console.log('tags =', tags);
-            console.log('user.id =', user.id);
             const post = await Post.create({
                 userId: user.id,
                 createdAt: new Date(),
-                img: postData.img,
-                caption: postData.caption,
+                img: img,
+                caption: caption,
             });
-            console.log('post =', post);
             return await prototype.createTag(tags, post.id, user);
         } catch (error) {
             return error;
