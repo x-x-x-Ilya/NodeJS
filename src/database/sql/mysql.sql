@@ -31,7 +31,7 @@ CREATE TABLE `posts` (
 	`user_id`    INT          NOT NULL,
 	`img`        VARCHAR(255) NULL,
 	`caption`    VARCHAR(255) NOT NULL,
-	`created_at` TIMESTAMP    NOT NULL,
+	`created_at` TIMESTAMP    NOT NULL DEFAULT NOW(),
 	PRIMARY KEY (`id`)
 );
 
