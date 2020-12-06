@@ -1,15 +1,23 @@
-import { INTEGER, STRING } from 'sequelize';
-import { define } from '../sequelize';
+import { INTEGER, STRING, Model } from 'sequelize';
+import sequelize from '../sequelize';
 
-const Role = define('roles', {
-    id: {
-        type: INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
+class Role extends Model {}
+
+Role.init(
+    {
+        id: {
+            type: INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+        },
+        name: { type: STRING, allowNull: false },
     },
-    name: { type: STRING, allowNull: false },
-});
+    {
+        sequelize: sequelize,
+        modelName: 'roles',
+    },
+);
 
 Role.associate = models => {
     Role.belongsToMany(models.User, {

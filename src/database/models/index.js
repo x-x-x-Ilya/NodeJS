@@ -1,23 +1,10 @@
-import User from './user';
-import Post from './post';
-import Like from './like';
-import Role from './role';
-import Tag from './tag';
-import PostTag from './post_tag';
-import UserRole from './user_role';
+import sequelize from '../sequelize';
 
-const db = {
-    User,
-    Post,
-    Like,
-    Role,
-    Tag,
-    PostTag,
-    UserRole,
-};
-
-export function init() {
-    Object.keys(db).forEach(modelName => {
-        db[modelName].associate && db[modelName].associate(db);
-    });
+export default async function init() {
+    try {
+        await sequelize.sync();
+        console.log('All models were synchronized successfully.');
+    } catch (error) {
+        console.log(error);
+    }
 }

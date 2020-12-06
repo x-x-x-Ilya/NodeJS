@@ -1,10 +1,10 @@
-import express, { static } from 'express';
+import express from 'express';
 const app = express();
 
 import cookieParser from 'cookie-parser';
 import { json } from 'body-parser';
 
-app.use(static('public'));
+app.use(express.static('public'));
 app.use(cookieParser());
 app.use(json({ extended: false }));
 

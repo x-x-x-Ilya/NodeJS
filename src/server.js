@@ -1,4 +1,4 @@
-const app = require('./app');
+import app from './app';
 
 const normalizePort = val => {
     const port = Number.parseInt(val, 10);
@@ -10,11 +10,12 @@ const normalizePort = val => {
 
 const port = normalizePort(process.env.PORT || '3000');
 
-export async function start() {
+export default async function start() {
     try {
-        await app.listen(port);
-        await app.set('port', port);
+        app.listen(port);
+        app.set('port', port);
+        console.log(`app listen ${port} port`);
     } catch (error) {
-        return 'Port configuration error', error;
+        console.log('Port configuration error', error);
     }
 }

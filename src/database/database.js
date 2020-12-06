@@ -1,19 +1,10 @@
-const database = require('./sequelize');
+import sequelize from './sequelize';
 
-exports.authentication = async () => {
+export default async function ModelsSynchronization() {
     try {
-        await database.authenticate();
-        return 'Database connection has been established successfully.';
+        await sequelize;
+        console.log('Sequelize connected successfully.');
     } catch (error) {
-        return 'Unable to connect to the database:', error;
+        console.log('Sequelize connect error:', error);
     }
-};
-
-exports.ModelsSynchronization = async () => {
-    try {
-        await database.sync();
-        return 'Database synchronization has been established successfully.';
-    } catch (error) {
-        return 'Unable to sync with the database:', error;
-    }
-};
+}

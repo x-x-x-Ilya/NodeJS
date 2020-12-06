@@ -3,10 +3,10 @@ const app = express();
 export default app;
 import loaders from './loaders';
 
-import { authentication, ModelsSynchronization } from './database/database';
-import { start } from './server';
+import modelsSynchronization from './database/database';
+import start from './server';
 
 app.use(loaders);
-authentication();
-ModelsSynchronization();
+modelsSynchronization();
 start();
+console.log('app has been started...');
