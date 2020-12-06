@@ -22,7 +22,7 @@ CREATE TABLE `users_roles` (
 
 CREATE TABLE `roles` (
 	`id`   INT          NOT NULL AUTO_INCREMENT,
-	`name` VARCHAR(255) NOT NULL,
+	`name` VARCHAR(255) NOT NULL DEFAULT "user",
 	PRIMARY KEY (`id`)
 );
 

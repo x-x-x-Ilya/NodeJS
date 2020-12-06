@@ -22,26 +22,6 @@ class RoleController {
             return res.status(404).json(error);
         }
     }
-
-    async delete(req, res) {
-        try {
-            return res
-                .status(200)
-                .json(await roleServices.deleteRole(req.body, req.user));
-        } catch (error) {
-            return res.status(404).json(error);
-        }
-    }
-
-    async update(req, res) {
-        try {
-            return res
-                .status(200)
-                .json(await roleServices.updateRole(req.body));
-        } catch (error) {
-            return res.status(404).json(error);
-        }
-    }
 }
 
 export default RoleController;
