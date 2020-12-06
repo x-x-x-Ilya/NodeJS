@@ -1,8 +1,8 @@
-import { object, string } from '@hapi/joi';
+import hapi from '@hapi/joi';
 
-export default object({
-    email: string().required().min(5).max(50).email(),
-    firstName: string().min(3).max(20).required(),
-    lastName: string().min(3).max(30).required(),
-    password: string().required().min(4).max(20),
+export default hapi.object({
+    email: hapi.string().required().email(),
+    firstName: hapi.string().min(3).max(20).required(),
+    lastName: hapi.string().min(3).max(30).required(),
+    password: hapi.string().required().min(4).max(20),
 });

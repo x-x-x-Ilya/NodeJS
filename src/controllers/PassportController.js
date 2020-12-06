@@ -1,18 +1,17 @@
-import { authenticate } from 'passport';
-import User from '../repositories/UserRepository';
+import passport from 'passport';
+import UserRepository from '../repositories/UserRepository';
 
 class PassportController {
     async login(req, res, next) {
-        await authenticate('local', function (err, user, info) {
+        await passport.authenticate('local', function (err, user, info) {
             try {
                 if (!user)
                     return res
                         .status(404)
                         .json('Incorrect username or password');
                 req.logIn(user, function (err) {
-                    if (err) {
-                        return res.status(404).json(err);
-                    }
+                    if (err) return res.status(404).json(err);
+
                     return res.status(200).json('You logged');
                 });
             } catch (error) {
@@ -32,8 +31,10 @@ class PassportController {
 
     async register(req, res) {
         try {
-            const user = await User.prototype.createUser(req.body);
-            await req.logIn(user, function (err) {
+            const user = await UserRepository.prototype.createUser(req.body);
+
+            await req.logIn(user, err => {
+                console.log('err:', err);
                 return err
                     ? res.status(404).json(err)
                     : res

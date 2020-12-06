@@ -1,10 +1,10 @@
-import { create, findOne, findAll } from '../database/models/user';
+import User from '../database/models/user';
 import Role from '../database/models/role';
 import Post from '../database/models/post';
 
 class UserRepository {
     async createUser(body) {
-        return await create({
+        return await User.create({
             email: body.email,
             firstName: body.firstName,
             lastName: body.lastName,
@@ -14,7 +14,7 @@ class UserRepository {
     }
 
     async getUser(options) {
-        return findOne({
+        return User.findOne({
             where: options,
             include: [
                 {
@@ -32,7 +32,7 @@ class UserRepository {
     }
 
     async getAllUsers(options) {
-        return findAll({
+        return User.findAll({
             attributes: ['id', 'email', 'firstName', 'lastName', 'deleteReq'],
             where: options,
             include: [

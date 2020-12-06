@@ -9,6 +9,9 @@ const validate = (schema, validateData) => {
 
 export default objectOfValidation => (req, res, next) => {
     if (validate(objectOfValidation.body, req.body))
-        if (validate(objectOfValidation.params, req.params)) next();
+        if (validate(objectOfValidation.params, req.params)) {
+            next();
+            return;
+        }
     return res.status(404).json('validateError');
 };
