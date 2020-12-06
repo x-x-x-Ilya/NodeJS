@@ -1,23 +1,15 @@
-import { findAll, create, findOne } from '../database/models/like';
+import Like from '../database/models/like';
 
 class LikeRepository {
-    async getLikes(body) {
-        return findAll({
-            where: {
-                postId: body.postId,
-            },
-        });
-    }
-
     async createLike(body, user) {
-        return await create({
+        return await Like.create({
             userId: user.id,
             postId: body.postId,
         });
     }
 
     async deleteLike(body, user) {
-        const like = await findOne({
+        const like = await Like.findOne({
             where: {
                 userId: user.id,
                 postId: body.postId,

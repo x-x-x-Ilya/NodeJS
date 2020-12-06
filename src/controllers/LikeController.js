@@ -21,14 +21,6 @@ class LikeController {
             return res.status(404).json(error);
         }
     }
-
-    async getAll(req, res) {
-        try {
-            return res.status(201).json(await likeService.getAll(req.body));
-        } catch (error) {
-            return res.status(404).json(error);
-        }
-    }
 }
 
 export default LikeController;
