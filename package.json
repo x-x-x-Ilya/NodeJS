@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node src/app.js"
+    "start_": "node src/app.js",
+    "start": "babel-node src/app.js"
   },
+  "type": "module",
   "main": "app.js",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
@@ -22,6 +24,9 @@
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.7",
     "eslint": "^7.15.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.15.0",

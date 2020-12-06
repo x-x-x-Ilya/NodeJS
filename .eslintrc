@@ -11,7 +11,7 @@
   ],
   
   "env": {
-    "ecmaVersion": "es6",
+    "es6":true,
     "browser": true
   },
   "rules": {
@@ -27,7 +27,7 @@
     "unicorn/prevent-abbreviations": "off",
     "camelcase": "off",
     "no-unused-vars": "off",
-    "no-console": "error",
+    "no-console": "off",
     "no-plusplus":"off",
     "unicorn/filename-case": [
       "off",
