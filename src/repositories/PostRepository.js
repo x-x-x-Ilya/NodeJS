@@ -1,7 +1,7 @@
 import Post from '../database/models/post';
 import { prototype } from './TagRepository';
-import TagModel from '../database/models/tag';
-import likeModel from '../database/models/like';
+import Tag from '../database/models/tag';
+import Like from '../database/models/like';
 
 class PostRepository {
     async createPost(postData, tags, user) {
@@ -19,23 +19,30 @@ class PostRepository {
     }
 
     async getPost(body) {
-        return Post.findAll({
-            attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
-            where: body,
-            include: [
-                {
-                    model: TagModel,
-                    attributes: ['name'],
-                    as: 'tags',
-                } /*,
-                {
-                    model: likeModel,
-                    attributes: ['userId'],
-                    as: 'likes'
-                }*/,
-            ],
-        });
-
+        try {
+            console.log('0');
+            const post = await Post.findAll({
+                attributes: ['id', 'userId', 'createdAt', 'img', 'caption'],
+                where: body,
+                include: [
+                    {
+                        model: Tag,
+                        attributes: ['name'],
+                        as: 'tags',
+                    },
+                    {
+                        model: Like,
+                        attributes: ['userId'],
+                        as: 'likes',
+                    },
+                ],
+            });
+            console.log('post =', post);
+            return post;
+        } catch (error) {
+            console.log('error =', error);
+            return error;
+        }
         /*
         if (data.id === undefined) {
             await Post.findAll({

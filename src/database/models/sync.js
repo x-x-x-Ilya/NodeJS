@@ -15,7 +15,7 @@ export default function sync() {
         User.belongsToMany(Role, { through: UserRole });
 
         Post.belongsToMany(Tag, { through: PostTag });
-        Post.hasMany(Like, { foreignKey: 'postId', as: 'like' });
+        Post.hasMany(Like, { foreignKey: 'postId', as: 'likes' });
         Post.belongsTo(User, { foreignKey: 'userId' });
 
         Like.belongsTo(Post, { foreignKey: 'postId' });

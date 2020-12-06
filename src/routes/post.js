@@ -14,7 +14,9 @@ router.post(
     }),
     Controller.create,
 );
+
 router.get('/get', Controller.get);
+
 router.delete('/delete', Controller.delete);
 
 router.put(

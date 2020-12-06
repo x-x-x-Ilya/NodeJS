@@ -40,6 +40,7 @@ class UserController {
         }
     }
 
+    // add id
     async deleteUser(req, res) {
         try {
             return res.status(200).json(await userServices.deleteUser());
