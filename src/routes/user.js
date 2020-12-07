@@ -6,7 +6,8 @@ import isAdmin from '../middleware/isAdmin';
 import UserController from '../controllers/UserController';
 const userController = new UserController();
 
-router.get('/get', userController.get);
+router.get(`/get`, userController.get);
+router.get(`/:id`, userController.getById);
 router.put('/update', userController.update);
 
 router.post('/create', isAdmin, userController.create);

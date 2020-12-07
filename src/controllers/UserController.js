@@ -20,6 +20,14 @@ class UserController {
         }
     }
 
+    async getById(req, res) {
+        try {
+            return res.status(200).json(await userServices.getUser(req.params));
+        } catch (error) {
+            return res.status(404).json(error);
+        }
+    }
+
     async getAll(req, res) {
         try {
             return await res
